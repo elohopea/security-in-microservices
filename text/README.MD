@@ -13,6 +13,6 @@
 ### Modularity
 ### Scalability
 ### Integration
-distributed development
+### distributed development
 
 
