@@ -8,3 +8,7 @@ Wikipedia:
 
 Other:
 [Microservices, Martin Fowler](https://martinfowler.com/microservices/)
+
+
+Information security:
+[Defining Information Security](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6450831/)
