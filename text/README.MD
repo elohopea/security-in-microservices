@@ -14,7 +14,7 @@ Questions?
 
 ##Definitions
 ###Security (information security)
-Confidentiality, Integrity, Availability (critique for CIA / improved definition: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6450831/)
+Confidentiality, Integrity, Availability as is stated in ISO/IEC 27001 -standard for information security.  Critique for CIA / improved definition: https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6450831/
 ###Microservice
 
 
