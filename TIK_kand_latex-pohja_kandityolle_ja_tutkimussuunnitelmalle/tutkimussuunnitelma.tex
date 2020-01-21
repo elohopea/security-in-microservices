@@ -32,11 +32,11 @@
 % Otsikkotiedot: muokkaa tähän omat tietosi
 
 \title{TIK.kand tutkimussuunnitelma:\\[5mm]
-<Oma aiheeni>}
+Turvallisuus mikropalveluarkkitehtuurissa}
 
-\author{Teemu Teekkari\\
+\author{Tommi Jäske\\
 Aalto-yliopisto\\
-\url{teemu.teekkari@aalto.fi}}
+\url{tommi.jaske@aalto.fi}}
 
 \date{\today}
 
@@ -44,18 +44,6 @@ Aalto-yliopisto\\
 
 % ---------------------------------------------------------------------
 
-% POISTA TÄMÄ:
-Tämä pohja on lukuisia kandidaatintöitä ohjanneen Vesa Hirvisalon
-käyttämä sabluuna tutkimussuunnitelmaksi.  Annettua otsikointia ja
-järjestystä voi käyttää apuna oman suunnitelman laatimisessa.
-Tärkeintä on tuottaa työkalu sinun ja ohjaajan väliseen
-kommunikointiin aiheen selventämisessä. Lisäksi aikatauluksen
-miettiminen heti alussa on tarpeellista.
-
-Tämän lähdetiedoston nimi on \verb!tutkimussuunnitelma.tex! ja tästä
-saa PDF-tiedoston joko \verb!make tutkimussuunnitelma.pdf! tai
-\verb!pdflatex tutkimussuunnitelma.tex! (ja jos lähteitä, niin lisäksi
-\verb!bibtex tutkimussuunnitelma!).  
 
 \vspace{10mm}
 
@@ -66,27 +54,43 @@ saa PDF-tiedoston joko \verb!make tutkimussuunnitelma.pdf! tai
 % sabluuna. Kursivoidut osat \emph{...} ovat kurssin henkilökunnan
 % lisäämiä. 
 
-\textbf{Kandidaatintyön nimi:} Oma aiheeni
+\textbf{Kandidaatintyön nimi:} Turvallisuus mikropalveluarkkitehtuurissa
 
-\textbf{Työn tekijä:} Teemu Teekkari
+\textbf{Työn tekijä:} Tommi Jäske
 
-\textbf{Ohjaaja:} Olli Ohjaaja
+\textbf{Ohjaaja:} Tuomas Aura
 
 
 \section{Tiivistelmä tutkimuksesta}
 
-Tutkimusaiheen lyhyt kuvaus. Esittele aiheesi tiivistetysti.
+Perinteisesti esimerkiksi verkkopalvelut on tuotettu yhdellä ohjelmalla, 
+jota ajetaan serverillä ja yksi ohjelma tuottaa koko palvelun.
+
+Mikropalveluarkkitehtuurissa palvelu on jaettu useisiin osapalveluihin ja 
+yhdessä mikropavelut tuottavat käyttäjille heidän tarvitsemiaan kokonaispalveluja.
+
+Mikropalvelut välittävät viestejä toisilleen ja käyttäjälle useimmiten verkon yli. 
+Tämä verkko voi olla julkinen tai yksityinen.
+Usein yksittäinen mikropalvelu omaa oman tietokantansa, 
+joka sisältää tiedot joita mikropalvelu tarvitsee toimiakseen.
+
+Kandidaatin työssä on tarkoitus selvittää korkealla tasolla mikropalveluarkkitehtuurin 
+turvallisuutta ja verrata arkkitehtuurin turvallisuus näkökohtia monoliittiseen palveluarkkitehtuuriin.
 
 \section{Tavoitteet ja näkökulmat}
 
-Mitä haluat saada selville? Mitkä ovat keskeisiä kysymyksiä? Mistä
-näkökulmasta asiaa tarkastellaan?
+Kandidaatintyössä on tarkoitus selvittää keskeiset erot arkkitehtuurien välillä ja muodostaa kokonaiskuva 
+siirtymisestä monoliittisesta palveluarkkitehtuurista mikropalveluarkkitehtuuriin.
 
-Tutkimuskysymystä kannattaa siis rajata ja tarkentaa sekä huomioida
-näkökulman merkitys. Ts. jänikset eläintieteen kannalta ovat eri aihe
-kuin jänikset metsästyksen näkökulmasta.
+Kandidaatin Työn tavoitteena on muodostaa kirjallisuuskatsauksella käsitys olennaisista turvallisuusnäkökohdista 
+ja mahdollisista ratkaisuista siirryttäessä jo olemassa olevasta monoliittisesta arkkitehtuurista mikropalveluarkkitehtuuriin.
 
 \section{Tutkimusmateriaali}
+
+Mikropalveluarkkitehtuuri ja etenkin siihen siirtyminen monoliittisestä arkkitehtuurista on 
+käsitykseni mukaan ollut voimakkaan tutkimuksen ja kokeilun kohteena.
+
+%TODO
 
 Millaisen aineiston varaan perustat tutkimuksesi? Arvioi materiaalin
 riittävyyttä asetettuihin tavoitteisiin nähden.
@@ -97,6 +101,8 @@ siis tarvittavan ajan puolesta; ts. kuinka monta tuntia/minuuttia per
 lähde?).
 
 \section{Tutkimusmenetelmät}
+
+%TODO
 
 Miten sen keräät materiaalisi tai saat sen käsiisi? Kuinka käsittelet
 sen? Kuinka siitä tulee raportti?
@@ -150,14 +156,19 @@ seminaarin aikataulua sekä laajuutta.  \emph{Kurssiesitteessä omalle
 
 \section{Esittäminen}
 
-Laadi lyhyt sisällysluettelo, jossa on hahmoteltuna kandityön pää- ja
-alaluvut. Yleensä perusrunko on
-(1) Johdanto,
-(2) Tausta,
-(3) Sisäluvut,
-(4) Yhteenveto.
+Kandidaatin työn alustava sisällysluettelo:
+(1) Tiivistelmä
+(2) Johdanto
+(3) Määritelmät
+(3.1) Turvallisuus
+(3.2) Mikropalveluarkkitehtuuri
+(4) Arkkitehtuurin vaihtaminen 
+(5) Käytännön kokemukset
+(5.1) Onnistumiset
+(5.2) Epäonnistuneet arkkitehtuurin muutokset 
+(6) Yhteenveto
+
 %
-Sinun täytyy suunnitella oma raportointisi tähän sopivaksi. 
 
 \emph{Rakenne tarkentuu työn edetessä. Tutkimussuunnitelmaan ei välttämättä tarvita lähdeluetteloa, mutta halutessasi voit sisällyttää tärkeimmät lähteet.}
 
