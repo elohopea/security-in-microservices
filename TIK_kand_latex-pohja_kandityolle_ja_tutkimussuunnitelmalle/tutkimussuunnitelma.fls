@@ -78,13 +78,13 @@ INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
-INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/ae/aeti12.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm
+INPUT /usr/local/texlive/2019/texmf-dist/fonts/tfm/public/ae/aeti12.tfm
 INPUT /Users/tommijaske/Desktop/kandi/security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/tutkimussuunnitelma.bbl
 INPUT /Users/tommijaske/Desktop/kandi/security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/tutkimussuunnitelma.bbl
 INPUT /usr/local/texlive/2019/texmf-dist/fonts/vf/public/ae/aeti12.vf

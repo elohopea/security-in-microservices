@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.2)  21 JAN 2020 17:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.2)  23 JAN 2020 08:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -82,11 +82,11 @@ File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 
 {/usr/local/texlive/2019/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 156.
+(Font)              <12> on input line 161.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 156.
+(Font)              <8> on input line 161.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 156.
+(Font)              <6> on input line 161.
  (/Users/tommijaske/Desktop/kandi/security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/tutkimussuunnitelma.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
@@ -101,7 +101,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  28i,8n,27p,328b,347s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on /Users/tommijaske/Desktop/kandi/security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/tutkimussuunnitelma.pdf (3 pages, 67470 bytes).
+Output written on /Users/tommijaske/Desktop/kandi/security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/tutkimussuunnitelma.pdf (3 pages, 66026 bytes).
 PDF statistics:
  34 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
