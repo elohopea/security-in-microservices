@@ -42,7 +42,23 @@ User interfaces
 - could also be broken into pieces and does not have to be a monolith
 
 Technology
-- new technology comes with a cost
+- new technology comes with a cost (Kubernetes, Docker, etc.)
+
+Size of a microservice?
+- "As small an interface as possible": Chriss Richardson.
+- more important question: "How many microservices can you handle?"
+
+Microservices modeled around a business domain aligns IT artifacts with the business domain.
+
+MONOLITH
+- single process or multiple modules
+
+Distributed Monolith
+- multiple services but all services have to deployd at once
+- have all the disadvantages of monolith and all disadvantages of distributed services
+
+
+
 
 
 
