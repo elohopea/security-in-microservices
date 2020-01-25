@@ -6,8 +6,11 @@ Wikipedia:
 
 [Fallacies of distributed computing](https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing)
 
-Other:
+Microservices:
 [Microservices, Martin Fowler](https://martinfowler.com/microservices/)
+
+Books:
+1. Newman S. Monolith to microservices. 1st edition ed. O'Reilly Media, Inc; 2019:1 verkkoaineisto (150 pages). https://aalto.finna.fi/Record/alli.876360.
 
 
 Information security:
