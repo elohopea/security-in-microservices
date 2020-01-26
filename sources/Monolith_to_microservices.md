@@ -57,6 +57,37 @@ Distributed Monolith
 - multiple services but all services have to deployd at once
 - have all the disadvantages of monolith and all disadvantages of distributed services
 
+Coupling and cohesion
+High cohesion - low coupling
+
+If a change is to be carried out it is easy to do and there is no need to deploy everything.
+
+One change does not demand a lot of changes here and there.
+
+Cohesion = the code that changes together, stays together.
+
+Coupling
+- information hiding
+- expose smallest possible of module
+- domain coupling
+- outside-in thinking. What do service consumers needs.
+- Temporal coupling 
+- Deployment coupling = everything must be deployed together
+    - release train -> release on demand
+    - smaller release -> smaller risk
+    -> release only what needs to be released
+- Domain coupling 
+    - What data a single service is given should be minimized
+
+Domain-Driven Design (DDD)
+- from:
+    Eric Evans, Domain-Driven Design: Tackling Complexity in the Heart of Software (Boston: Addison-Wesley, 2004).
+- Aggregate i.e.: Order, Invoice, Stock Item etc. Have life cycle. Should be treated as self-contained units.
+- Bounded Context 
+
+
+
+
 
 
 
