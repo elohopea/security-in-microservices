@@ -94,6 +94,40 @@ Microservices are being implemented and pushed but in cases the reason is dubiou
 "Have you considered alternatives to using microservices?"
 "How will you know if the transition is working?"
 
+Why Might You Choose Microservices:
+Improve Team Autonomy
+Reduce Time to Market
+Scale Cost-Effectively for Load
+Improve robustness
+Scale the Number of Developers
+Embrace New Technology
+
+When not to use MSA:
+Unclear Domain
+Startups
+Customer-Installed and Managed Software
+Not Having a Good Reason!
+
+
+Changing Organizations
+Kotter's eight-step process (Figure 2-2).
+ Establish sense of urgency
+ Create guiding coalition
+ Develop vision and strategy
+ Communicate change vision
+ Empower employees for broad-based action
+ Generate short-term wins
+ Consolidate gains and produce more change
+ Anchor new approach into culture
+ rinse and repeat
+
+Irreversible vs. Reversible decisions
+
+Domain-Driven Design
+
+
+
+
 
 
 
