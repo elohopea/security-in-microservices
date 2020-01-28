@@ -124,7 +124,7 @@ Kotter's eight-step process (Figure 2-2).
 Irreversible vs. Reversible decisions
 
 Domain-Driven Design
-
+TODO: do if time
 
 
 
