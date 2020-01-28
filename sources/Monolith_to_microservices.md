@@ -86,6 +86,13 @@ Domain-Driven Design (DDD)
 - Bounded Context 
 
 
+2. Planning a Migration
+
+Microservices are being implemented and pushed but in cases the reason is dubious.
+
+"What are you hoping to achieve?"
+"Have you considered alternatives to using microservices?"
+"How will you know if the transition is working?"
 
 
 
