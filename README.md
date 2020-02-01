@@ -14,4 +14,7 @@ Kieli: suomi / englanti
 Aihe valittavissa: kyllä
 
 
-
+Possible sources:
+ 	(Overcoming security challenges in microservice architectures)[https://bora.uib.no/bitstream/handle/1956/18696/Tetiana_Yarygina.pdf?sequence=1]
+(Microservices)[https://ieeexplore-ieee-org.libproxy.aalto.fi/document/8354423]
+(Securing microservices)[https://ieeexplore-ieee-org.libproxy.aalto.fi/document/8657392]
