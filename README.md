@@ -1,7 +1,10 @@
+Direct Link to PDF:
+https://github.com/elohopea/security-in-microservices/blob/master/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/main.pdf
+
 # security-in-microservices
 My Bachelor's thesis. Aalto University. Computer Science. Security in Microservices.
 
-The topic is to be a more specific topic with in this scope.
+The topic is to be a more specific topic within this scope.
 
 Topic description (in Finnish):
 Aihe: Turvallisuus mikropalveluarkkitehtuurissa
