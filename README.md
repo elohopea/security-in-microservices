@@ -24,3 +24,5 @@ https://bora.uib.no/bitstream/handle/1956/18696/Tetiana_Yarygina.pdf?sequence=1
 https://ieeexplore-ieee-org.libproxy.aalto.fi/document/8354423
 - Securing microservices:
 https://ieeexplore-ieee-org.libproxy.aalto.fi/document/8657392
+
+https://doi.org/10.1109/MS.2015.62
