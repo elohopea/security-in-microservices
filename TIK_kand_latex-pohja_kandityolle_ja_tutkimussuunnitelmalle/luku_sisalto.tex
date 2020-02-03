@@ -84,21 +84,22 @@
     is technology agnostic,
     that encapsulates data storage and retrieval and 
     that has stable interface \citep{newman2019}.
+\end{sloppypar}
 
-    \subsection{Security}
-
+\subsection{Security}
+\begin{sloppypar}
     Security can be defined in multiple ways but in this thesis security 
     and more specifically information security is defined as consisting of 
     Confidentiality, Integrity, and Availability (CIA) as is stated in the 
     pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
 
     The ISO/IEC 27001 standard defines confidentiality as such that information or property 
-    is available to the authorized user only.
+    is available to the authorized user only. The authorized users can consist of persons, 
+    processes or entities to whom the information or property can be disclosed.
     Integrity means that the data or property is safeguarded for accuracy and completeness.
     Availability in this web service context is defined as such that the property or information 
-    is only available or diclosed to authorized users.
-    The authorized users can consist of persons, processes or entities to whom 
-    the information or property can be disclosed.
+    is available when it is needed.
+    
 \end{sloppypar}
 
 \section{Confidentiality}
@@ -106,11 +107,13 @@
 
     Confidentiality in a web service is usually critical security feature. 
     Users should not be able to use or view content not authorized to him/her. 
+    A user has to authenticate him/her self and authorization is acquired to access to information or property.
     In an MA access control can be implemented using sessions. 
     A user authenticates using appropriate channels and a session with a session key is created. 
     The session can have an expiration time and the messages originating from 
     the user interface (UI) carry this key. Sessions and session keys can be used 
     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
+   
 
 \end{sloppypar}
 
@@ -138,7 +141,22 @@
 \subsection{Effects on Integrity}
 \subsection{Example case}
 
+
+
 \section{Availability}
+\begin{sloppypar}
+    Availability in this web service context is defined as such that the property or information 
+    is available when it is needed.
+
+    
+    
+\end{sloppypar}
+
+\subsection{Comparison}
+\begin{sloppypar}
+    In a monolith architecture the authentication is usually done by 
+\end{sloppypar}
+
 
 \subsection{Introduction}
 \begin{sloppypar}
