@@ -6,51 +6,53 @@
 \begin{sloppypar}
 
     In recent years the mobile app has revolutionized our daily lives. 
-    These services have infiltrated our social life, shopping and almost 
+    These services have infiltrated social life, shopping and almost 
     every aspect of our existence. The services and their apps compete of 
-    our time and markets are reinvented constantly.
-
-    The rapid expansion and at times even faster decline of these web services 
+    our time and markets are reinventing themselves constantly. The rapid 
+    expansion and at times even faster decline of these web services 
     need a matching architecture to meet these very specific needs. 
-
-    In many cases the monolith services have started to use certain aspects 
-    from the microservice world, such as access tokens and REST API:s. 
-    Monoliths have served us well but the time has come to evolve with the customer needs.
 
     There are many web services already in use which have been designed and 
     implemented before the onslaugh of microservices. Some of these services 
-    need to evolve to be of use in the future. The pressure from new competitors 
-    starting immediatelly with new technologies and the fact that the industry and its 
-    developer base are extremely young dictates that the old and established services
-    have to address the situation someway or another.
+    need to evolve to be of use in the future. In many cases the monolith 
+    services have already started to use certain aspects from the microservice 
+    world, such as access tokens and REST API:s. The pressure from new 
+    competitors adopting new technologies right from the start and the fact 
+    that the industry and its developer base are extremely young dictates that 
+    the old and established services have to address the situation someway or 
+    the other. Monoliths have served us well but the time has come to evolve 
+    with the customer needs.
 
-    Stackoverflow annual survey \citep{stackoverflowsurvey2019} conducted on finds that half of 
-    the respondents identified as full-stack or backend developers. 
-    The professional developers had very little experience 
+    Stackoverflow annual survey \citep{stackoverflowsurvey2019} conducted on 
+    developers finds that half of the respondents identified as full-stack or 
+    backend developers. The professional developers had very little experience 
     and about 40\% of them had less than five years of professional experience. 
 
-    The new developers entering the work force have very different mindset than the older 
-    more seasoned professionals. Thus, it is very clear that the ways of working and 
-    paradigms to be used are in constant change. The old and established have embrace 
-    the change and refactor their architecture before it is too late. Microservices are 
-    not the proper choice for all needs \citep{newman2019} but in many cases there simply 
-    is no other valid choice. This change needs to happen in an orderly and 
-    safe way and the security aspects need to be addressed. 
+    The new developers entering the work force have very different mindset than 
+    the older more seasoned professionals. Thus, it is very clear that the ways 
+    of working and paradigms to be used are in constant change. The old and 
+    established have to embrace the change and refactor their architecture 
+    before it is too late. Microservices are not the proper choice for all needs
+     \citep{newman2019} but in many cases there simply is no other valid choice.
+    This change needs to happen in an orderly and safe way and the security 
+    aspects need to be addressed. 
 
     Microservice Architecture (MSA) differs in many ways from 
-    the more tradition Monolith Architecture (MA). This shift entails very specific security issues.
+    the more tradition Monolith Architecture (MA). This shift entails very 
+    specific security issues.
 
-    In this thesis the MSA and security literature is evaluated and the main differences between
-    MA and MSA security aspects are found.
+    In this thesis the MSA and security literature is evaluated and the main 
+    differences between MA and MSA on back end security aspects are found.
 
     Chapter 2. presents the definitions used in this thesis. 
     Chapter 3. discusses the Confidentiality aspect of a switch from MA to MSA. 
-    In chapter 4. Integrity of the information is discussed in the context of MA and MSA. 
+    In chapter 4. Integrity of the information is discussed in the context of 
+    MA and MSA. 
     Chapter 5. presents Availability when changing from MA to MSA.
     In Chapter 6. other relevat security aspects are presented.
     Chapter 7. contains the conclusions and presents further research topics.
-\end{sloppypar}
 
+\end{sloppypar}
 
 \section{Definitions}
 \begin{sloppypar}
@@ -62,9 +64,9 @@
 \subsection{Microservice}
 \begin{sloppypar}
 
-    Microservice architecture is in essence an extension of the
-    service oriented architecture (SOA). It's guiding principles are stated in the 
-    SOA manifesto \citep{soamanifesto} and one is to prioritize:
+    Microservice architecture is in essence an extension of the service oriented 
+    architecture (SOA). It's guiding principles are stated in the SOA manifesto 
+    \citep{soamanifesto} and one is to prioritize:
     \begin{quotation}
         \noindent \it
         \begin{itemize}
@@ -93,12 +95,13 @@
     Confidentiality, Integrity, and Availability (CIA) as is stated in the 
     pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
 
-    The ISO/IEC 27001 standard defines confidentiality as such that information or property 
-    is available to the authorized user only. The authorized users can consist of persons, 
-    processes or entities to whom the information or property can be disclosed.
-    Integrity means that the data or property is safeguarded for accuracy and completeness.
-    Availability in this web service context is defined as such that the property or information 
-    is available when it is needed.
+    The ISO/IEC 27001 standard defines confidentiality as such that information 
+    or property is available to the authorized user only. The authorized users 
+    can consist of persons, processes or entities to whom the information or 
+    property can be disclosed. Integrity means that the data or property is 
+    safeguarded for accuracy and completeness. Availability in this web service
+    context is defined as such that the property or information is available 
+    when it is needed.
     
 \end{sloppypar}
 
@@ -106,6 +109,10 @@
 \begin{sloppypar}
 
     Confidentiality in a web service is usually critical security feature. 
+    There are specific services which do not nead information confidentiality 
+    regarding some of the data such as public weather services and other similar data.
+    Some of the information is still regarded sensitive and must be kept confidential. 
+    These data can consists of personal, user, logs or other similar content.
     Users should not be able to use or view content not authorized to him/her. 
     A user has to authenticate him/her self and authorization is acquired to access to information or property.
     In an MA access control can be implemented using sessions. 
@@ -113,14 +120,28 @@
     The session can have an expiration time and the messages originating from 
     the user interface (UI) carry this key. Sessions and session keys can be used 
     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
-   
 
 \end{sloppypar}
 
 
-
 \subsection{Introduction}
 
+\subsection{Component Communication}
+\begin{sloppypar}
+    In an MA service components can communicate using events, 
+    procedure calls or other methods available within a single server machine. 
+    Usually all this communication stays within a single computer and thus does not compromise confidentiality.
+
+    In MSA single services communicate via a network typically using a HTTP or HTTPS (). 
+    can use internet
+    Content must be encrypted.
+    AccessTokens
+    SessionKeys
+
+
+
+
+\end{sloppypar}
 
 \subsection{Effects on Confidentiality}
 \subsection{Example case}
