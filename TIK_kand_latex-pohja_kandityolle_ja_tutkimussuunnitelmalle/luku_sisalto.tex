@@ -138,26 +138,49 @@
 \begin{sloppypar}
     The credential counterparts i.e. shared secret by the server and the user 
     have to be available for the web service for verification. When using MSA 
-    the service should own it's own data, which entails that the authentication 
-    service has to adhere to practices that minimize risks for breaches. 
-    When ever such information is available it is a target for thieves and hackers.
+    the service should own it's own data. When ever such information is 
+    available it is a target for thieves and hackers. The services in MSA are 
+    to be individually deployable and the service scalable. Authentication 
+    service implementation has to take this into account. The service has to 
+    adhere to practices that minimize the risks of data breaches. 
 \end{sloppypar}
     
+\subsubsection{Attacks}
+\begin{sloppypar}
+    Authentication can be attacked by a multitude of methods.     
+    \begin{itemize}
+        \item Cracking
+        \item Impersonation attacks
+        \item Hacking the system
+        \item Malware
+        \item Social engineering
+        \item Cracking the encryption on the communication channel exchanging credentials and keys or tokens.
+    \end{itemize}
+\end{sloppypar}
+
 \begin{sloppypar}
     From 2013 onwards malware and data breaches performed by hackers have 
     increased and the scale of the damage is massive. The user data containing 
-    passwords is valuable commodity which can be traded in the black markets. 
-    The estimated damage 
-    from the Yahoo data breach is over \$440 billion. The attacks seem to have 
-    been targeted to entities with valuable data and also to such targets that 
-    are lacking secure infrastructure. The least likely target to be hacked 
-    where non profit organisations and the most likely were medical related 
-    organizations \citep{breach}.
+    also the user passwords or hash thereof is valuable commodity which can be 
+    traded in the black markets. The damage of the dataloss can be susbtantial. 
+    The estimated value from the Yahoo data breach is over \$440 billion. The 
+    attacks seem to have been targeted to entities with valuable data and 
+    also to such targets that are lacking secure infrastructure. The least likely 
+    target to be hacked where non profit organisations and the most likely were 
+    medical related organizations \citep{breach}.
+\end{sloppypar}
+
+\begin{sloppypar}
+    The hacked account credentials have to some extent been available for download 
+    from the web. \citet{pwned} created a service where everyone can verify 
+    whether any of their accounts are amogst the ones added to the service. 
+    The service named as "';-- have i been pwned ?" allows users to enter their 
+    username or password to the site and see a result.
 \end{sloppypar}
 
 \subsection{Authorization}
 \begin{sloppypar}
-    
+    Authorization 
 \end{sloppypar}
 
 
@@ -211,6 +234,13 @@
     
 \end{sloppypar}
 
+\subsection{Possible Attacks}
+\begin{sloppypar}
+    D-o-S 
+\end{sloppypar}
+
+
+
 \subsection{Comparison}
 \begin{sloppypar}
     
@@ -236,32 +266,33 @@
 
 
 \section{Other security matters}
-    \subsection{Platforms}
-        \begin{sloppypar}
+\subsection{Platforms}
+\begin{sloppypar}
 
-        \end{sloppypar}
-    
-    Docker Swarm
-    Kubernetes (K8s)
-    Azure
+\end{sloppypar}
 
-    sandbox
-    virtualization 
+Docker Swarm
+Kubernetes (K8s)
+Azure
 
-    \subsection{Software Development}
-    \subsection{Deployment}
-        \begin{sloppypar}
+sandbox
+virtualization 
 
-            Developing software using the MA the structure the whole application or service 
-            is usually deployed as a whole and the program code can be compiled, tested and
-            used as a single unit or multiple modules. In contrast to this a service implemented 
-            by using a MSA can be deployed in single microservice units and thus a single service 
-            can be worked upon individually and deployed once ready.
-        
-        \end{sloppypar}
+\subsection{Software Development}
+\subsection{Deployment}
+\begin{sloppypar}
+    Developing software using the MA the structure the whole application or service 
+    is usually deployed as a whole and the program code can be compiled, tested 
+    and used as a single unit or multiple modules. In contrast to this a service 
+    implemented by using a MSA can be deployed in single microservice units and 
+    thus a single service can be worked upon individually and deployed once ready.
+\end{sloppypar}
 
-
-
+\subsection{Service discovery}
+\begin{sloppypar}
+    The MSA can have a service discovery service into which all available services 
+    can register them selves. This service has an API to which
+\end{sloppypar}
 
 
 
