@@ -126,6 +126,56 @@
 
 \subsection{Introduction}
 
+\subsection{Authentication}
+\begin{sloppypar}
+    In these cases where the user has to be authenticated the web service needs 
+    a way to do this securily. Usually authentication is done using a tuple 
+    containing user credentials i.e. a username and a password for the user. The
+    user is authenticated and a key or token is transmitted to the user via the 
+    network. This communication should in both MA and MSA be encrypted in a way 
+    that none of the actors in the transfer path can intercept the message and 
+    be able to use the credentials.
+\end{sloppypar}
+
+
+    Should this go any further since both MA and MSA are the same?
+    HASH
+    TLS
+    HANDSHAKE
+
+    Zimmermann V, Gerber N. 
+    The password is dead, long live the password – A laboratory study on user perceptions of authentication schemes. 
+    International Journal of Human-Computer Studies. 2020;133:26-44. http://www.sciencedirect.com.libproxy.aalto.fi/science/article/pii/S1071581919301119. doi: https://doi-org.libproxy.aalto.fi/10.1016/j.ijhcs.2019.08.006.
+
+\begin{sloppypar}
+    The credential counterparts i.e. shared secret by the server and the user 
+    have to be stored in a database (REALLY?). This is irrelevant on the type 
+    of the architecture. When ever such information is available it is a target 
+    for thieves and hackers.
+\end{sloppypar}
+    
+\begin{sloppypar}
+    From 2013 onwards malware and data breaches performed by hackers have 
+    increased and the scale of the damage is massive. The estimated damage 
+    from the Yahoo data breach is over 440 billion. The attacks seem to have 
+    been targeted to entities with valuable data and also to such targets that 
+    are lacking secure infrastructure. The least likely target to be hacked 
+    where non profit organisations and the most likely were medical related 
+    organizations \citep{breach}.
+\end{sloppypar}
+
+\begin{sloppypar}
+    To prevent system being hacked there are some precautions to be made:
+\end{sloppypar}
+    
+
+\subsection{Authorization}
+\begin{sloppypar}
+
+\end{sloppypar}
+
+
+
 \subsection{Component Communication}
 \begin{sloppypar}
     In an MA service components can communicate using events, 
@@ -144,6 +194,8 @@
 \end{sloppypar}
 
 \subsection{Effects on Confidentiality}
+
+
 \subsection{Example case}
 
 \section{Integrity}
@@ -175,7 +227,7 @@
 
 \subsection{Comparison}
 \begin{sloppypar}
-    In a monolith architecture the authentication is usually done by 
+    
 \end{sloppypar}
 
 
@@ -218,7 +270,7 @@
             is usually deployed as a whole and the program code can be compiled, tested and
             used as a single unit or multiple modules. In contrast to this a service implemented 
             by using a MSA can be deployed in single microservice units and thus a single service 
-            can be worked upon individually.
+            can be worked upon individually and deployed once ready.
         
         \end{sloppypar}
 
