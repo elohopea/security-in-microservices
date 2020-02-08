@@ -124,8 +124,6 @@
 \end{sloppypar}
 
 
-\subsection{Introduction}
-
 \subsection{Authentication}
 \begin{sloppypar}
     In these cases where the user has to be authenticated the web service needs 
@@ -137,41 +135,29 @@
     be able to use the credentials.
 \end{sloppypar}
 
-
-    Should this go any further since both MA and MSA are the same?
-    HASH
-    TLS
-    HANDSHAKE
-
-    Zimmermann V, Gerber N. 
-    The password is dead, long live the password – A laboratory study on user perceptions of authentication schemes. 
-    International Journal of Human-Computer Studies. 2020;133:26-44. http://www.sciencedirect.com.libproxy.aalto.fi/science/article/pii/S1071581919301119. doi: https://doi-org.libproxy.aalto.fi/10.1016/j.ijhcs.2019.08.006.
-
 \begin{sloppypar}
     The credential counterparts i.e. shared secret by the server and the user 
-    have to be stored in a database (REALLY?). This is irrelevant on the type 
-    of the architecture. When ever such information is available it is a target 
-    for thieves and hackers.
+    have to be available for the web service for verification. When using MSA 
+    the service should own it's own data, which entails that the authentication 
+    service has to adhere to practices that minimize risks for breaches. 
+    When ever such information is available it is a target for thieves and hackers.
 \end{sloppypar}
     
 \begin{sloppypar}
     From 2013 onwards malware and data breaches performed by hackers have 
-    increased and the scale of the damage is massive. The estimated damage 
-    from the Yahoo data breach is over 440 billion. The attacks seem to have 
+    increased and the scale of the damage is massive. The user data containing 
+    passwords is valuable commodity which can be traded in the black markets. 
+    The estimated damage 
+    from the Yahoo data breach is over \$440 billion. The attacks seem to have 
     been targeted to entities with valuable data and also to such targets that 
     are lacking secure infrastructure. The least likely target to be hacked 
     where non profit organisations and the most likely were medical related 
     organizations \citep{breach}.
 \end{sloppypar}
 
-\begin{sloppypar}
-    To prevent system being hacked there are some precautions to be made:
-\end{sloppypar}
-    
-
 \subsection{Authorization}
 \begin{sloppypar}
-
+    
 \end{sloppypar}
 
 
