@@ -63,7 +63,68 @@ DISAdvantages of Micoservices:
  - Infrastructure complexity
     - SERVICE DISCOVERY and Service Management are necessary infra components 
 
+Service-Oriented Architecture (SOA)
+ - close relative to MSA
+ - services
+ - interoperability and
+ - loose coupling
 
+ Typically implemented using Web Services WS-* stack
+ Simple Object Access Protocol (SOAP) for communication
+
+ Evolved as a solution to distributed systems to allow for flexibility, scalability and fault Tolerance
+
+ From SOA to Microservices
+  - on conceptual level SAME THING
+  - gradual evolution SOA -> MSA -> ???
+
+...
+similar critique over MSA as in Newman. 
+ - Should be used if it sensible.
+ - no magic bullet (common theme - is this from Newman, or what is the source of this?)
+...
+
+Challenges
+What is the best way to decompose existing systems into monoliths?
+Proper service granularity level?
+Microservice security has received very little attention.
+
+Trends
+Serverless computing
+function-as-a-service model
+
+The Core Security concepts
+ - identification
+ - Authentication
+    - Authentication factors
+        - based on knowledge (password...)
+        - ownership (physical key, tokens...)
+        - properties (fingerprint...)
+    - Authentication using more than one is multifactor authentication
+ - Authorization
+ - Accescontrol
+    - Access Control List (ACL)
+    - Role based (RBAC)
+    - Attribute Based Access Control (ABAC)
+
+Threat Model
+- Vulnerability
+- attack vector
+- attack surface
+
+Cryptography
+ - PKI
+ - symmetric - Asymmetric
+
+ TLS
+
+ Certificates
+  - X.509
+
+  Delegated Authorization and Authentication
+  - OAuth
+
+P. 30
 
 
 
