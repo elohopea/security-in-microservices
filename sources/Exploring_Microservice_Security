@@ -1,0 +1,539 @@
+
+NOTES 9.2.2020
+
+Exploring Microservice Security
+
+Tetiana Yarygina
+Thesis for the Degree of Philosophiae Doctor (PhD) University of Bergen, Norway
+2018
+
+Papers:
+1. Overcoming Security Challenges in Microservice Architecture
+2. Low-Level Exploitation Mitigation by Diverse Microservices
+3. A Game of Microservice
+4. RESTfull Is Not Secure
+
+
+
+Intro
+
+MSA enforces modular structure and separation of concerns.
+This allows scalability and flexible distributed systems.
+Gradual transisioning pic.
+
+Sources 86, 65, 52 => in 2015 33% MSA inproduction vs. 2018 60%
+In 2023 MSA is the default architecture.
+
+
+
+Background
+
+Microservice definition:
+ - Newman (2019) definition
+ - Lewis & Fowler definition
+Definition in paper:
+    "In this thesis, 
+    we define microservice architecture as a specialized variant of 
+    service-oriented architecture that emphasizes fine-grained separation 
+    of concerns, continuous delivery, and virtualization."
+
+Underlying principles:
+  - separation of concerns
+  - Continuous delivery and devops
+  - Continuous Integration
+  - Cloud Virtualization and Containerization
+
+Advantages of Microservices:
+ - scalability
+    - hiding communication latencies (asynchronous communication and data caching)
+    - distribution in MSA
+    - replication in MSA
+    - MSA leads to better system resource utilization
+ - development time
+    - individual Microservices are easy to development
+    - automation!
+ - Technology heterogeneity
+
+DISAdvantages of Micoservices:
+ - Fault Tolerance
+ - Software testing is more difficult
+ - Distributed transactions and data consistency
+    - THERE IS NO COMPLEX DATABASE SHARED BETWEEN ALL OF THE SERVICES
+    - ACID difficult to achieve in distributed transactions
+ - Infrastructure complexity
+    - SERVICE DISCOVERY and Service Management are necessary infra components 
+
+
+
+
+
+
+
+
+
+1. Overcoming Security Challenges in Microservice Architecture
+
+
+
+
+References:
+
+[1] N. Alshuqayran, N. Ali, and R. Evans.
+“A Systematic Mapping Study in Microservice Architecture”.
+In: Service-Oriented Computing and Applications (SOCA 2016). Nov. 2016, pp. 44–51. doi: 10.1109/SOCA.2016.15 (cit. on p. 54).
+
+[2] Amazon S3. Authenticating Requests (AWS Signature v4).
+url: https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating- requests.html (cit. on p. 112).
+
+[3] Amazon Web Services, Inc. AWS Lambda Pricing.
+url: https://aws.amazon.com/lambda/pricing/ (visited on May 21, 2018) (cit. on p. 27).
+
+[4] J. Armstrong.
+“Making Reliable Distributed Systems in the Presence of Software Errors”.
+PhD thesis. Stockholm, Sweden: The Royal Institute of Technology, Dec. 2003 (cit. on p. 58).
+
+[5] A. Avizienis, J.-C. Laprie, B. Randell, and C. Landwehr.
+“Basic concepts and taxonomy of dependable and secure computing”.
+In: IEEE Transactions on Dependable and Secure Computing 1.1 (2004), pp. 11–33 (cit. on p. 102).
+
+[6] M. Bartel, J. Boyer, B. Fox, B. LaMacchia, and E. Simon.
+W3C Recommendation. XML Signature v1.1. 2013 (cit. on p. 33).
+
+[7] A. Basiri, N. Behnam, R. de Rooij, L. Hochstein, L. Kosewski, J. Reynolds, and C. Rosenthal. “Chaos engineering”. In: IEEE Software 33.3 (2016), pp. 35–41 (cit. on p. 24).
+
+[8] N. Bhalla. “Web services vulnurabilities”. In: Black Hat Europe.
+USENIX Association, 2007. url: https://www.blackhat.com/presentations/bh- europe-07/Bhalla-Kazerooni/Whitepaper/bh-eu-07-bhalla-WP.pdf
+(cit. on p. 34).
+
+[9] K. Birman. “The promise, and limitations, of gossip protocols”.
+In: ACM SIGOPS Operating Systems Review 41.5 (2007), pp. 8–13 (cit. on p. 42).
+
+[10] L. C. Briand, J. W. Daly, and J. K. Wust.
+“A unified framework for coupling measurement in object-oriented systems”.
+In: IEEE Transactions on Software Engineering 25.1 (1999), pp. 91–121 (cit. on p. 38).
+
+[11] O. Catakoglu, M. Balduzzi, and D. Balzarotti. “Attacks landscape in the dark side of the web”.
+In: Proceedings of the Symposium on Applied Computing. ACM. 2017, pp. 1739–1746 (cit. on p. 35).
+
+[12] M. Cavage and M. Sporny.
+IETF draft. Signing HTTP Messages. (draft-cavage-http-signatures-10). 2018. url: https://www.ietf.org/id/draft-cavage-http-signatures-10.txt (cit. on p. 113).
+
+E. Chen, Y. Pei, S. Chen, Y. Tian, R. Kotcher, and P. Tague. “OAuth Demystified for Mobile Application Developers”.
+In: ACM SIGSAC Conference on Computer and Communications Security. Scottsdale, Arizona, USA: ACM, 2014, pp. 892–903.
+doi: 10.1145/2660267.2660323 (cit. on pp. 32, 113).
+
+M. Coblenz, J. Sunshine, J. Aldrich, B. Myers, S. Weber, and F. Shull. “Exploring Language Support for Immutability”.
+In: Int’l Conf. on Software Engineering. ICSE ’16. Austin, Texas: ACM, 2016, pp. 736–747. doi: 10.1145/2884781.2884798 (cit. on p. 62).
+
+T. Combe, A. Martin, and R. Di Pietro.
+“To Docker or not to Docker: A security perspective”.
+In: IEEE Cloud Computing 3.5 (2016), pp. 54–62 (cit. on p. 60).
+
+D. Cooper, S. Santesson, S. Farrell, S. Boeyen, R. Housley, and W. Polk.
+RFC 5280. Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile. 2008. doi: 10.17487/RFC5280 (cit. on p. 30).
+
+B. Cox, D. Evans, A. Filipi, J. Rowanhill, W. Hu, J. Davidson, J. Knight,
+
+A. Nguyen-Tuong, and J. Hiser.
+N-Variant Systems A Secretless Framework for Security through Diversity. 2006 (cit. on p. 86).
+
+I. Dacosta, S. Chakradeo, M. Ahamad, and P. Traynor. “One-time Cookies: Preventing Session Hijacking Attacks with Stateless Authentication Tokens”. In: ACM Trans. Internet Technol. 12.1 (July 2012), 1:1–1:24. issn: 1533-5399 (cit. on p. 112).
+
+L. V. Davi, A. Dmitrienko, S. Nürnberger, and A.-R. Sadeghi. “Gadge Me if You Can: Secure and Efficient Ad-hoc Instruction-level
+Randomization for x86 and ARM”. In: Proceedings of the 8th ACM SIGSAC Symposium on Information, Computer and Communications Security.
+ASIA CCS ’13. Hangzhou, China: ACM, 2013, pp. 299–310.
+doi: 10.1145/2484313.2484351 (cit. on p. 85).
+
+C. Davis. “What if the Web Were Not RESTful?”
+In: Proceedings of the Third International Workshop on RESTful Design. WS-REST ’12. Lyon, France: ACM, 2012, pp. 3–10. doi: 10.1145/2307819.2307823 (cit. on p. 37).
+
+[21] F. De Backere, B. Hanssens, R. Heynssens, R. Houthooft, A. Zuliani,
+S. Verstichel, B. Dhoedt, and F. De Turck. “Design of a security mechanism for RESTful Web Service communication through mobile clients”.
+In: IEEE Network Operations and Management Symposium.
+Krakow, Poland: IEEE, 2014, pp. 1–6. doi: 10.1109/NOMS.2014.6838308
+(cit. on p. 110).
+
+[22] M. Dietz, A. Czeskis, D. Balfanz, and D. S. Wallach. “Origin-Bound Certificates: A Fresh Approach to Strong Client Authentication for the Web”.
+In: 21st USENIX Security Symposium. Bellevue, WA: USENIX, 2012, pp. 317–331 (cit. on p. 112).
+
+[23] W. Diffie and M. Hellman. “New directions in cryptography”.
+In: IEEE transactions on Information Theory 22.6 (1976), pp. 644–654 (cit. on p. 29).
+
+[24] P. Dobbelaere and K. S. Esmaili. “Kafka versus RabbitMQ: A comparative study of two industry reference publish/subscribe implementations: Industry Paper”. In: DEBS. ACM. 2017, pp. 227–238 (cit. on p. 41).
+
+[25] B. Doerrfeld. How To Control User Identity Within Microservices. Nordic APIs blog, 2016.
+url: https://nordicapis.com/how-to-control-user-identity-within-microservices/ (visited on Nov. 1, 2017) (cit. on p. 65).
+
+[26] N. Dragoni, S. Giallorenzo, A. Lluch-Lafuente, M. Mazzara, F. Montesi,
+R. Mustafin, and L. Safina. “Microservices: yesterday, today, and tomorrow”. In: CoRR abs/1606.04036 (2016) (cit. on pp. 54, 57, 62, 80).
+
+[27] C. M. Ellison, B. Frantz, B. Thomas, T. Ylonen, R. L. Rivest, and B. Lampson. SPKI certificate theory. IETF RFC 2693, 1999.
+url: https://tools.ietf.org/html/rfc2693 (visited on Nov. 1, 2017) (cit. on p. 67).
+
+[28] C. Ellison and B. Schneier.
+“Ten risks of PKI: What you’re not being told about public key infrastructure”.
+In: Comput Secur J 16.1 (2000), pp. 1–7 (cit. on p. 30).
+
+[29] R. A. van Engelen and W. Zhang. “An Overview and Evaluation of Web Services Security Performance Optimizations”.
+In: Proceedings of the 2008 IEEE International Conference on Web Services. ICWS ’08. Washington, DC, USA: IEEE Computer Society, 2008, pp. 137–144. doi: 10.1109/ICWS.2008.102 (cit. on p. 34).
+
+[30] J. R. Erenkrantz, M. Gorlick, G. Suryanarayana, and R. N. Taylor.
+“From representations to computations: the evolution of web architectures”.
+In: Proceedings of the the 6th joint meeting of the European software engineering conference and the ACM SIGSOFT symposium on The foundations of software engineering. ACM. 2007, pp. 255–264 (cit. on p. 37).
+
+P. T. Eugster, P. A. Felber, R. Guerraoui, and A.-M. Kermarrec. “The many faces of publish/subscribe”.
+In: ACM computing surveys (CSUR) 35.2 (2003), pp. 114–131 (cit. on pp. 38, 39).
+
+C. Fetzer. “Building Critical Applications Using Microservices”.
+In: IEEE Security Privacy 14.6 (Nov. 2016), pp. 86–89. issn: 1540-7993. doi: 10.1109/MSP.2016.129 (cit. on pp. 54, 62, 80, 98, 116).
+
+R. T. Fielding and R. N. Taylor.
+“Principled Design of the Modern Web Architecture”. In: Proceedings of the 22nd
+International Conference on Software Engineering (ICSE 2000). June 2000, pp. 407–416. doi: 10.1145/337180.337228 (cit. on pp. 36, 37, 114).
+
+R. T. Fielding, R. N. Taylor, J. R. Erenkrantz, M. M. Gorlick, J. Whitehead, R. Khare, and P. Oreizy. “Reflections on the REST architectural style and principled design of the modern web architecture (impact paper award)”. In: Proceedings of the 2017 11th Joint Meeting on Foundations of Software Engineering. ACM. 2017, pp. 4–14 (cit. on p. 37).
+
+R. T. Fielding.
+“Architectural Styles and the Design of Network-based Software Architectures”.
+PhD thesis. University of California, Irvine, 2000. isbn: 0-599-87118-0 (cit. on pp. 109, 114–117).
+
+G. Folino and P. Sabatino.
+“Ensemble Based Collaborative and Distributed Intrusion Detection Systems”.
+In: J. Netw. Comput. Appl. 66.C (May 2016), pp. 1–16. issn: 1084-8045. doi: 10.1016/j.jnca.2016.03.011 (cit. on p. 101).
+
+M. Fowler. Microservice Trade-Offs. July 2015.
+url: http://martinfowler.com/articles/microservice-trade-offs.html (visited on Apr. 13, 2016) (cit. on p. 79).
+
+M. Fowler and J. Lewis. Microservices. Mar. 2014.
+url: http://www.martinfowler.com/articles/microservices.html (visited on Nov. 1, 2017) (cit. on pp. 19, 40, 54, 55, 57, 62).
+
+K. Fu, E. Sit, K. Smith, and N. Feamster.
+“The Dos and Don’ts of Client Authentication on the Web.”
+In: USENIX Security Symposium. 2001, pp. 251–268 (cit. on pp. 65, 112, 115).
+
+P. Gorski, L. Lo Iacono, H. Nguyen, and D. Torkian. “Service Security Revisited”.
+In: IEEE International Conference on Services Computing. Washington, DC, USA: IEEE Computer Society, 2014, pp. 464–471. doi: 10.1109/SCC.2014.68 (cit. on p. 110).
+
+S. Graham, D. Davis, S. Simeonov, G. Daniels, P. Brittenham, Y. Nakamura, P. Fremantle, D. Konig, and C. Zentner. Building Web Services with Java: Making Sense of XML, SOAP, WSDL, and UDDI. Sams Publishing, 2005. isbn: 0-672-32641-8 (cit. on p. 33).
+
+[42] M. Gudgin, M. Hadley, N. Mendelsohn, J.-J. Moreau, H. F. Nielsen,
+A. Karmarkar, and Y. Lafon. SOAP Version 1.2 Part 1: Messaging Framework. 2007. url: http://www.w3.org/TR/2007/REC-soap12-part1-20070427/
+(cit. on p. 25).
+
+[43] M. Gysel, L. Kölbener, W. Giersche, and O. Zimmermann. “Service cutter: A systematic approach to service decomposition”.
+In: European Conference on Service-Oriented and Cloud Computing. Springer. 2016, pp. 185–200 (cit. on p. 26).
+
+[44] E. Hammer-Lahav. RFC 5849. The OAuth 1.0 Protocol. 2010. doi: 10.17487/RFC5849 (cit. on pp. 30, 113).
+
+[45] D. Hardt. RFC 6749. The OAuth 2.0 Authorization Framework. 2012. doi: 10.17487/RFC6749 (cit. on p. 31).
+
+[46] V. Heorhiadi, S. Rajagopalan, H. Jamjoom, M. K. Reiter, and V. Sekar. “Gremlin: systematic resilience testing of microservices”. In: Distributed
+Computing Systems (ICDCS), 2016 IEEE 36th International Conference on. IEEE. 2016, pp. 57–66 (cit. on p. 24).
+
+[47] J. Hiser, A. Nguyen-Tuong, M. Co, M. Hall, and J. Davidson. “ILR: Where’d My Gadgets Go?”
+In: Security and Privacy (SP), 2012 IEEE Symposium on. May 2012, pp. 571–585. doi: 10.1109/SP.2012.39 (cit. on p. 85).
+
+[48] G. Hohpe and B. Woolf. Enterprise Integration Patterns: Designing, Building, and Deploying Messaging Solutions. Addison-Wesley Signature Series (Fowler). Pearson Education, 2003. isbn: 0321200683 (cit. on p. 36).
+
+[49] J. Holgersson and E. Söderström. “Web service security – vulnerabilities and threats within the context of WS-security”.
+In: 4th IEEE Conference on Standardization and Innovation in Information Technology (SIIT 2005), 21-23 September 2005, Geneva, Switzerland. IEEE, 2005, pp. 138–146. doi: 10.1109/SIIT.2005.1563803 (cit. on p. 34).
+
+[50] P. Hu, R. Yang, Y. Li, and W. C. Lau. “Application Impersonation: Problems of OAuth and API Design in Online Social Networks”.
+In: 2nd ACM Conference on Online Social Networks.
+Dublin, Ireland: ACM, 2014, pp. 271–278. doi: 10.1145/2660460.2660463
+(cit. on p. 32).
+
+[51] T. Imamura, B. Dillaway, E. Simon, K. Yiu, and M. Nyström.
+W3C Recommendation. XML Encryption v1.1. 2013 (cit. on p. 33).
+
+[52] Infoholic Research LLP. Microservice Architecture Market: Global Drivers, Restraints, Opportunities, Trends, and Forecasts up to 2023. Sept. 2017.
+url: https://www.researchandmarkets.com/research/szk939/microservice (visited on May 21, 2018) (cit. on p. 16).
+
+T. Inoue, H. Asakura, H. Sato, and N. Takahashi.
+“Key roles of session state: Not against REST architectural style”.
+In: IEEE 34th Computer Software and Applications Conference. IEEE. 2010, pp. 171–178 (cit. on pp. 37, 110, 116, 119).
+
+T. Jackson, B. Salamat, A. Homescu, K. Manivannan, G. Wagner, A. Gal, S. Brunthaler, C. Wimmer, and M. Franz.
+“Compiler-Generated Software Diversity”. In:
+Moving Target Defense: Creating Asymmetric Uncertainty for Cyber Threats. Ed. by S. Jajodia, A. K. Ghosh, V. Swarup, C. Wang, and X. S. Wang.
+New York, NY: Springer New York, 2011, pp. 77–98.
+doi: 10.1007/978-1-4614-0977-9_4 (cit. on pp. 86, 102).
+
+M. Jones, J. Bradley, and N. Sakimura. RFC 7519. JSON Web Token. 2015. doi: 10.17487/RFC7519 (cit. on p. 111).
+
+A. Jøsang. “A Consistent Definition of Authorization”.
+In: International Workshop on Security and Trust Management. Springer. 2017, pp. 134–144 (cit. on p. 28).
+
+N. Josuttis. SOA in Practice: The Art of Distributed System Design. Sebastopol: O’Reilly Media, Inc., 2007. isbn: 0596529554 (cit. on pp. 25, 26, 56).
+
+R. Khare and R. N. Taylor. “Extending the representational state transfer (REST) architectural style for decentralized systems”. In: Proceedings of the 26th International Conference on Software Engineering (ICSE 2004). IEEE. 2004,
+pp. 428–437. doi: 10.1109/ICSE.2004.1317465 (cit. on p. 37).
+
+S. Kim, F. B. Bastani, I.-L. Yen, and R. Chen.
+“High-assurance synthesis of security services from basic microservices”.
+In: Software Reliability Engineering (ISSRE 2003). IEEE. 2003, pp. 154–165 (cit. on p. 56).
+
+P. Kocher, D. Genkin, D. Gruss, W. Haas, M. Hamburg, M. Lipp, S. Mangard, T. Prescher, M. Schwarz, and Y. Yarom.
+“Spectre Attacks: Exploiting Speculative Execution”.
+In: ArXiv e-prints (Jan. 2018). arXiv: 1801.01203 (cit. on p. 59).
+
+D. Kupser, C. Mainka, J. Schwenk, and J. Somorovsky. “How to Break XML Encryption – Automatically”.
+In: 9th USENIX Workshop on Offensive Technologies.
+Washington, DC: USENIX Association, 2015. url: https: //www.usenix.org/conference/woot15/workshop-program/presentation/kupser (cit. on p. 34).
+
+P. Laplante. What Every Engineer Should Know about Software Engineering. What Every Engineer Should Know. CRC Press, 2007. isbn: 9781420006742 (cit. on p. 20).
+
+F. Lascelles and A. Flint.
+WS Security Performance: Secure Conversation versus the X509 Profile. Apr. 2006. url: http://francoislascelles.sys-con.com/node/204424/ (cit. on p. 34).
+
+M. Leppänen, S. Mäkinen, M. Pagels, V.-P. Eloranta, J. Itkonen, M. V. Mäntylä, and T. Männistö. “The highways and country roads to continuous deployment”. In: IEEE Software 32.2 (2015), pp. 64–72 (cit. on p. 20).
+LightStep, Inc. The 2018 Global Microservices Trends report. Apr. 2018.
+url: https://go.lightstep.com/global-microservices-trends-report-2018 (visited on May 21, 2018) (cit. on p. 16).
+
+L. Lo Iacono and H. Nguyen. “Authentication Scheme for REST”.
+In: International Conference on Future Network Systems and Security. 2015, pp. 113–128. doi: 10.1007/978-3-319-19210-9_8 (cit. on pp. 110, 112).
+
+O. Lysne, K. J. Hole, C. Otterstad, Ø. Ytrehus, R. Aarseth, and J. Tellnes. “Vendor Malware: Detection Limits and Mitigation”.
+In: Computer 49.8 (Aug. 2016), pp. 62–69. issn: 0018-9162. doi: 10.1109/MC.2016.227 (cit. on pp. 80, 82).
+
+A. Madhavapeddy and D. J. Scott.
+“Unikernels: Rise of the Virtual Library Operating System”.
+In: Queue 11.11 (Dec. 2013), 30:30–30:44. issn: 1542-7730. doi: 10.1145/2557963.2566628 (cit. on p. 58).
+
+A. L. Marcon, A. O. Santin, L. A. de Paula Lima, R. R. Obelheiro, and M. Stihler. “Policy control management for Web Services”.
+In: Integrated Network Management (IM’09). IEEE. 2009, pp. 49–56 (cit. on p. 67).
+
+V. Mavroudis, A. Cerulli, P. Svenda, D. Cvrcek, D. Klinec, and G. Danezis. “A Touch of Evil: High-Assurance Cryptographic Hardware from Untrusted
+Components”. In: Computer and Communications Security (CCS’2017). ACM, 2017, pp. 1583–1600. doi: 10.1145/3133956.3133961 (cit. on p. 60).
+
+J. McHugh, A. Christie, and J. Allen.
+“Defending yourself: The role of intrusion detection systems”.
+In: IEEE Software 17.5 (2000), pp. 42–51 (cit. on p. 35).
+
+M. D. McIlroy. “Mass produced software components”. In: Software Engineering: Report of a conference sponsored by the NATO Science Committee.
+Garmisch, Germany: Scientific Affairs Division, NATO, Jan. 1969, pp. 79–87. url: http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF
+(cit. on p. 20).
+
+M. McIntosh and P. Austel.
+“XML Signature Element Wrapping Attacks and Countermeasures”.
+In: Workshop on Secure Web Services. Fairfax, VA, USA: ACM, 2005, pp. 20–27. doi: 10.1145/1103022.1103026 (cit. on p. 34).
+
+[74] A. J. Menezes, P. C. van Oorschot, and S. A. Vanstone.
+Handbook of Applied Cryptography. CRC Press, 1996. isbn: 978-0849385230 (cit. on p. 111).
+
+[75] Microsoft Azure. Authentication for the Azure Storage Services. 2015.
+url: https://msdn.microsoft.com/en-us/library/dd179428.aspx (cit. on p. 112).
+
+[76] Microsoft Azure. Introducing Azure confidential computing. Sept. 2017.
+url: https://azure.microsoft.com/en-us/blog/introducing-azure-confidential- computing/ (visited on Nov. 1, 2017) (cit. on p. 71).
+
+[77] V. Mladenov, C. Mainka, J. Krautwald, F. Feldmann, and J. Schwenk.
+“On the security of modern Single Sign-On Protocols: OpenID Connect 1.0”.
+In: CoRR (2015) (cit. on p. 33).
+
+[78] B. Möller, T. Duong, and K. Kotowicz.
+This POODLE Bites: Exploiting The SSL 3.0 Fallback. Sept. 2014.
+url: https://www.openssl.org/~bodo/ssl-poodle.pdf (visited on Nov. 1, 2017) (cit. on p. 60).
+
+[79] D. Mónica. MTLS in a Microservices World. Talk at BSides Lisbon 2016. Nov. 2016.
+url: https://www.youtube.com/watch?v=apma_C24W58 (visited on July 1, 2018) (cit. on p. 63).
+
+[80] F. Montesi and J. Weber.
+“Circuit Breakers, Discovery, and API Gateways in Microservices”.
+In: CoRR abs/1609.05830v2 (2016). url: http://arxiv.org/abs/1609.05830v2 (cit. on pp. 24, 60, 63, 83).
+
+[81] A. Mouat. Using Docker: Developing and Deploying Software with Containers. O’Reilly Media, 2016. isbn: 9781491915769 (cit. on p. 22).
+
+[82] S. Murer and C. Hagen.
+“Fifteen years of service-oriented architecture at Credit Suisse”.
+In: IEEE Software 31.6 (2014), pp. 9–15 (cit. on p. 25).
+
+[83] A. Nadalin, M. Goodner, M. Gudgin, D. Turner, A. Barbir, and H. Granqvist. OASIS Standard Specification. WS-Trust 1.4. Apr. 2012.
+url: http://docs.oasis-open.org/ws-sx/ws-trust/v1.4/ws-trust.html (visited on Nov. 1, 2017) (cit. on p. 65).
+
+[84] A. Nadalin, C. Kaler, R. Monzillo, and P. Hallam-Baker. OASIS Standard Specification. WS-Security. 2006 (cit. on p. 33).
+
+[85] S. Newman. Building Microservices. O’Reilly Media, 2015. isbn: 9781491950357 (cit. on pp. 19, 24, 26, 36, 38, 54, 55, 57, 61, 62, 79, 80, 97).
+
+[86] NGINX, Inc. The Future of Application Development and Delivery Is Now. Nov. 2015. url: https://www.nginx.com/resources/library/app-dev-survey/ (visited on Jan. 6, 2017) (cit. on pp. 16, 79).
+
+[87] N. Nordbotten. “XML and Web Services Security Standards”. Undetermined. In: IEEE Communications Surveys and Tutorials 11.3 (2009), pp. 4–21.
+doi: 10.1109/SURV.2009.090302 (cit. on p. 33).
+
+[88] M. A. Noureddine, A. Fawaz, W. H. Sanders, and T. Başar.
+“A Game-Theoretic Approach to Respond to Attacker Lateral Movement”. In:
+Proceedings of the 7th International Conference on Decision and Game Theory for Security (GameSec 2016).
+Ed. by Q. Zhu, T. Alpcan, E. Panaousis, M. Tambe, and W. Casey.
+Springer International Publishing, 2016, pp. 294–313.
+doi: 10.1007/978-3-319-47413-7_17 (cit. on pp. 98, 102).
+
+[89] M. Nygard. Release It! Design and Deploy Production-ready Software.
+Pragmatic Bookshelf Series. 2007. isbn: 9780978739218 (cit. on p. 83).
+
+[90] Official Docker v17.06 documentation. Manage swarm security with public key infrastructure.
+url: https://docs.docker.com/engine/swarm/how-swarm-mode-works/pki (visited on Nov. 1, 2017) (cit. on p. 63).
+
+[91] T. Ormandy. FireEye Exploitation: Project Zero’s Vulnerability of the Beast. Dec. 2015. url: https://googleprojectzero.blogspot.no/2015/12/fireeye- exploitation-project-zeros.html (visited on Feb. 7, 2017) (cit. on p. 88).
+
+[92] M. Osborne and A. Rubinstein. A Course in Game Theory. MIT Press, 1994. isbn: 9780262650403 (cit. on p. 98).
+
+[93] C. Otterstad and T. Yarygina.
+“Low-Level Exploitation Mitigation by Diverse Microservices”.
+In: Service-Oriented and Cloud Computing (ESOCC 2017).
+Ed. by F. De Paoli, S. Schulte, and E. Broch Johnsen.
+Oslo, Norway: Springer, 2017, pp. 49–56. doi: 10.1007/978-3-319-67262-5_4 (cit. on pp. 54, 62, 63, 77, 98, 100, 102).
+
+[94] OWASP Top 10 – 2017: The Ten Most Critical Web Application Security Risks. 2017. url: https://www.owasp.org/images/7/72/OWASP_Top_10- 2017_%5C%28en%5C%29.pdf.pdf (visited on Nov. 1, 2017) (cit. on p. 60).
+
+[95] C. Paar and J. Pelzl.
+Understanding Cryptography: A Textbook for Students and Practitioners. 2nd. Springer-Verlag Berlin Heidelberg, 2010. isbn: 978-3-642-04100-6 (cit. on p. 29).
+
+[96] D. Partridge and W. Krzanowski.
+“Software diversity: practical statistics for its measurement and exploitation”.
+In: Information and Software Technology 39.10 (1997), pp. 707–717. issn: 0950-5849. doi: 10.1016/S0950-5849(97)00023-2 (cit. on p. 85).
+
+[97] C. Pautasso and E. Wilde.
+“Why is the web loosely coupled?: A multi-faceted metric for service design”. In:
+Proceedings of the 18th International Conference on World Wide Web (WWW’09). ACM. 2009, pp. 911–920. doi: 10.1145/1526709.1526832 (cit. on p. 38).
+
+C. Pautasso, O. Zimmermann, M. Amundsen, J. Lewis, and N. Josuttis. “Microservices in Practice, Part 1: Reality Check and Service Design”.
+In: IEEE Software 34.1 (Jan.–Feb. 2017), pp. 91–98. doi: 10.1109/MS.2017.24 (cit. on pp. 54, 62, 79, 97).
+
+C. Pautasso, O. Zimmermann, M. Amundsen, J. Lewis, and N. Josuttis. “Microservices in Practice, Part 2: Service Integration and Sustainability”. In: IEEE Software 34.2 (Mar.–Apr. 2017), pp. 97–104. issn: 0740-7459.
+doi: 10.1109/MS.2017.56 (cit. on pp. 38, 57, 62).
+
+C. Pautasso, O. Zimmermann, and F. Leymann. “RESTful Web Services vs. Big Web Services: Making the Right Architectural Decision”. In: Proceedings of the 17th International Conference on World Wide Web (WWW’09).
+Beijing, China, 2008, pp. 805–814. doi: 10.1145/1367497.1367606
+(cit. on pp. 37, 60, 109).
+
+B. Payne. PKI at Scale Using Short-lived Certificates.
+Talk at USENIX Enigma 2016.
+url: https://youtu.be/7YPIsbz8Pig (visited on July 1, 2018) (cit. on p. 64).
+
+N. Provos. “A Virtual Honeypot Framework”. In: USENIX Security Symposium. Vol. 173. 2004, pp. 1–14 (cit. on p. 35).
+
+K. Razavi, B. Gras, E. Bosman, B. Preneel, C. Giuffrida, and H. Bos. “Flip Feng Shui: Hammering a Needle in the Software Stack”.
+In: 25th USENIX Security Symposium. USENIX, Aug. 2016, pp. 1–18. isbn: 978-1-931971-32-4 (cit. on p. 60).
+
+D. Renzel, P. Schlebusch, and R. Klamma.
+“Today’s top “RESTful” services and why they are not RESTful”.
+In: International Conference on Web Information Systems Engineering. Springer. 2012, pp. 354–367 (cit. on p. 37).
+
+E. Rescorla.
+The Transport Layer Security (TLS) Protocol Version 1.3. (draft-ietf-tls-tls13-28). (to be approved as RFC 8446). 2018.
+url: https://www.rfc-editor.org/internet-drafts/draft-ietf-tls-tls13-28.txt (visited on July 1, 2018) (cit. on p. 29).
+
+M. Richards. Microservices vs. Service-Oriented Architecture. O’Reilly Media, 2015. isbn: 978-1-491-94161-4 (cit. on pp. 57, 62).
+
+C. Richardson and F. Smith. Microservices: From Design to Deployment. NGINX, Inc., 2016. url: https://www.nginx.com/resources/library/designing-deploying-microservices/ (cit. on pp. 26, 36, 60, 62, 79, 83).
+
+L. Richardson and S. Ruby. RESTful Web Services. O’Reilly Media, 2007. isbn: 9780596529260 (cit. on pp. 109, 115).
+
+R. L. Rivest. “Can We Eliminate Certificate Revocation Lists?”
+In: In Financial Cryptography. Springer-Verlag, 1998, pp. 178–183 (cit. on p. 64).
+
+R. L. Rivest and B. Lampson. SDSI—a simple distributed security infrastructure. MIT. 1996. url: https://people.csail.mit.edu/rivest/sdsi10.html (cit. on p. 67).
+
+S. Roy, C. Ellis, S. Shiva, D. Dasgupta, V. Shandilya, and Q. Wu. “A survey of game theory as applied to network security”.
+In: System Sciences (HICSS), 2010 43rd Hawaii International Conference on. IEEE. 2010, pp. 1–10 (cit. on p. 98).
+
+N. Sakimura, J. Bradley, M. Jones, B. de Medeiros, and C. Mortimore. OpenID Connect Core 1.0. 2014 (cit. on pp. 33, 65, 113, 118).
+
+L. Sassaman, M. L. Patterson, S. Bratus, and A. Shubina.
+“The Halting Problems of Network Stack Insecurity”. In: ;login: 36.6 (Dec. 2011) (cit. on pp. 84, 89).
+
+R. W. Schulte and Y. V. Natis. “Service Oriented” Architectures, Part 1. Apr. 1996. url: https://www.gartner.com/doc/302868/ (visited on May 21, 2018)
+(cit. on p. 25).
+
+G. Serme, A. de Oliveira, J. Massiera, and Y. Roudier. “Enabling Message Security for RESTful Services”.
+In: IEEE 19th International Conference on Web Services. Washington, DC, USA: IEEE Computer Society, 2012, pp. 114–121. doi: 10.1109/ICWS.2012.94 (cit. on p. 110).
+
+H. Shacham. “The Geometry of Innocent Flesh on the Bone: Return-into-libc Without Function Calls (on the x86)”. In: Proceedings of the 14th ACM Conference on Computer and Communications Security. CCS ’07.
+
+Alexandria, Virginia, USA: ACM, 2007, pp. 552–561. doi: 10.1145/1315245.1315313 (cit. on p. 81).
+
+Y. Sheffer, R. Holz, and P. Saint-Andre. RFC 7457. Summarizing Known Attacks on Transport Layer Security (TLS) and Datagram TLS (DTLS). 2015.
+doi: 10.17487/RFC7457 (cit. on p. 29).
+
+C. B. Simmons, S. G. Shiva, H. S. Bedi, and V. Shandilya.
+“ADAPT: a game inspired attack-defense and performance metric taxonomy”.
+In: IFIP International Information Security Conference. Springer. 2013, pp. 344–365 (cit. on p. 103).
+
+A. Singhal, T. Winograd, and K. Scarfone. Guide to Secure Web Services. 2007. url: http://csrc.nist.gov/publications/nistpubs/800-95/SP800-95.pdf (visited on Dec. 1, 2015) (cit. on p. 33).
+Snort official web-site. url: https://www.snort.org (visited on Feb. 23, 2018) (cit. on p. 101).
+
+N. Stakhanova, S. Basu, and J. Wong.
+“A taxonomy of intrusion response systems”. In: International Journal of
+Information and Computer Security 1.1-2 (2007), pp. 169–184 (cit. on pp. 35, 98).
+
+S.-T. Sun and K. Beznosov. “The Devil is in the (Implementation) Details: An Empirical Analysis of OAuth SSO Systems”.
+In: ACM Conference on Computer and Communications Security.
+Raleigh, North Carolina, USA: ACM, 2012, pp. 378–390.
+doi: 10.1145/2382196.2382238 (cit. on pp. 32, 113).
+
+Y. Sun, S. Nanda, and T. Jaeger.
+“Security-as-a-service for microservices-based cloud applications”.
+In: Cloud Computing Technology and Science (CloudCom 2015). IEEE. 2015, pp. 50–57 (cit. on pp. 54, 98).
+
+H. Takabi, J. B. D. Joshi, and G. J. Ahn.
+“Security and Privacy Challenges in Cloud Computing Environments”.
+In: IEEE Security Privacy 8.6 (Nov. 2010), pp. 24–31. issn: 1540-7993. doi: 10.1109/MSP.2010.186 (cit. on p. 60).
+
+A. Tanenbaum and M. van Steen. Distributed Systems: Principles and Paradigms. Pearson Prentice Hall, 2007. isbn: 9780132392273 (cit. on pp. 22–24, 58, 63, 97).
+The Heartbleed bug in OpenSSL library. Apr. 2014.
+url: http://heartbleed.com/ (visited on Nov. 1, 2017) (cit. on p. 60).
+
+Trustworthy Internet Movement. SSL Pulse. 2017.
+url: https://www.trustworthyinternet.org/ssl-pulse/ (cit. on p. 117).
+
+T. Ueda, T. Nakaike, and M. Ohara.
+“Workload characterization for microservices”. In: IISWC 2016. IEEE. 2016,
+pp. 85–94 (cit. on p. 70).
+
+S. Vinoski. “Old measures for new services”.
+In: IEEE Internet Computing 9.6 (2005), pp. 72–74 (cit. on p. 38).
+
+R. Wang, S. Chen, and X. Wang. “Signing Me Onto Your Accounts Through Facebook and Google: A Traffic-Guided Security Study of Commercially Deployed Single-Sign-On Web Services”.
+In: IEEE Symposium on Security and Privacy.
+Washington, DC, USA: IEEE Computer Society, 2012, pp. 365–379. doi: 10.1109/SP.2012.30 (cit. on p. 113).
+
+R. Wang, Y. Zhou, S. Chen, S. Qadeer, D. Evans, and Y. Gurevich.
+“Explicating SDKs: Uncovering Assumptions Underlying Secure Authentication
+and Authorization”. In: 22nd USENIX Security Symposium.
+Washington, DC, 2013, pp. 399–314. isbn: 978-1-931971-03-4 (cit. on pp. 32, 113).
+
+R. Wartell, V. Mohan, K. W. Hamlen, and Z. Lin. “Binary Stirring: Self-randomizing Instruction Addresses of Legacy x86 Binary Code”.
+In: Proceedings of the 2012 ACM Conference on Computer and Communications Security. CCS ’12. Raleigh, North Carolina, USA: ACM, 2012, pp. 157–168.
+doi: 10.1145/2382196.2382216 (cit. on p. 85).
+
+Y. Yarom and K. Falkner. “FLUSH+RELOAD: A High Resolution, Low Noise, L3 Cache Side-Channel Attack”. In: 23rd USENIX Security Symposium. USENIX, 2014, pp. 719–732. isbn: 978-1-931971-15-7 (cit. on p. 59).
+
+T. Yarygina. “RESTful Is Not Secure”.
+In: Applications and Techniques in Information Security (ATIS 2017). Springer, 2017, pp. 141–153. doi: 10.1007/978-981-10-5421-1_12 (cit. on p. 60).
+
+T. Yarygina and A. H. Bagge.
+“Overcoming Security Challenges in Microservice Architectures”. In: 12th IEEE
+International Symposium on Service-Oriented System Engineering (SOSE’18). Bamberg, Germany: IEEE, Mar. 2018, pp. 11–20. doi: 10.1109/SOSE.2018.00011 (cit. on pp. 51, 98, 100).
+
+T. Yarygina and C. Otterstad.
+“A Game of Microservices: Automated Intrusion Response”.
+In: Distributed Applications and Interoperable Systems.
+
+Ed. by S. Bonomi and E. Rivière.
+Cham: Springer International Publishing, June 2018, pp. 169–177. doi: 10.1007/978-3-319-93767-0_12 (cit. on p. 95).
+
+E. Yuan, N. Esfahani, and S. Malek.
+“A systematic survey of self-protecting software systems”. In: ACM Transactions
+on Autonomous and Adaptive Systems (TAAS) 8.4 (2014), p. 17 (cit. on p. 98).
+
+O. Zimmermann.
+“Microservices tenets: Agile approach to service development and deployment”.
+In: Computer Science - Research and Development (2016), pp. 1–10. issn: 1865-2042. doi: 10.1007/s00450-016-0337-0
+(cit. on pp. 26, 38, 57, 62, 80, 97).
+
+S. A. Zonouz, H. Khurana, W. H. Sanders, and T. M. Yardley.
+“RRE: A game-theoretic intrusion response and recovery engine”. In: IEEE Transactions on Parallel and Distributed Systems 25.2 (2014), pp. 395–406 (cit. on p. 98).
+
+
+
+
