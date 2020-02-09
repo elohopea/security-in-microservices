@@ -4,14 +4,14 @@
 
 \section{Introduction}
 \begin{sloppypar}
-
     In recent years the mobile app has revolutionized our daily lives. 
     These services have infiltrated social life, shopping and almost 
     every aspect of our existence. The services and their apps compete of 
     our time and markets are reinventing themselves constantly. The rapid 
     expansion and at times even faster decline of these web services 
     need a matching architecture to meet these very specific needs. 
-
+\end{sloppypar}
+\begin{sloppypar}
     There are many web services already in use which have been designed and 
     implemented before the onslaugh of microservices. Some of these services 
     need to evolve to be of use in the future. In many cases the monolith 
@@ -22,12 +22,14 @@
     the old and established services have to address the situation someway or 
     the other. Monoliths have served us well but the time has come to evolve 
     with the customer needs.
-
+\end{sloppypar}
+\begin{sloppypar}
     Stackoverflow annual survey \citep{stackoverflowsurvey2019} conducted on 
     developers finds that half of the respondents identified as full-stack or 
     backend developers. The professional developers had very little experience 
     and about 40\% of them had less than five years of professional experience. 
-
+\end{sloppypar}
+\begin{sloppypar}
     The new developers entering the work force have very different mindset than 
     the older more seasoned professionals. Thus, it is very clear that the ways 
     of working and paradigms to be used are in constant change. The old and 
@@ -36,14 +38,17 @@
      \citep{newman2019} but in many cases there simply is no other valid choice.
     This change needs to happen in an orderly and safe way and the security 
     aspects need to be addressed. 
-
+\end{sloppypar}
+\begin{sloppypar}
     Microservice Architecture (MSA) differs in many ways from 
     the more tradition Monolith Architecture (MA). This shift entails very 
     specific security issues.
-
+\end{sloppypar}
+\begin{sloppypar}
     In this thesis the MSA and security literature is evaluated and the main 
     differences between MA and MSA on back end security aspects are found.
-
+\end{sloppypar}
+\begin{sloppypar}
     Chapter 2. presents the definitions used in this thesis. 
     Chapter 3. discusses the Confidentiality aspect of a switch from MA to MSA. 
     In chapter 4. Integrity of the information is discussed in the context of 
@@ -51,7 +56,6 @@
     Chapter 5. presents Availability when changing from MA to MSA.
     In Chapter 6. other relevat security aspects are presented.
     Chapter 7. contains the conclusions and presents further research topics.
-
 \end{sloppypar}
 
 \section{Definitions}
@@ -63,7 +67,6 @@
 
 \subsection{Microservice}
 \begin{sloppypar}
-
     Microservice architecture is in essence an extension of the service oriented 
     architecture (SOA). It's guiding principles are stated in the SOA manifesto 
     \citep{soamanifesto} and one is to prioritize:
@@ -78,7 +81,8 @@
             \item Evolutionary refinement over pursuit of initial perfection
         \end{itemize}
     \end{quotation}
-
+\end{sloppypar}
+\begin{sloppypar}
     A microservice is a service that: is independently deployable,
     is modeled around business domain,
     that owns the data that they need to operate,
@@ -94,7 +98,8 @@
     and more specifically information security is defined as consisting of 
     Confidentiality, Integrity, and Availability (CIA) as is stated in the 
     pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
-
+\end{sloppypar}
+\begin{sloppypar}
     The ISO/IEC 27001 standard defines confidentiality as such that information 
     or property is available to the authorized user only. The authorized users 
     can consist of persons, processes or entities to whom the information or 
@@ -102,12 +107,16 @@
     safeguarded for accuracy and completeness. Availability in this web service
     context is defined as such that the property or information is available 
     when it is needed.
-    
+\end{sloppypar}
+
+\section{The Switch of Architectures}
+\begin{sloppypar}
+    To change the architecture from MA to MSA is a gradual process. The MA is 
+    split to modules with separation of concerns \citep{secchalmsa}.
 \end{sloppypar}
 
 \section{Confidentiality}
 \begin{sloppypar}
-
     Confidentiality in a web service is usually critical security feature. 
     There are specific services which do not nead information confidentiality 
     regarding some of the data such as public weather services and other similar data.
@@ -120,7 +129,6 @@
     The session can have an expiration time and the messages originating from 
     the user interface (UI) carry this key. Sessions and session keys can be used 
     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
-
 \end{sloppypar}
 
 
@@ -134,7 +142,6 @@
     that none of the actors in the transfer path can intercept the message and 
     be able to use the credentials.
 \end{sloppypar}
-
 \begin{sloppypar}
     The credential counterparts i.e. shared secret by the server and the user 
     have to be available for the web service for verification. When using MSA 
@@ -169,7 +176,6 @@
     target to be hacked where non profit organisations and the most likely were 
     medical related organizations \citep{breach}.
 \end{sloppypar}
-
 \begin{sloppypar}
     The hacked account credentials have to some extent been available for download 
     from the web. \citet{pwned} created a service where everyone can verify 
@@ -190,16 +196,13 @@
     In an MA service components can communicate using events, 
     procedure calls or other methods available within a single server machine. 
     Usually all this communication stays within a single computer and thus does not compromise confidentiality.
-
+\end{sloppypar}
+\begin{sloppypar}
     In MSA single services communicate via a network typically using a HTTP or HTTPS (). 
     can use internet
     Content must be encrypted.
     AccessTokens
     SessionKeys
-
-
-
-
 \end{sloppypar}
 
 \subsection{Effects on Confidentiality}
