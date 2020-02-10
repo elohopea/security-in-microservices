@@ -121,10 +121,21 @@ Cryptography
  Certificates
   - X.509
 
-  Delegated Authorization and Authentication
-  - OAuth
+Delegated Authorization and Authentication
+- OAuth 1.0
+- OAuth 2.0 
+  - Bearer (or JWT bearer tokens) or MAC tokens
+  - four authorization flows
+- Single Sign On (SSO)
+(Go through again if needed p30-33)
+    - OpenID Connect
+    - Facebook login
+    - Sign In With Twitter
 
-P. 30
+
+
+
+
 
 
 
