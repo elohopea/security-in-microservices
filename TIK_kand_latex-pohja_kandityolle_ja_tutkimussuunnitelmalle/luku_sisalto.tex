@@ -268,7 +268,7 @@
 
 
 
-\section{Other security matters}
+\section{Other MSA specific security matters}
 \subsection{Platforms}
 \begin{sloppypar}
 
@@ -296,6 +296,21 @@ virtualization
     The MSA can have a service discovery service into which all available services 
     can register them selves. This service has an API to which
 \end{sloppypar}
+
+\subsection{Externalized configuration}
+\begin{sloppypar}
+    To allow for easy configuration change management there should exist a 
+    configuration orchestration service. This service should have an API from 
+    which services in their startup can load their appropriate configuration. 
+    The configuration of the whole system can be easily maintained through the 
+    API.
+
+    The contents of the configuration is highly sensitive information. It 
+    consists of addressess, credentials and other information that alter 
+    the behaviour of the system. Therefore, the content must be stored safely 
+    and not allowed to be read or altered by unauthorized users.
+\end{sloppypar}
+
 
 
 
