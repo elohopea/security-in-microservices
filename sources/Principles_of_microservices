@@ -1,0 +1,21 @@
+
+Principles Of Microservices by Sam Newman
+Devoxx Belgium, November 2015
+https://www.youtube.com/watch?v=PFQnNFe27kU
+
+Microservice principles:
+1. Modelled Around Business Domain
+2. Culture Of Automation
+3. Hide Implementation Details
+4. Decentralise All The Things
+5. Deploy Independently
+6. Consumer First
+7. Isolate Failure
+8. Highly Observable
+
+
+Domain Driven Design
+Hide DB. Services should not have Connection string since they 
+One Service per Host (VM, container etc.).
+
+
