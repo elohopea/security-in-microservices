@@ -161,14 +161,19 @@
     Some of the information is still regarded sensitive and must be kept confidential. 
     These data can consists of personal, user, logs or other similar content.
     Users should not be able to use or view content not authorized to him/her. 
-    A user has to authenticate him/her self and authorization is acquired to access to information or property.
+    To verify this a form of access control has to be performed. Access control 
+    consists of user authentication and authorization. A user has to 
+    authenticate him/her self and authorization is acquired to access to 
+    information or property.
+\end{sloppypar}
+
+\begin{sloppypar}
     In an MA access control can be implemented using sessions. 
     A user authenticates using appropriate channels and a session with a session key is created. 
     The session can have an expiration time and the messages originating from 
     the user interface (UI) carry this key. Sessions and session keys can be used 
     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
 \end{sloppypar}
-
 
 \subsection{Authentication}
 \begin{sloppypar}
@@ -180,6 +185,7 @@
     that none of the actors in the transfer path can intercept the message and 
     be able to use the credentials.
 \end{sloppypar}
+
 \begin{sloppypar}
     The credential counterparts i.e. shared secret by the server and the user 
     have to be available for the web service for verification. When using MSA 
@@ -224,10 +230,31 @@
 
 \subsection{Authorization}
 \begin{sloppypar}
-    Authorization 
+    Authorization of the user rights can be implemented in various ways. One of 
+    which is an authorization service which can contain the access control 
+    matrix. Services being accessed verify from the authorization service that
+    a particular user or the role that the user has can access the requested 
+    service or functionality.
 \end{sloppypar}
 
+\begin{sloppypar}
+    In a MA the access rights to a functionality can be implemented using
+    annotations within the source code. This can be effective since the 
+    verification can be done in memory or atleast without network communication. 
+    If a session is used it can contain the information needed to verify access 
+    rights.
+\end{sloppypar}
 
+\begin{sloppypar}
+    In contrast to the MA in the MSA the access control matrix or matrices can't 
+    be as easily accessed. In order to verify that a specific right exists the 
+    service would have communicate with the authorization service every time a user
+    tries to access a functionality with access restrictions. This could 
+    potentially lead to an extremely lively communication from all the services 
+    a formation of a bottleneck to the service.
+\end{sloppypar}
+
+https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 
 \subsection{Component Communication}
 \begin{sloppypar}
@@ -243,10 +270,10 @@
     SessionKeys
 \end{sloppypar}
 
-\subsection{Effects on Confidentiality}
+\subsubsection{Effects on Confidentiality}
 
 
-\subsection{Example case}
+\subsubsection{Example case}
 
 \section{Integrity}
 \begin{sloppypar}
