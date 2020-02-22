@@ -262,7 +262,7 @@ https://techbeacon.com/security/microservices-apps-do-identity-access-management
 
 
 
-\subsection{Component Communication}
+\subsection{Interaction Paradigms}
 \begin{sloppypar}
     As already discussed in an MA the service components can communicate using 
     events, procedure calls or other methods available within a single server 
@@ -270,11 +270,44 @@ https://techbeacon.com/security/microservices-apps-do-identity-access-management
     thus does not necessarily compromise confidentiality.
 \end{sloppypar}
 \begin{sloppypar}
-    In MSA single services communicate via a network typically using a HTTP or HTTPS (). 
-    can use internet
-    Content must be encrypted.
-    AccessTokens
-    SessionKeys
+    In MSA single services communicate via a network.
+    
+    Next messaging systems list is from \citep{secchalmsa}:
+lightweight
+-
+    REST API,
+    Sync RPC,
+    GraphQl
+    -
+    Async REST,
+    gRPC
+    - 
+    Apache Kafka,
+    ZeroMQ
+    -
+    Java Message Service:
+    1 ActiveMQ,
+    2 JBOSS messaging,
+    3 Glassfish
+    -
+    AMQP:
+    1 RabbitMQ,
+    2 Qpid,
+    3 HornetQ
+    -
+    MuleESB,
+    Apache ServiceMix,
+    JBossESB
+
+
+-
+heavyweight
+
+    WebSocket
+    
+
+
+
 \end{sloppypar}
 
 
