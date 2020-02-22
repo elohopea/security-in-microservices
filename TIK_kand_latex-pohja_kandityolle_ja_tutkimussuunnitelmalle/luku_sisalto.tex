@@ -67,8 +67,8 @@
 
 \subsection{Microservice}
 \begin{sloppypar}
-    Microservice architecture is in essence an extension of the service oriented 
-    architecture (SOA). It's guiding principles are stated in the SOA manifesto 
+    Microservice architecture can be viewed as an extension of the service oriented 
+    architecture (SOA)\citep{newman2019,fowlerlewisms}. It's guiding principles are stated in the SOA manifesto 
     \citep{soamanifesto} and one is to prioritize:
     \begin{quotation}
         \noindent \it
@@ -111,8 +111,10 @@
 
 \section{The Switch of Architectures}
 \begin{sloppypar}
-    To change the architecture from MA to MSA should be a gradual process. The MA is or at least should be  
-    split to modules with separation of concerns \citep{secchalmsa}.
+    To change the architecture from MA to MSA should be a gradual process. The 
+    MA is or at least should be  split to modules with separation of concerns 
+    \citep{secchalmsa}. The actual splitting of the monolith can be carried out
+     in various ways. One of whic is DDD (SOURCE FOR THIS).
 \end{sloppypar}
 
 \begin{sloppypar}
@@ -152,6 +154,8 @@
     of communication and the resulting system is not as performant as it could 
     be \citep{fowlerlewisms}.
 \end{sloppypar}
+
+
 
 \section{Confidentiality}
 \begin{sloppypar}
@@ -256,11 +260,14 @@
 
 https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 
+
+
 \subsection{Component Communication}
 \begin{sloppypar}
-    In an MA service components can communicate using events, 
-    procedure calls or other methods available within a single server machine. 
-    Usually all this communication stays within a single computer and thus does not compromise confidentiality.
+    As already discussed in an MA the service components can communicate using 
+    events, procedure calls or other methods available within a single server 
+    machine. Usually all this communication stays within a single computer and 
+    thus does not necessarily compromise confidentiality.
 \end{sloppypar}
 \begin{sloppypar}
     In MSA single services communicate via a network typically using a HTTP or HTTPS (). 
@@ -270,10 +277,54 @@ https://techbeacon.com/security/microservices-apps-do-identity-access-management
     SessionKeys
 \end{sloppypar}
 
+
+
+
+\subsubsection{Representational State Transfer (REST)}
+\begin{sloppypar}
+    \citet{restroy} presented REST in 2000 and it has become very successfull. 
+    The architecture was derived using various constraints to an architecture.
+    One of which is the demand of stateless communication. The communication i.e. 
+    the request must contain all information for the server to fullfil the request. 
+    All session state is stored in the client and not on the server.
+\end{sloppypar}
+\begin{sloppypar}
+    In her doctoral thesis \citet{secchalmsa} critiques the REST paradigm from 
+    the security perspective. She states that the design of the architecture 
+    does not meet the security requirements for web applications. The 
+    statelessness of REST does not allow for any server side sessions and thus 
+    making e.g. token repudiation impossible due to not being able to verify 
+    tokens other than the correct issuer by signature and the validity. As such 
+    tokens are more compatible with REST but there still has to be the private 
+    keys in the server for signature verification.
+\end{sloppypar}
+
+
+
+
+\subsubsection{Event-Driven Communication}
+\begin{sloppypar}
+    
+\end{sloppypar}
+
+
+
+
 \subsubsection{Effects on Confidentiality}
+\begin{sloppypar}
+    
+\end{sloppypar}
+
+
 
 
 \subsubsection{Example case}
+\begin{sloppypar}
+    
+\end{sloppypar}
+
+
+
 
 \section{Integrity}
 \begin{sloppypar}
