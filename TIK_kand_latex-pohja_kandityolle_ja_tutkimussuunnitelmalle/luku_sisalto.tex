@@ -1,5 +1,6 @@
-% --------------------------------------------------------------------
 
+
+% --------------------------------------------------------------------
 
 
 \section{Introduction}
@@ -58,12 +59,14 @@
     Chapter 7. contains the conclusions and presents further research topics.
 \end{sloppypar}
 
+
+% --------------------------------------------------------------------
+
+
 \section{Definitions}
 \begin{sloppypar}
     This thesis uses the following definitions.
 \end{sloppypar}
-
-
 
 \subsection{Microservice}
 \begin{sloppypar}
@@ -109,6 +112,10 @@
     when it is needed.
 \end{sloppypar}
 
+
+% --------------------------------------------------------------------
+
+
 \section{The Switch of Architectures}
 \begin{sloppypar}
     To change the architecture from MA to MSA should be a gradual process. The 
@@ -116,7 +123,6 @@
     \citep{secchalmsa}. The actual splitting of the monolith can be carried out
      in various ways. One of whic is DDD (SOURCE FOR THIS).
 \end{sloppypar}
-
 \begin{sloppypar}
     The MSA differs from a MA in fundamental ways. According to \citet{fowlerlewisms} 
     one of which is the communication between its components. In a monolith 
@@ -124,15 +130,14 @@
     amongst them selves. In MSA the messaging is based on sending messages or 
     HTTP requests.
 \end{sloppypar}
-
 \begin{sloppypar}
     Function calls entail a stackframe creation in the call stack, execution of 
     the function code and finally popping the stackframe and returning the result. 
     The actual overhead depends on the language and systems used to run the 
-    application (SOURCE). Compilers can optimize the code further and inline the function calls to
-    eliminate the stackframe creation and following procedures to be carried out.
+    application (SOURCE). Compilers can optimize the code further and inline 
+    the function calls to eliminate the stackframe creation and following 
+    procedures to be carried out.
 \end{sloppypar}
-
 \begin{sloppypar}
     Communication using the network is extremely slow. In a paper \citet{webdelays} 
     studied the response times of web sites offered to the public. The websites 
@@ -140,14 +145,12 @@
     presented of the layered model of the communication (Figure 1).
     \includegraphics[scale=0.5]{HTTPlayers}
 \end{sloppypar}
-
 \begin{sloppypar}
     The requests sent to other microservices throught the network are extremely 
     slow when compared to operation within one computer as the function calls 
     would be. Therefore, the communication patterns should be changed to take 
     into account the change in communication path.
 \end{sloppypar}
-
 \begin{sloppypar}
     If the architecture is changed in such a way that the previous communication 
     model amongs the components is preserved, there would be an excessive amount 
@@ -155,6 +158,8 @@
     be \citep{fowlerlewisms}.
 \end{sloppypar}
 
+
+% --------------------------------------------------------------------
 
 
 \section{Confidentiality}
@@ -170,7 +175,6 @@
     authenticate him/her self and authorization is acquired to access to 
     information or property.
 \end{sloppypar}
-
 \begin{sloppypar}
     In an MA access control can be implemented using sessions. 
     A user authenticates using appropriate channels and a session with a session key is created. 
@@ -189,7 +193,6 @@
     that none of the actors in the transfer path can intercept the message and 
     be able to use the credentials.
 \end{sloppypar}
-
 \begin{sloppypar}
     The credential counterparts i.e. shared secret by the server and the user 
     have to be available for the web service for verification. When using MSA 
@@ -212,7 +215,6 @@
         \item Cracking the encryption on the communication channel exchanging credentials and keys or tokens.
     \end{itemize}
 \end{sloppypar}
-
 \begin{sloppypar}
     From 2013 onwards malware and data breaches performed by hackers have 
     increased and the scale of the damage is massive. The user data containing 
@@ -240,7 +242,6 @@
     a particular user or the role that the user has can access the requested 
     service or functionality.
 \end{sloppypar}
-
 \begin{sloppypar}
     In a MA the access rights to a functionality can be implemented using
     annotations within the source code. This can be effective since the 
@@ -248,7 +249,6 @@
     If a session is used it can contain the information needed to verify access 
     rights.
 \end{sloppypar}
-
 \begin{sloppypar}
     In contrast to the MA in the MSA the access control matrix or matrices can't 
     be as easily accessed. In order to verify that a specific right exists the 
@@ -257,10 +257,9 @@
     potentially lead to an extremely lively communication from all the services 
     a formation of a bottleneck to the service.
 \end{sloppypar}
-
-https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
-
-
+\begin{sloppypar}
+    https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
+\end{sloppypar}
 
 \subsection{Interaction Paradigms}
 \begin{sloppypar}
@@ -299,20 +298,10 @@ lightweight
     MuleESB,
     Apache ServiceMix,
     JBossESB
-
-
 -
 heavyweight
-
     WebSocket
-    
-
-
-
 \end{sloppypar}
-
-RPC
-
 
 \subsubsection{Representational State Transfer (REST)}
 \begin{sloppypar}
@@ -334,24 +323,15 @@ RPC
     keys in the server for signature verification.
 \end{sloppypar}
 
-
-
-
 \subsubsection{Event-Driven Communication}
 \begin{sloppypar}
     
 \end{sloppypar}
 
-
-
-
 \subsubsection{Effects on Confidentiality}
 \begin{sloppypar}
     
 \end{sloppypar}
-
-
-
 
 \subsubsection{Example case}
 \begin{sloppypar}
@@ -359,6 +339,7 @@ RPC
 \end{sloppypar}
 
 
+% --------------------------------------------------------------------
 
 
 \section{Integrity}
@@ -372,15 +353,20 @@ RPC
     TODO
 \end{sloppypar}
 
-
-
-
 \subsection{Introduction}
+\begin{sloppypar}
+
+\end{sloppypar}
+
 \subsection{Effects on Integrity}
+\begin{sloppypar}
+
+\end{sloppypar}
+
 \subsection{Example case}
+\begin{sloppypar}
 
-
-
+\end{sloppypar}
 
 \subsection{Threats}
 \begin{sloppypar}
@@ -388,6 +374,7 @@ RPC
 \end{sloppypar}
 
 
+% --------------------------------------------------------------------
 
 
 \section{Availability}
@@ -401,13 +388,10 @@ RPC
     D-o-S 
 \end{sloppypar}
 
-
-
 \subsection{Comparison}
 \begin{sloppypar}
     
 \end{sloppypar}
-
 
 \subsection{Introduction}
 \begin{sloppypar}
@@ -425,34 +409,33 @@ RPC
 \end{sloppypar}
 
 
+% --------------------------------------------------------------------
 
 
 \section{Other MSA specific security matters}
-
-
-
-
-\subsection{Platforms}
 \begin{sloppypar}
 
 \end{sloppypar}
 
-Docker Swarm
-Kubernetes (K8s)
-Azure
-
-sandbox
-virtualization 
+\subsection{Platforms}
+\begin{sloppypar}
+    Docker Swarm
+    Kubernetes (K8s)
+    Azure
+    
+    sandbox
+    virtualization 
+\end{sloppypar}
 
 \subsection{Monitoring and logging}
+\begin{sloppypar}
 
-
-
+\end{sloppypar}
 
 \subsection{Software Development}
+\begin{sloppypar}
 
-
-
+\end{sloppypar}
 
 \subsection{Deployment and Operation}
 \begin{sloppypar}
@@ -494,18 +477,12 @@ virtualization
     
 \end{sloppypar}
 
-
-
 \subsection{Service discovery}
 \begin{sloppypar}
     The MSA can have a service discovery service into which all available services 
     can register them selves.
-
     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
-
     https://www.consul.io
-
-
 \end{sloppypar}
 
 \subsection{Externalized configuration}
@@ -515,7 +492,8 @@ virtualization
     which services in their startup can load their appropriate configuration. 
     The configuration of the whole system can be easily maintained through the 
     API.
-
+\end{sloppypar}
+\begin{sloppypar}
     The contents of the configuration is highly sensitive information. It 
     consists of addressess, credentials and other information that alter 
     the behaviour of the system. Therefore, the content must be stored safely 
@@ -529,6 +507,10 @@ virtualization
 % --------------------------------------------------------------------
 
 \section{Conclusion}
+\begin{sloppypar}
+
+\end{sloppypar}
+
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
 % ``johtopäätöksiä''. Valitse se otsikko, joka tuntuu sopivammalta työsi
