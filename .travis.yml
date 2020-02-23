@@ -2,8 +2,8 @@
 
 install:
   - sudo apt-get install make
-    sudo apt install texlive-latex-base
-    sudo apt install pybtex
+  - sudo apt install texlive-latex-base
+  - sudo apt install pybtex
 before_script: cd $security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/
 script:
   - make
