@@ -1,8 +1,8 @@
 
 
-install:
-  - sudo apt install texlive-latex-base
-  - sudo apt install pybtex
+apt_packages:
+  - texlive-latex-base
+  - pybtex
 
 script:
   - cd TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle
