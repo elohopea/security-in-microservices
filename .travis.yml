@@ -7,6 +7,7 @@ apt_packages:
 script:
   - cd TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle
   - make clean
+  - rm -f main.pdf
   - make
 
 deploy:
