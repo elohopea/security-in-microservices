@@ -1,0 +1,22 @@
+
+
+apt_packages:
+  - texlive-latex-base
+  - pybtex
+before_script:
+  - apt-get update -qq && apt-get install -y -qq texlive-full
+script:
+  - cd TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle
+  - make clean
+  - rm -f main.pdf
+  - make
+
+deploy:
+    provider: pages
+    file: 
+    - "main.pdf"
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    on:
+      branch: master
