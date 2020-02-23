@@ -1,0 +1,14 @@
+
+
+before_install:
+    - sudo apt-get install make
+    before_script: cd $security-in-microservices/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/
+    script:
+      - make
+deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    keep_history: true
+    on:
+      branch: master
