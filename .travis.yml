@@ -3,7 +3,8 @@
 apt_packages:
   - texlive-latex-base
   - pybtex
-
+before_script:
+  - apt-get update -qq && apt-get install -y -qq texlive-full
 script:
   - cd TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle
   - make clean
