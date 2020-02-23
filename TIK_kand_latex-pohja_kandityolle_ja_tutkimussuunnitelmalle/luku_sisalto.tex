@@ -271,7 +271,8 @@ https://techbeacon.com/security/microservices-apps-do-identity-access-management
 \end{sloppypar}
 \begin{sloppypar}
     In MSA single services communicate via a network.
-    
+    TODO
+
     Next messaging systems list is from \citep{secchalmsa}:
 lightweight
 -
@@ -310,7 +311,7 @@ heavyweight
 
 \end{sloppypar}
 
-
+RPC
 
 
 \subsubsection{Representational State Transfer (REST)}
@@ -371,9 +372,20 @@ heavyweight
 \end{sloppypar}
 
 
+
+
 \subsection{Introduction}
 \subsection{Effects on Integrity}
 \subsection{Example case}
+
+
+
+
+\subsection{Threats}
+\begin{sloppypar}
+
+\end{sloppypar}
+
 
 
 
@@ -381,9 +393,6 @@ heavyweight
 \begin{sloppypar}
     Availability in this web service context is defined as such that the property or information 
     is available when it is needed.
-
-    
-    
 \end{sloppypar}
 
 \subsection{Possible Attacks}
@@ -418,6 +427,10 @@ heavyweight
 
 
 \section{Other MSA specific security matters}
+
+
+
+
 \subsection{Platforms}
 \begin{sloppypar}
 
@@ -432,8 +445,15 @@ virtualization
 
 \subsection{Monitoring and logging}
 
+
+
+
 \subsection{Software Development}
-\subsection{Deployment}
+
+
+
+
+\subsection{Deployment and Operation}
 \begin{sloppypar}
     Developing software using the MA the structure the whole application or service 
     is usually deployed as a whole and the program code can be compiled, tested 
@@ -441,6 +461,39 @@ virtualization
     implemented by using a MSA can be deployed in single microservice units and 
     thus a single service can be worked upon individually and deployed once ready.
 \end{sloppypar}
+\begin{sloppypar}
+    The immediacy in the deployment of the microservices entail a very specific 
+    security risk. In a paper \citet{integinside} present threats from malicious 
+    insiders working on the services as developers or other positions with access
+    to sensitive information. In microservice development the finished 
+    implementations are to be immediately released to production. There are few 
+    steps in the CD pipeline prior to this but once tests pass in the test 
+    environments the pipeline is supposed to publish the changes to the actual 
+    production environment. The paper presents four specific threats. The first 
+    one is that the knowledge of sensitive information is spread among the 
+    developers more widely than in MA. The developers need access to be able to 
+    produce working solutions. The second threat is that the insiders 
+    monitoring and operating the running system intentionally harm the system 
+    by making malicious changes. The third threat is the developers knowing the 
+    configurations and their ability to make almost instat changes to them or 
+    the microservices them selves. The last presented threat in the paper is the 
+    non-repudiation. The system is not able to dis-allow malicious requests 
+    when the developers have had access to the keys and other configurations. 
+    They can effectively implement services or requests that emit malicious 
+    requests or responds.
+\end{sloppypar}
+\begin{sloppypar}
+    Malicious attempts in a MA are more easily screened by performing security
+    audits and by peer reviewing the code. In a MSA the knowledge of a single 
+    service and it's inner workings are shared by a more limited number of people.
+    Finding the compromised actions from the interoperability of the distinct 
+    microservices is a daunting task.
+\end{sloppypar}
+\begin{sloppypar}
+    
+\end{sloppypar}
+
+
 
 \subsection{Service discovery}
 \begin{sloppypar}
