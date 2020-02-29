@@ -1,6 +1,41 @@
 
 
 % --------------------------------------------------------------------
+\section{Ideas}
+\begin{sloppypar}
+    In MA it is possible to implement features in such ways that a session can 
+    carry user information. This information can consist of granted roles and 
+    rights for the user. This session can be queried when e.g. access control 
+    is needed to execute an action or operation.
+\end{sloppypar}
+\begin{sloppypar}
+    Sessions can be used in MSA when the architecture has an API Gateway. The 
+    session is stored in the Gateway and a session key (?) is carried in the 
+    requests made by the client application. The API Gateway then verifies the
+    request and can grant access to specific service. Without the Gateway the
+    session would have to be either centrally maintained at a session service 
+    or be handeld by the client and passed along in the requests.
+\end{sloppypar}
+\begin{sloppypar}
+    Client handled session is easy to tamper with and has risks involved. The 
+    service would either have to trust the client offered session or verify a 
+    signature. In both of these cases the client application would have to be 
+    aware of the service and would be able to communicate with it directly. 
+    This would bring considerable overhead on all the services and a security 
+    risk.
+\end{sloppypar}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \section{Introduction}
