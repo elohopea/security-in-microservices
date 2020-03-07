@@ -1,7 +1,12 @@
 
 
 % --------------------------------------------------------------------
-\section{Ideas}
+\section{Paper is random rambling @ the moment}
+\begin{sloppypar}
+    This paper could be about authorization and the switch from MA to MSA.
+    The authorization can be designed and implemented in so many ways that
+    the paper should probably be narrowed down even further.
+\end{sloppypar}
 \begin{sloppypar}
     In MA it is possible to implement features in such ways that a session can 
     carry user information. This information can consist of granted roles and 
@@ -28,14 +33,20 @@
 \section{Comments}
 \begin{sloppypar}
     authentication, 
-    credential, 
+    credential
+\end{sloppypar}
+\begin{sloppypar}
     authorization, 
     access control, 
     policy decision point (PDP), 
     policy enforcement point (PEP), 
+    A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
+\end{sloppypar}
+\begin{sloppypar}
     session, 
-    token (JWT, OAuth 2.0). 
-    (API gateway, IdP) vs distribution
+    JSON Web Token (JWT) https://tools.ietf.org/html/rfc7519, 
+    token (JWT, OAuth 2.0), 
+    (API gateway, IdP) vs distribution 
 \end{sloppypar}
 \begin{sloppypar}
     Identity and Access Management (IAM),
@@ -49,15 +60,18 @@
     OpenId provider,
     OAuth,
     OpenId Connect (OIDC),
-\begin{sloppypar}
     Identity Management: Identification, Authentication, Authorization.
     \dots
 \end{sloppypar}
 
-\section{Possible new structure}
-\subsection{Identity management}
-
-
+\section{Java Script Object Notation Web Token (JWT)}
+\begin{sloppypar}
+    JWT is a format to represent claims. It is base64 encoded point separated 
+    strings which concatenated can easily be carried in the HTTP request or 
+    response. The contents is key value pairs and the token may or may not be 
+    signed and encrypted \citep{RFC7519}. The keys can contain authorization 
+    information as oppose to a session in the server side.
+\end{sloppypar}
 
 
 
@@ -84,7 +98,7 @@
     with the customer needs.
 \end{sloppypar}
 \begin{sloppypar}
-    Stackoverflow annual survey \citep{stackoverflowsurvey2019} conducted on 
+    Stackoverflow annual survey \citep{sosurvey2019} conducted on 
     developers finds that half of the respondents identified as full-stack or 
     backend developers. The professional developers had very little experience 
     and about 40\% of them had less than five years of professional experience. 
