@@ -1,4 +1,9 @@
-Links to background material:
+
+
+Sessions and Tokens:
+[Stop using JWT for sessions](http://cryto.net/~joepie91/blog/2016/06/13/stop-using-jwt-for-sessions/>)
+[Session Management with Microservices](https://sequoia.makes.software/session-management-with-microservices/)
+
 Wikipedia:
 [Microservices](https://en.wikipedia.org/wiki/Microservices)
 [Kubernetes (k8s)](https://en.wikipedia.org/wiki/Kubernetes)
@@ -15,3 +20,4 @@ Books:
 
 Information security:
 [Defining Information Security](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6450831/)
+
