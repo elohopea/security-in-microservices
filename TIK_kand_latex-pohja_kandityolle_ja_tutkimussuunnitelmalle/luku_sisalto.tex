@@ -1,81 +1,6 @@
 
 
 % --------------------------------------------------------------------
-\section{Paper is random rambling @ the moment}
-\begin{sloppypar}
-    This paper could be about authorization and the switch from MA to MSA.
-    The authorization can be designed and implemented in so many ways that
-    the paper should probably be narrowed down even further.
-\end{sloppypar}
-\begin{sloppypar}
-    In MA it is possible to implement features in such ways that a session can 
-    carry user information. This information can consist of granted roles and 
-    rights for the user. This session can be queried when e.g. access control 
-    is needed to execute an action or operation.
-\end{sloppypar}
-\begin{sloppypar}
-    Sessions can be used in MSA when the architecture has an API Gateway. The 
-    session is stored in the Gateway and a session key (?) is carried in the 
-    requests made by the client application. The API Gateway then verifies the
-    request and can grant access to specific service. Without the Gateway the
-    session would have to be either centrally maintained at a session service 
-    or be handeld by the client and passed along in the requests.
-\end{sloppypar}
-\begin{sloppypar}
-    Client handled session is easy to tamper with and has risks involved. The 
-    service would either have to trust the client offered session or verify a 
-    signature. In both of these cases the client application would have to be 
-    aware of the service and would be able to communicate with it directly. 
-    This would bring considerable overhead on all the services and a security 
-    risk.
-\end{sloppypar}
-
-\section{Comments}
-\begin{sloppypar}
-    authentication, 
-    credential
-\end{sloppypar}
-\begin{sloppypar}
-    authorization, 
-    access control, 
-    policy decision point (PDP), 
-    policy enforcement point (PEP), 
-    A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
-\end{sloppypar}
-\begin{sloppypar}
-    session, 
-    JSON Web Token (JWT) https://tools.ietf.org/html/rfc7519, 
-    token (JWT, OAuth 2.0), 
-    (API gateway, IdP) vs distribution 
-\end{sloppypar}
-\begin{sloppypar}
-    Identity and Access Management (IAM),
-    Identity federation, 
-    Azure Active Directory,
-    Active Directory Federation Services (ADFS),
-    Google, Facebook, Twitter, LinkedIn etc.,
-    Single-Sign-On (SSO),
-    Security Assertion Markup Language (SAML),
-    SAML identity provider,
-    OpenId provider,
-    OAuth,
-    OpenId Connect (OIDC),
-    Identity Management: Identification, Authentication, Authorization.
-    \dots
-\end{sloppypar}
-
-\section{Java Script Object Notation Web Token (JWT)}
-\begin{sloppypar}
-    JWT is a format to represent claims. It is base64 encoded point separated 
-    strings which concatenated can easily be carried in the HTTP request or 
-    response. The contents is key value pairs and the token may or may not be 
-    signed and encrypted \citep{RFC7519}. The keys can contain authorization 
-    information as oppose to a session in the server side.
-\end{sloppypar}
-
-
-
-
 \section{Introduction}
 \begin{sloppypar}
     In recent years the mobile app has revolutionized our daily lives. 
@@ -123,75 +48,19 @@
     differences between MA and MSA on back end security aspects are found.
 \end{sloppypar}
 \begin{sloppypar}
-    Chapter a. presents the definitions used in this thesis. 
-    Chapter b. discusses the Confidentiality aspect of a switch from MA to MSA. 
-    In chapter c. Integrity of the information is discussed in the context of 
-    MA and MSA. 
-    Chapter 5. presents Availability when changing from MA to MSA.
-    In Chapter 6. other relevat security aspects are presented.
-    Chapter 7. contains the conclusions and presents further research topics.
+    The first chapter discusses the \dots
+    The last chapter in the thesis contains the conclusions and presents further 
+    research to be conducted on the topic.
 \end{sloppypar}
+
 
 
 % --------------------------------------------------------------------
 
 
-\section{Definitions}
+\section{Monolith to Microservices}
 \begin{sloppypar}
-    This thesis uses the following definitions.
-\end{sloppypar}
-
-\subsection{Microservice}
-\begin{sloppypar}
-    MSA can be viewed as an extension of the service oriented 
-    architecture (SOA)\citep{newman2019,fowlerlewisms}. It's guiding principles are stated in the SOA manifesto 
-    \citep{soamanifesto} and one is to prioritize:
-    \begin{quotation}
-        \noindent \it
-        \begin{itemize}
-            \item Business value over technical strategy
-            \item Strategic goals over project-specific benefits 
-            \item Intrinsic interoperability over custom integration 
-            \item Shared services over specific-purpose implementations 
-            \item Flexibility over optimization 
-            \item Evolutionary refinement over pursuit of initial perfection
-        \end{itemize}
-    \end{quotation}
-\end{sloppypar}
-\begin{sloppypar}
-    A microservice is a service that: is independently deployable,
-    is modeled around business domain,
-    that owns the data that they need to operate,
-    that communicates via network,
-    is technology agnostic,
-    that encapsulates data storage and retrieval and 
-    that has stable interface \citep{newman2019}.
-\end{sloppypar}
-
-\subsection{Security}
-\begin{sloppypar}
-    Security can be defined in multiple ways but in this thesis security 
-    and more specifically information security is defined as consisting of 
-    Confidentiality, Integrity, and Availability (CIA) as is stated in the 
-    pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
-\end{sloppypar}
-\begin{sloppypar}
-    The ISO/IEC 27001 standard defines confidentiality as such that information 
-    or property is available to the authorized user only. The authorized users 
-    can consist of persons, processes or entities to whom the information or 
-    property can be disclosed. Integrity means that the data or property is 
-    safeguarded for accuracy and completeness. Availability in this web service
-    context is defined as such that the property or information is available 
-    when it is needed.
-\end{sloppypar}
-
-
-% --------------------------------------------------------------------
-
-
-\section{The Switch of Architectures}
-\begin{sloppypar}
-    To change the architecture from MA to MSA should be a gradual process. The 
+    To change the architecture from MA to MSA should in general be a gradual process. The 
     MA is or at least should be  split to modules with separation of concerns 
     \citep{secchalmsa}. The actual splitting of the monolith can be carried out
      in various ways. One of whic is DDD (SOURCE FOR THIS).
@@ -231,31 +100,6 @@
     be \citep{fowlerlewisms}.
 \end{sloppypar}
 
-
-% --------------------------------------------------------------------
-
-
-\section{Confidentiality}
-\begin{sloppypar}
-    Confidentiality in a web service is usually critical security feature. 
-    There are specific services which do not nead information confidentiality 
-    regarding some of the data such as public weather services and other similar data.
-    Some of the information is still regarded sensitive and must be kept confidential. 
-    These data can consists of personal, user, logs or other similar content.
-    Users should not be able to use or view content not authorized to him/her. 
-    To verify this a form of access control has to be performed. Access control 
-    consists of user authentication and authorization. A user has to 
-    authenticate him/her self and authorization is acquired to access to 
-    information or property.
-\end{sloppypar}
-\begin{sloppypar}
-    In an MA access control can be implemented using sessions. 
-    A user authenticates using appropriate channels and a session with a session key is created. 
-    The session can have an expiration time and the messages originating from 
-    the user interface (UI) carry this key. Sessions and session keys can be used 
-    in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
-\end{sloppypar}
-
 \subsection{Authentication}
 \begin{sloppypar}
     In these cases where the user has to be authenticated the web service needs 
@@ -275,7 +119,28 @@
     service implementation has to take this into account. The service has to 
     adhere to practices that minimize the risks of data breaches. 
 \end{sloppypar}
-    
+\begin{sloppypar}
+    session, 
+    JSON Web Token (JWT) https://tools.ietf.org/html/rfc7519, 
+    token (JWT, OAuth 2.0), 
+    (API gateway, IdP) vs distribution 
+\end{sloppypar}
+\begin{sloppypar}
+    Identity and Access Management (IAM),
+    Identity federation, 
+    Azure Active Directory,
+    Active Directory Federation Services (ADFS),
+    Google, Facebook, Twitter, LinkedIn etc.,
+    Single-Sign-On (SSO),
+    Security Assertion Markup Language (SAML),
+    SAML identity provider,
+    OpenId provider,
+    OAuth,
+    OpenId Connect (OIDC),
+    Identity Management: Identification, Authentication, Authorization.
+    \dots
+\end{sloppypar}
+
 \subsubsection{Attacks}
 \begin{sloppypar}
     Authentication can be attacked by a multitude of methods.     
@@ -307,6 +172,19 @@
     username or password to the site and see a result.
 \end{sloppypar}
 
+\subsubsection{Authentication in Monolith}
+\begin{sloppypar}
+    Discussion on various ways to execute authentication in MA. 
+\end{sloppypar}
+
+\subsubsection{Authentication in Microservice Architecture}
+\begin{sloppypar}
+\end{sloppypar}
+
+
+% --------------------------------------------------------------------
+
+
 \subsection{Authorization}
 \begin{sloppypar}
     Authorization of the user rights can be implemented in various ways. One of 
@@ -334,7 +212,37 @@
     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 \end{sloppypar}
 
-\subsection{Interaction Paradigms}
+\subsubsection{Authorization in Monolith}
+\begin{sloppypar}
+    In MA it is possible to implement features in such ways that a session can 
+    carry user information. This information can consist of granted roles and 
+    rights for the user. This session can be queried when e.g. access control 
+    is needed to execute an action or operation.
+\end{sloppypar}
+
+\subsubsection{Authorization in Microservice Architecture}
+
+
+% --------------------------------------------------------------------
+
+
+\subsection{Session}
+\subsubsection{Session in Monolith}
+\subsubsection{Session in Microservice Architecture}
+
+
+% --------------------------------------------------------------------
+
+
+\subsection{Cloud}
+\subsubsection{Monolith}
+\subsubsection{Microservices Architecture}
+
+
+% --------------------------------------------------------------------
+
+
+\subsection{Communication}
 \begin{sloppypar}
     As already discussed in an MA the service components can communicate using 
     events, procedure calls or other methods available within a single server 
@@ -398,88 +306,189 @@ heavyweight
 
 \subsubsection{Event-Driven Communication}
 \begin{sloppypar}
-    
-\end{sloppypar}
-
-\subsubsection{Effects on Confidentiality}
-\begin{sloppypar}
-    
-\end{sloppypar}
-
-\subsubsection{Example case}
-\begin{sloppypar}
-    
 \end{sloppypar}
 
 
 % --------------------------------------------------------------------
 
 
-\section{Integrity}
+
 \begin{sloppypar}
-    Information integrity in an MA web service is usually left to a single database 
-    and sound architectural choices (REALLY? SOURCE).
-    Transactions can be used when updating database constents to make sure that
-    atomicity, consistency, isolation, and durability (ACID) \citep{acid} is followed.
-    When using MSA according to the definition each of the micro services should contain 
-    or have access to it's own data i.e. database. This leads to extreme difficulties in information integrity.
-    TODO
+\end{sloppypar}
+\begin{sloppypar}
 \end{sloppypar}
 
-\subsection{Introduction}
-\begin{sloppypar}
+% \section{Random rambling}
+% \begin{sloppypar}
+%     This paper could be about authorization and the switch from MA to MSA.
+%     The authorization can be designed and implemented in so many ways that
+%     the paper should probably be narrowed down even further.
+% \end{sloppypar}
 
+% \begin{sloppypar}
+%     Sessions can be used in MSA when the architecture has an API Gateway. The 
+%     session is stored in the Gateway and a session key (?) is carried in the 
+%     requests made by the client application. The API Gateway then verifies the
+%     request and can grant access to specific service. Without the Gateway the
+%     session would have to be either centrally maintained at a session service 
+%     or be handeld by the client and passed along in the requests.
+% \end{sloppypar}
+% \begin{sloppypar}
+%     Client handled session is easy to tamper with and has risks involved. The 
+%     service would either have to trust the client offered session or verify a 
+%     signature. In both of these cases the client application would have to be 
+%     aware of the service and would be able to communicate with it directly. 
+%     This would bring considerable overhead on all the services and a security 
+%     risk.
+% \end{sloppypar}
+
+\section{Comments}
+\begin{sloppypar}
+    authentication, 
+    credential
+\end{sloppypar}
+\begin{sloppypar}
+    authorization, 
+    access control, 
+    policy decision point (PDP), 
+    policy enforcement point (PEP), 
+    A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
 \end{sloppypar}
 
-\subsection{Effects on Integrity}
-\begin{sloppypar}
 
+\section{Java Script Object Notation Web Token (JWT)}
+\begin{sloppypar}
+    JWT is a format to represent claims. It is base64 encoded point separated 
+    strings which concatenated can easily be carried in the HTTP request or 
+    response. The contents is key value pairs and the token may or may not be 
+    signed and encrypted \citep{RFC7519}. The keys can contain authorization 
+    information as oppose to a session in the server side.
 \end{sloppypar}
 
-\subsection{Example case}
-\begin{sloppypar}
 
-\end{sloppypar}
 
-\subsection{Threats}
-\begin{sloppypar}
 
-\end{sloppypar}
+
 
 
 % --------------------------------------------------------------------
 
 
-\section{Availability}
-\begin{sloppypar}
-    Availability in this web service context is defined as such that the property or information 
-    is available when it is needed.
-\end{sloppypar}
+% \section{Definitions}
+% \begin{sloppypar}
+%     This thesis uses the following definitions.
+% \end{sloppypar}
 
-\subsection{Possible Attacks}
-\begin{sloppypar}
-    D-o-S 
-\end{sloppypar}
+% \subsection{Microservice}
+% \begin{sloppypar}
+%     MSA can be viewed as an extension of the service oriented 
+%     architecture (SOA)\citep{newman2019,fowlerlewisms}. It's guiding principles are stated in the SOA manifesto 
+%     \citep{soamanifesto} and one is to prioritize:
+%     \begin{quotation}
+%         \noindent \it
+%         \begin{itemize}
+%             \item Business value over technical strategy
+%             \item Strategic goals over project-specific benefits 
+%             \item Intrinsic interoperability over custom integration 
+%             \item Shared services over specific-purpose implementations 
+%             \item Flexibility over optimization 
+%             \item Evolutionary refinement over pursuit of initial perfection
+%         \end{itemize}
+%     \end{quotation}
+% \end{sloppypar}
+% \begin{sloppypar}
+%     A microservice is a service that: is independently deployable,
+%     is modeled around business domain,
+%     that owns the data that they need to operate,
+%     that communicates via network,
+%     is technology agnostic,
+%     that encapsulates data storage and retrieval and 
+%     that has stable interface \citep{newman2019}.
+% \end{sloppypar}
 
-\subsection{Comparison}
-\begin{sloppypar}
+% \subsection{Security}
+% \begin{sloppypar}
+%     Security can be defined in multiple ways but in this thesis security 
+%     and more specifically information security is defined as consisting of 
+%     Confidentiality, Integrity, and Availability (CIA) as is stated in the 
+%     pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
+% \end{sloppypar}
+% \begin{sloppypar}
+%     The ISO/IEC 27001 standard defines confidentiality as such that information 
+%     or property is available to the authorized user only. The authorized users 
+%     can consist of persons, processes or entities to whom the information or 
+%     property can be disclosed. Integrity means that the data or property is 
+%     safeguarded for accuracy and completeness. Availability in this web service
+%     context is defined as such that the property or information is available 
+%     when it is needed.
+% \end{sloppypar}
+
+
+% --------------------------------------------------------------------
+
+
+
+
+
+% --------------------------------------------------------------------
+
+
+%\section{Confidentiality}
+%\begin{sloppypar}
+%     Confidentiality in a web service is usually critical security feature. 
+%     There are specific services which do not nead information confidentiality 
+%     regarding some of the data such as public weather services and other similar data.
+%     Some of the information is still regarded sensitive and must be kept confidential. 
+%     These data can consists of personal, user, logs or other similar content.
+%     Users should not be able to use or view content not authorized to him/her. 
+%     To verify this a form of access control has to be performed. Access control 
+%     consists of user authentication and authorization. A user has to 
+%     authenticate him/her self and authorization is acquired to access to 
+%     information or property.
+% \end{sloppypar}
+% \begin{sloppypar}
+%     In an MA access control can be implemented using sessions. 
+%     A user authenticates using appropriate channels and a session with a session key is created. 
+%     The session can have an expiration time and the messages originating from 
+%     the user interface (UI) carry this key. Sessions and session keys can be used 
+%     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
+% \end{sloppypar}
+
+
     
-\end{sloppypar}
 
-\subsection{Introduction}
-\begin{sloppypar}
 
-\end{sloppypar}
 
-\subsection{Effects on Availability}
-\begin{sloppypar}
 
-\end{sloppypar}
+% --------------------------------------------------------------------
 
-\subsection{Example case}
-\begin{sloppypar}
 
-\end{sloppypar}
+% \section{Integrity}
+% \begin{sloppypar}
+%     Information integrity in an MA web service is usually left to a single database 
+%     and sound architectural choices (REALLY? SOURCE).
+%     Transactions can be used when updating database constents to make sure that
+%     atomicity, consistency, isolation, and durability (ACID) \citep{acid} is followed.
+%     When using MSA according to the definition each of the micro services should contain 
+%     or have access to it's own data i.e. database. This leads to extreme difficulties in information integrity.
+%     TODO
+% \end{sloppypar}
+
+
+
+% --------------------------------------------------------------------
+
+
+% \section{Availability}
+% \begin{sloppypar}
+%     Availability in this web service context is defined as such that the property or information 
+%     is available when it is needed.
+% \end{sloppypar}
+
+% \subsection{Possible Attacks}
+% \begin{sloppypar}
+%     D-o-S 
+% \end{sloppypar}
 
 
 % --------------------------------------------------------------------
