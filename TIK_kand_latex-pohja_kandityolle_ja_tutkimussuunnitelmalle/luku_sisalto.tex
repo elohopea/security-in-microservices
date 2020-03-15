@@ -361,14 +361,33 @@ heavyweight
     JWT is a format to represent claims. It is base64 encoded point separated 
     strings which concatenated can easily be carried in the HTTP request or 
     response. The contents is key value pairs and the token may or may not be 
-    signed and encrypted \citep{RFC7519}. The keys can contain authorization 
-    information as oppose to a session in the server side.
+    signed and encrypted \citep{RFC7519}. The token may contain expiration time. 
+    If the token is used to validate requests without a server side implementation 
+    that can revoke a token it will be valid until this time.
 \end{sloppypar}
-
-
-
-
-
+\begin{sloppypar}
+    The JWT token is issued by an authority trusted by the service or services. 
+    The issuer has to sign the token for there to exist any real authoritative 
+    weight on it.
+\end{sloppypar}
+\begin{sloppypar}
+    The signing of JWT can be carried out in various ways. These are presented 
+    in the \citet{RFC7515}. The signature is computated using the algorithm and 
+    keys or certificates specified in the header values. When the token is 
+    signed using PKI private key it can be verified by all parties in 
+    possession of the public key. 
+\end{sloppypar}
+\begin{sloppypar}
+    The choices for signing algorithm for signing the JWT algorithm contain 
+    "none" as one of the choices. This was found to be troublesome by 
+    \citet{nonejwt}. He found that many libraries did not operate in desired 
+    way. The receiving party could be fooled to validate a mutated token without
+    any signature with the "none" as it's algorithm. In addition to this 
+    vulnerability \citet{nonejwt} found that the verification suffered from 
+    another fatal flaw. When a token was created by using a symmetric algorithm 
+    the servers could be fooled to believe that a token signed by just the 
+    public key and not the secret HMAC -key was a valid one.
+\end{sloppypar}
 
 
 % --------------------------------------------------------------------
