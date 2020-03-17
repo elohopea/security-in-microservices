@@ -83,9 +83,7 @@
 \begin{sloppypar}
     Communication using the network is extremely slow. In a paper \citet{webdelays} 
     studied the response times of web sites offered to the public. The websites 
-    response times where measured in seconds. In the paper a simplified model 
-    presented of the layered model of the communication (Figure 1).
-    \includegraphics[scale=0.5]{HTTPlayers}
+    response times where measured in seconds.
 \end{sloppypar}
 \begin{sloppypar}
     The requests sent to other microservices throught the network are extremely 
@@ -100,7 +98,7 @@
     be \citep{fowlerlewisms}.
 \end{sloppypar}
 
-\subsection{Authentication}
+\section{Authentication}
 \begin{sloppypar}
     In these cases where the user has to be authenticated the web service needs 
     a way to do this securily. Usually authentication is done using a tuple 
@@ -141,7 +139,41 @@
     \dots
 \end{sloppypar}
 
-\subsubsection{Attacks}
+\subsection{Java Script Object Notation Web Token (JWT)}
+\begin{sloppypar}
+    JWT is a format to represent claims. It is base64 encoded point separated 
+    strings which concatenated can easily be carried in the HTTP request or 
+    response. The contents is key value pairs and the token may or may not be 
+    signed and encrypted \citep{RFC7519}. The token may contain expiration time. 
+    If the token is used to validate requests without a server side implementation 
+    that can revoke a token it will be valid until this time.
+\end{sloppypar}
+\begin{sloppypar}
+    The JWT token is issued by an authority trusted by the service or services. 
+    The issuer has to sign the token for there to exist any real authoritative 
+    weight on it.
+\end{sloppypar}
+\begin{sloppypar}
+    The signing of JWT can be carried out in various ways. These are presented 
+    in the \citet{RFC7515}. The signature is computated using the algorithm and 
+    keys or certificates specified in the header values. When the token is 
+    signed using PKI private key it can be verified by all parties in 
+    possession of the public key. 
+\end{sloppypar}
+\begin{sloppypar}
+    The choices for signing algorithm for signing the JWT algorithm contain 
+    "none" as one of the choices. This was found to be troublesome by 
+    \citet{nonejwt}. He found that many libraries did not operate in desired 
+    way. The receiving party could be fooled to validate a mutated token without
+    any signature with the "none" as it's algorithm. In addition to this 
+    vulnerability \citet{nonejwt} found that the verification suffered from 
+    another fatal flaw. When a token was created by using a symmetric algorithm 
+    the servers could be fooled to believe that a token signed by just the 
+    public key and not the secret HMAC -key was a valid one.
+\end{sloppypar}
+
+
+\subsection{Attacks}
 \begin{sloppypar}
     Authentication can be attacked by a multitude of methods.     
     \begin{itemize}
@@ -172,7 +204,7 @@
     username or password to the site and see a result.
 \end{sloppypar}
 
-\subsubsection{Authentication in Monolith}
+\subsection{Authentication in Monolith}
 \begin{sloppypar}
     Discussion on various ways to execute authentication in MA. 
 \end{sloppypar}
@@ -185,7 +217,7 @@
 % --------------------------------------------------------------------
 
 
-\subsection{Authorization}
+\section{Authorization}
 \begin{sloppypar}
     Authorization of the user rights can be implemented in various ways. One of 
     which is an authorization service which can contain the access control 
@@ -212,7 +244,7 @@
     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 \end{sloppypar}
 
-\subsubsection{Authorization in Monolith}
+\subsection{Authorization in Monolith Architecture}
 \begin{sloppypar}
     In MA it is possible to implement features in such ways that a session can 
     carry user information. This information can consist of granted roles and 
@@ -220,35 +252,40 @@
     is needed to execute an action or operation.
 \end{sloppypar}
 
-\subsubsection{Authorization in Microservice Architecture}
+\subsection{Authorization in Microservice Architecture}
 
 
 % --------------------------------------------------------------------
 
 
-\subsection{Session}
-\subsubsection{Session in Monolith}
-\subsubsection{Session in Microservice Architecture}
+\section{Session}
+\subsection{Session in Monolith}
+\subsection{Session in Microservice Architecture}
 
 
 % --------------------------------------------------------------------
 
 
-\subsection{Cloud}
-\subsubsection{Monolith}
-\subsubsection{Microservices Architecture}
+\section{Cloud}
+\subsection{Monolith}
+\subsection{Microservices Architecture}
 
 
 % --------------------------------------------------------------------
 
 
-\subsection{Communication}
+\section{Communication}
 \begin{sloppypar}
     As already discussed in an MA the service components can communicate using 
     events, procedure calls or other methods available within a single server 
     machine. Usually all this communication stays within a single computer and 
     thus does not necessarily compromise confidentiality.
 \end{sloppypar}
+\begin{sloppypar}
+    Microservices can not trust any of the \citep{otterstad}
+\end{sloppypar}
+
+
 \begin{sloppypar}
     In MSA single services communicate via a network.
     TODO
@@ -284,7 +321,7 @@ heavyweight
     WebSocket
 \end{sloppypar}
 
-\subsubsection{Representational State Transfer (REST)}
+\subsection{Representational State Transfer (REST)}
 \begin{sloppypar}
     \citet{restroy} presented REST in 2000 and it has become very successfull. 
     The architectural style is was derived using various constraints one of 
@@ -304,15 +341,36 @@ heavyweight
     keys in the server for signature verification.
 \end{sloppypar}
 
-\subsubsection{Event-Driven Communication}
+\subsection{Event-Driven Communication}
 \begin{sloppypar}
+\end{sloppypar}
+
+\subsection{Coping With Failure in Communication}
+\begin{sloppypar}
+    \citet{DBLP:journals/corr/MontesiW16} present widely used design pattern for MSA.
+    The Circuit Breaker can be used to mitigate the very likely case that a 
+    microservice operates slower than the other services calling it and 
+    runs out ot resources to fulfill the requests in time. The circuit breaker
+    is either implemented in the microservices or as a proxy between the client 
+    and the microservice. When the microservice does not service requests as 
+    intended the circuit breaker is to trip and send a failure message to the 
+    clients immediately when requests are received thus allowing the 
+    microservice time to service the prior responses.
+\end{sloppypar}
+\begin{sloppypar}
+    The circuit breakers can prevent an application becoming completely 
+    unresponsive and crashing when a denial of service attack is carried out on 
+    the service.
 \end{sloppypar}
 
 
 % --------------------------------------------------------------------
 
 
-
+\section{Defence in depth}
+\begin{sloppypar}
+    Text on this paper \citep{defdepau}.
+\end{sloppypar}
 \begin{sloppypar}
 \end{sloppypar}
 \begin{sloppypar}
@@ -356,38 +414,6 @@ heavyweight
 \end{sloppypar}
 
 
-\section{Java Script Object Notation Web Token (JWT)}
-\begin{sloppypar}
-    JWT is a format to represent claims. It is base64 encoded point separated 
-    strings which concatenated can easily be carried in the HTTP request or 
-    response. The contents is key value pairs and the token may or may not be 
-    signed and encrypted \citep{RFC7519}. The token may contain expiration time. 
-    If the token is used to validate requests without a server side implementation 
-    that can revoke a token it will be valid until this time.
-\end{sloppypar}
-\begin{sloppypar}
-    The JWT token is issued by an authority trusted by the service or services. 
-    The issuer has to sign the token for there to exist any real authoritative 
-    weight on it.
-\end{sloppypar}
-\begin{sloppypar}
-    The signing of JWT can be carried out in various ways. These are presented 
-    in the \citet{RFC7515}. The signature is computated using the algorithm and 
-    keys or certificates specified in the header values. When the token is 
-    signed using PKI private key it can be verified by all parties in 
-    possession of the public key. 
-\end{sloppypar}
-\begin{sloppypar}
-    The choices for signing algorithm for signing the JWT algorithm contain 
-    "none" as one of the choices. This was found to be troublesome by 
-    \citet{nonejwt}. He found that many libraries did not operate in desired 
-    way. The receiving party could be fooled to validate a mutated token without
-    any signature with the "none" as it's algorithm. In addition to this 
-    vulnerability \citet{nonejwt} found that the verification suffered from 
-    another fatal flaw. When a token was created by using a symmetric algorithm 
-    the servers could be fooled to believe that a token signed by just the 
-    public key and not the secret HMAC -key was a valid one.
-\end{sloppypar}
 
 
 % --------------------------------------------------------------------
@@ -580,11 +606,19 @@ heavyweight
 
 \subsection{Service discovery}
 \begin{sloppypar}
-    The MSA can have a service discovery service into which all available services 
-    can register them selves.
+    Service discovery as presented in \citet{DBLP:journals/corr/MontesiW16} is a 
+    design pattern in which a registry is kept on currently running microservices. 
+    The microservices register them selves to the service discovery registry. 
+    This registry is used by either a router to route client service calls to 
+    running microservices or by the client directly.
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
     https://www.consul.io
 \end{sloppypar}
+
 
 \subsection{Externalized configuration}
 \begin{sloppypar}
