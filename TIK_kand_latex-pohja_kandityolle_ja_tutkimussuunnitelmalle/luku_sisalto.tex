@@ -3,12 +3,12 @@
 % --------------------------------------------------------------------
 \section{Introduction}
 \begin{sloppypar}
-    In recent years the mobile app has revolutionized our daily lives. 
-    These services have infiltrated social life, shopping and almost 
-    every aspect of our existence. The services and their apps compete of 
-    our time and markets are reinventing themselves constantly. The rapid 
-    expansion and at times even faster decline of these web services 
-    need a matching architecture to meet these very specific needs. 
+    In recent years the mobile applications have revolutionized our daily lives. 
+    These services have infiltrated social life, shopping and almost every 
+    aspect of our existence. The services and their apps compete of our time and
+    markets are reinventing themselves constantly. The rapid expansion and at 
+    times even faster decline of these web services need a matching architecture 
+    to meet these very specific needs. 
 \end{sloppypar}
 \begin{sloppypar}
     There are many web services already in use which have been designed and 
@@ -97,6 +97,23 @@
     of communication and the resulting system is not as performant as it could 
     be \citep{fowlerlewisms}.
 \end{sloppypar}
+
+\section{Security}
+\begin{sloppypar}
+    \citet{secconmsa} implemented a test system mimicking the MSA based Deutsche 
+    Bahn seat reservation system using MSA. The technologies used in the study 
+    were: Amazon Web services as the deployment platform, Elastic Compute Clouds 
+    running on Kubernetes nodes, and Docker for containers in which the actual 
+    services were run. They found out that the cloud-based infrastructure when 
+    used in MSA resulted in a more complex solution than in MA. The complexity 
+    in modern software systems is inherent. Implementing security is very 
+    difficult and resource intensive. The rewards from a good security are 
+    invisible. When microservices are implemented or even planned the security 
+    should be taken into account as early as possible due to the fact that 
+    implementation later on the projject or as an after thought is can be more 
+    expensive and very difficult.
+\end{sloppypar}
+
 
 \section{Authentication}
 \begin{sloppypar}
