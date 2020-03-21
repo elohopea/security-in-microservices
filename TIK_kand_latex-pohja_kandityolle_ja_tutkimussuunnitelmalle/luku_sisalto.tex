@@ -23,6 +23,17 @@
     with the customer needs.
 \end{sloppypar}
 \begin{sloppypar}
+    When new development is carried out by a startup the initial architecture 
+    might still be a monolith one. \citet{newman2019} states that due to limited 
+    resources a monolith might be a better fit to these companies trying to 
+    navigate to the actual product they are to offer. In the case of success 
+    the need to rapidly scale the offering emerges. \citet{newman2019} refers 
+    to these companies as "scale-ups". \citet{newman2019} also states that it 
+    is much easier to refactor an existing service than to create a new one and
+    thus the need to split monoliths to microservices is and probably will be 
+    relevant to the near future.
+\end{sloppypar}
+\begin{sloppypar}
     Stackoverflow annual survey \citep{sosurvey2019} conducted on 
     developers finds that half of the respondents identified as full-stack or 
     backend developers. The professional developers had very little experience 
@@ -45,7 +56,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     In this thesis the MSA and security literature is evaluated and the main 
-    differences between MA and MSA on back end security aspects are found.
+    differences between MA and MSA on security aspects are found.
 \end{sloppypar}
 \begin{sloppypar}
     The first chapter discusses the \dots
@@ -663,13 +674,41 @@ heavyweight
 
 \section{Conclusion}
 \begin{sloppypar}
-    In MSA a lot more moving parts than in MA.
-    Complexity in the overall deployment -> more things to configure incorrectly.
+    This paper discussed the security aspects of changing the architecture from MA to MSA.
+\end{sloppypar}
+\begin{sloppypar}
+    In MSA there are more things to go wrong than in MA. The deployment 
+    necetitates installing: virtualization, monitoring, and a plethora of other
+    tools. In some cases these tools might not even exist and they have to 
+    implemented by inhouse developers and thus more costs are incurred upfront 
+    and also in the upkeep of the system. In addition to being more costly own 
+    development has higher risks involved.
+\end{sloppypar}
+\begin{sloppypar}
+    MSA has higher complexity due to more tools needed and having more potentially 
+    exposed attack surface. Security can be though of as being as good as it's 
+    weakest link. In general a MSA deployment has multiple layers which all 
+    have to be consistent and correct. One example being the configurations of 
+    a system from the operating system on the server running the virtualization 
+    environment. All of the layers from the server hardware to the handling of 
+    errors in the actual code have to be of ample quality to mitigate a failure in 
+    security.
+\end{sloppypar}
+\begin{sloppypar}
     Communication from inprocess to networking -> completely different ball game.
     Security in depth imperative. Zero trust.
 \end{sloppypar}
-
-
+\begin{sloppypar}
+    Security has to be taken into account right from the beginning of the 
+    project to change the architecture. The choices made in the development of 
+    the web service when following a MA do not carry to the MSA as such.
+\end{sloppypar}
+\begin{sloppypar}
+    Future research\dots
+\end{sloppypar}
+\begin{sloppypar}
+    The research carried out\dots
+\end{sloppypar}
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
 % ``johtopäätöksiä''. Valitse se otsikko, joka tuntuu sopivammalta työsi
 % luonteeseen. Joka tapauksessa loppuluku sisältää niin työn yhteenvedon
