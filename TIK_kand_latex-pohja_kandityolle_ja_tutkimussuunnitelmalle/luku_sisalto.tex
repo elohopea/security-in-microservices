@@ -88,12 +88,24 @@
     \caption{Microservice Architecture \citep{10.1007/978-3-319-74433-9_3}}
 \end{figure}
 
+\begin{sloppypar}
+    The previous architectury presents many challenges of which one is the 
+    challenging security implementation. Every microservice accessible to the 
+    client can also be accessed or contacetd by other more malicious parties. 
+    One solution is the addition of API Gateway to the architecture. One 
+    elaboration on this is in \citet{DBLP:journals/corr/MontesiW16}. In the 
+    paper an API Gateway desing pattern is presented. In this pattern there 
+    exists only one web service accessible by clients. The API Gateway allows 
+    for a natural place for an Policy Enforcement Point (PEP) and other more 
+    MSA specific features such as service discovery. The API Gateway is a 
+    critical component and the security features can to some extent be 
+    implemented atleast initially only there.
+\end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA_API_GATEWAY.png}}
     \centering
     \caption{Microservice Architecture With API Gateway}
 \end{figure}
-
 
 \section{Changing the architecture}
 \begin{sloppypar}
