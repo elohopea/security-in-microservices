@@ -34,6 +34,13 @@
     relevant to the near future.
 \end{sloppypar}
 \begin{sloppypar}
+    \citet{10.1007/978-3-319-74433-9_3} finds that as the codebase becomes large 
+    the MA leads to slower development. This is due to the possible complexity
+    inherint in the entwined monolith. The number of placess to refactor is much 
+    larger than in a small microservice. Microservice should do one thing and as 
+    such it should be more understandable.
+\end{sloppypar} 
+\begin{sloppypar}
     Stackoverflow annual survey \citep{sosurvey2019} conducted on 
     developers finds that half of the respondents identified as full-stack or 
     backend developers. The professional developers had very little experience 
@@ -61,7 +68,7 @@
 \begin{sloppypar}
     The first chapter discusses the \dots
     The last chapter in the thesis contains the conclusions and presents further 
-    research to be conducted on the topic.
+    research topics.
 \end{sloppypar}
 
 
@@ -69,7 +76,21 @@
 % --------------------------------------------------------------------
 
 
-\section{Monolith to Microservices}
+\section{Monolith}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{monolith_architecture.png}}
+    \centering
+    \caption{Traditional Monolithic Architecture \citep{10.1007/978-3-319-74433-9_3}}
+\end{figure}
+
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{MSA.png}}
+    \centering
+    \caption{Microservice Architecture \citep{10.1007/978-3-319-74433-9_3}}
+\end{figure}
+
+
+\section{Changing the architecture}
 \begin{sloppypar}
     To change the architecture from MA to MSA should in general be a gradual process. The 
     MA is or at least should be  split to modules with separation of concerns 
@@ -111,9 +132,9 @@
 
 \section{Security}
 \begin{sloppypar}
-    \citet{secconmsa} implemented a test system mimicking the MSA based Deutsche 
-    Bahn seat reservation system using MSA. The technologies used in the study 
-    were: Amazon Web services as the deployment platform, Elastic Compute Clouds 
+    \citet{secconmsa} implemented a test system mimicking the Deutsche Bahn 
+    seat reservation system using MSA. The technologies used in the study were: 
+    Amazon Web services as the deployment platform, Elastic Compute Clouds 
     running on Kubernetes nodes, and Docker for containers in which the actual 
     services were run. They found out that the cloud-based infrastructure when 
     used in MSA resulted in a more complex solution than in MA. The complexity 
@@ -304,6 +325,26 @@
 
 % --------------------------------------------------------------------
 
+\section{Monitoring}
+\subsection{Monolith}
+\subsection{Microservices Architecture}
+
+
+% --------------------------------------------------------------------
+
+\section{Logging}
+\subsection{Monolith}
+\subsection{Microservices Architecture}
+
+
+% --------------------------------------------------------------------
+
+\section{Fault Tolerance}
+\subsection{Monolith}
+\subsection{Microservices Architecture}
+
+
+% --------------------------------------------------------------------
 
 \section{Communication}
 \begin{sloppypar}
@@ -400,7 +441,12 @@ heavyweight
 
 \section{Defence in depth}
 \begin{sloppypar}
-    Text on this paper \citep{defdepau}.
+    \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
+    perimeter defence -> neglect security of individual microservices.
+    
+
+
+
 \end{sloppypar}
 \begin{sloppypar}
 \end{sloppypar}
