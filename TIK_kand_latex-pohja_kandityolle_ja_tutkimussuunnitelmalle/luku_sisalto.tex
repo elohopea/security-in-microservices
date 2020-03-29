@@ -135,10 +135,13 @@
     To change the architecture of an already deployed service from MA to MSA 
     should be a gradual process. This ensures a smoother transition and minimizes 
     outages to the customers using the service. In every case though this is not 
-    possible.
+    possible. \citet{newman2019} states that when a monolithic application is 
+    implemented following a desing patterns such as the MVC \citep{trygvemvc} 
+    this can lead to difficulties in the refactoring. The codebase is not split 
+    according to business domain but to a rigid design pattern.
 \end{sloppypar}
 \begin{sloppypar}
-    The MA is or at least should be split in to modules with separation of 
+    In order for the process to be as simple as possible the MA is or at least should be split into modules with separation of 
     concerns \citep{secchalmsa}. The actual splitting of the monolith can be 
     carried out in various ways. One of which is Domain Driven Design 
     \citep{newman2019}.
@@ -384,6 +387,11 @@
     machine. Usually all this communication stays within a single computer and 
     thus does not necessarily compromise confidentiality.
 \end{sloppypar}
+\begin{sloppypar}
+    
+\end{sloppypar}
+
+
 % \begin{sloppypar}
 %     Microservices can not trust any of the \citep{otterstad}
 % \end{sloppypar}
