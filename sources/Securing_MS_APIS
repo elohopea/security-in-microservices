@@ -1,0 +1,70 @@
+
+Securing Microservice APIs by Scott Morrison; Matt McLarty; Rob Wilson Published by O'Reilly Media, Inc., 2018 
+
+CH1
+MS =
+Service orientation
+Independent deployability and manageability
+Ephemerality and elasticity (instances short lived, multiple instances of single service, dynamic)
+Web API communication
+Container based deployments
+12 -factor app/MSA
+API Endpoint
+API Intermediary (proxy, gateway etc.)
+Service instance
+"IAAA" - Identification, Access control, Authorization, Accountability or Auditing
+Management automation - machine accessible interfaces
+Performance - processing latency of each component
+Usability for developers
+
+CH2
+OAuth, OpenID
+Trust
+Compromise
+Network-level controls - control access to the network. Difficult to maintain. Catastrophic failure if compromised.
+	Localhost Isolation
+	Network Segmentation
+	SSL/TLS - all APIs should use SSL/TLS everywhere.
+	The Secure Production Identity Framework For Everyone (SPIFFE)
+	X509
+	SPIFFE Verifiable Identity Documents (SVID's)
+Application-Level Controls
+	security tokens - trusted third party issues, Shared secret or public-key cryptography
+	SAML - federation - XML SOAP - horrid
+ 	modern tokens - json
+	API keys - embedded in application code - unsafe - identify app not user
+	OAuth 2.0 - secure authorization framework
+	OpenID Connect - Authentication layer on top of OAuth - issues and ID token
+	Opaque vs transparent tokens
+	JWT
+	Attribute Based Access Control (ABAC)
+	JWT Session - bad
+	JOSE - Issues
+Infrastructure
+	Proxy/Gateway
+	Runtime Sercive Discovery
+	Network Overlay - for cloud infra
+	PaaS
+	Kubernetes - platform for run time container management cluster-node-pod-container
+	Cloud Foundry
+	AWS - IaaS -proprietary AWS IAM etc.
+Emerging Approaches
+	fads
+	Abstraction 
+	Platforms
+	Open Policy Agent (OPA)
+	Service Mesh - e.g. Istio
+	Serverless Computing - e.g. AWS Lambda
+	
+	
+
+
+
+
+	
+
+
+
+
+
+
