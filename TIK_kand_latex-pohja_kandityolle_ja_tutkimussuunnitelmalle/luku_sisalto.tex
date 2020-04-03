@@ -77,7 +77,7 @@
 
 \section{Architectural Comparison}
 \begin{figure}[h]
-    \includegraphics[scale=0.75]{{monolith_architecture.png}}
+    \includegraphics[scale=0.75]{{monolith_architectur.png}}
     \centering
     \caption{Traditional Monolithic Architecture \citep{10.1007/978-3-319-74433-9_3}}
     \label{fig:monolith}
@@ -151,7 +151,7 @@
     stackframe creation in the call stack, execution of the function code, and 
     finally popping the stackframe and returning the result. Compilers can 
     optimize the code further and inline the function calls to eliminate the 
-    stackframe creation and the following procedures. 
+    stackframe creation and the following procedures.
 \end{sloppypar}
 \begin{sloppypar}    
     Communication using the network is extremely slow compared to local 
@@ -194,14 +194,14 @@
     \citet{andersson2001information}. His main finding was that an attacker has 
     an advantage over the developers trying to defend a system. For the system 
     to be secure the defending developers have to find all of the bugs where as 
-    an attacker has to find only one.
+    the attacker has to find only one.
 \end{sloppypar}
 
 
 % --------------------------------------------------------------------
 
 
-\section{Authentication}
+\section{Authentication and Authorization}
 \begin{sloppypar}
     In the cases where the user has to be authenticated, the web service needs 
     a way to do this securily. Usually authentication is done using a tuple 
@@ -221,7 +221,7 @@
     adhere to practices that minimize the risks of data breaches. 
 \end{sloppypar}
 \begin{sloppypar}
-    As has been mentioned previously implementing securoty is hard and resource 
+    As has been mentioned previously implementing security is hard and resource 
     intensive. Therefore, the authentication implementation should adhere to an 
     already existing framework or an another entity providing the 
     authentication. This is the case for both the MA and MSA. The available 
@@ -229,7 +229,56 @@
     Connect (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
 \end{sloppypar}
 
+\subsection{Authentication and Authorization in MA}
+\begin{sloppypar}
+    In MA, it is possible to implement features in such ways that a session can 
+    carry user information. This information can consist of the granted roles 
+    and rights for the user. This session can be queried when access control is 
+    needed to execute an action or operation or a specific authorization 
+    service or module can exist. An example of an web service implemented in MA 
+    is presented in figure \ref{fig:MA_AUTH}. The user accessing the web service
+    sends a request to load balancer which has all the information on the 
+    currently operational services. Each of the services is a single process in 
+    which an authentication and authentication service are present. When a user 
+    is first accessing the service credentials are to be verified and in a 
+    succesful case a session is created for the process. 
+\end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.70]{{MA_AUTH.png}}
+    \centering
+    \caption{Traditional load balanced MA web service \citep{authinmsa}}
+    \label{fig:MA_AUTH}
+\end{figure}
+
 % --------------------------------------------------------------------
+\begin{sloppypar}
+    Authorization of the user rights can be implemented in various ways. One of 
+    which is an authorization service which can contain the access control 
+    matrix. Services being accessed verify from the authorization service that 
+    the client user or the role that the user has can access the requested 
+    service or functionality. In MA, the access rights to functionality can 
+    be implemented using annotations within the source code. The authorization 
+    is verified in memory and without any communication over the network. 
+\end{sloppypar}
+\begin{sloppypar}
+    In MSA accessing the access control matrix or matrices is not as easy as it 
+    is in MA. In order to verify that a specific right exists, the service would 
+    have communication with the authorization service. This communication would 
+    need to happen every time a user tries to access a functionality with 
+    access restrictions. This could potentially lead to extremely lively 
+    communication from all the services forming a bottleneck at to the 
+    authorization service. An example of such architecture is presented in 
+    figure \ref{fig:MSA_AUTH_SERVICE}
+\end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{MSA_AUTH_SERVICE.png}}
+    \centering
+    \caption{MSA authorization service \citep{authinmsa}}
+    \label{fig:MSA_AUTH_SERVICE}
+\end{figure}
+
+
+
 
 \subsection{OIDC}
 \begin{sloppypar}
@@ -253,36 +302,20 @@
     claims to the client application. 
 \end{sloppypar}
 
-\section{Authorization}
-\begin{sloppypar}
-    Authorization of the user rights can be implemented in various ways. One of 
-    which is an authorization service which can contain the access control 
-    matrix. Services being accessed verify from the authorization service that 
-    the client user or the role that the user has can access the requested 
-    service or functionality. In MA, the access rights to functionality can 
-    be implemented using annotations within the source code. The authorization 
-    is verified in memory and without any communication over the network. 
-\end{sloppypar}
-\begin{sloppypar}
-    In MSA accessing the access control matrix or matrices is not as easy as it 
-    is in MA. In order to verify that a specific right exists, the service would 
-    have communication with the authorization service. This communication would 
-    need to happen every time a user tries to access a functionality with 
-    access restrictions. This could potentially lead to extremely lively 
-    communication from all the services forming a bottleneck at to the 
-    authorization service.
-\end{sloppypar}
+% \section{Authorization}
+
+
+
+
+
+
+
+
 % \begin{sloppypar}
 %     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 % \end{sloppypar}
 
-\subsection{Authorization in Monolith Architecture}
-\begin{sloppypar}
-    In MA, it is possible to implement features in such ways that a session can 
-    carry user information. This information can consist of the granted roles 
-    and rights for the user. This session can be queried when access control is 
-    needed to execute an action or operation.
-\end{sloppypar}
+
 % \begin{sloppypar}
 %     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
 % \end{sloppypar}
@@ -305,8 +338,18 @@
     encrypted \citep{RFC7519}. The token may contain an expiration time. If the 
     token is used to validate requests without a server side implementation 
     that can revoke a token, it will be valid until this time. The JWT token is 
-    issued by an authority trusted by the service.
+    issued by an authority trusted by the service. In figure 
+    \ref{fig:TOKEN_AUTH} a basic bearer token based authentication and 
+    authorization is depicted. A client initially enters credentials to a login 
+    page and the authorization service issues a token for the user. This token
+    is used in place of the credentials to access restricted resources.
 \end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{TOKEN_AUTH.png}}
+    \centering
+    \caption{Bearer token based authentication \citep{authinmsa}}
+    \label{fig:TOKEN_AUTH}
+\end{figure}
 \begin{sloppypar}
     The signing of JWT can be carried out in various ways. These are presented 
     in the \citet{RFC7515}. The signature is computed using the algorithm and 
@@ -330,6 +373,34 @@
     one.
 \end{sloppypar}
 
+\subsection{Opaque Token}
+\begin{sloppypar}
+    \citet{authinmsa} compared several authentication and authorization 
+    solutions. One of the solutions discussed in the paper was the usage of an 
+    opaque access token for the client and API Gateway communication and map 
+    an Opaque token to JWT in the API Gateway. This would be used in all other 
+    communication as the means to autenticate and authorize the user. The main 
+    problem the opaque token is said to solve is the logout problem. A bearer 
+    token is valid until expiration and the client can not invalidate the 
+    token. The opaque token flow is presented in figure 
+    \ref{fig:OPAQUE_TOKEN_API_GATEWAY}.
+\end{sloppypar}
+\begin{sloppypar}
+    The use of two tokens has many advantages. The token granted to the client 
+    allows access only to the API Gateway. This token can not be used to access 
+    the services directly. Furthermore, the opaque token be can revoked by 
+    simply removing it from the storage for the token pairs. The usage of an 
+    internal JWT can alleviate some of the issues when MA is to be changed to 
+    MSA. Though not advisable, the JWT can carry session information and the 
+    whole session. This allows for more of the previous MA implementation to be 
+    used without as many changes.
+\end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{OPAQUE_TOKEN_API_GATEWAY.png}}
+    \centering
+    \caption{API Gateway and opaque token \citep{authinmsa}}
+    \label{fig:OPAQUE_TOKEN_API_GATEWAY}
+\end{figure}
 
 % \subsection{Attacks}
 % \begin{sloppypar}
