@@ -243,34 +243,55 @@
     \label{fig:oidcflow}
 \end{figure}
 \begin{sloppypar}
-    OIDC flow is presented in figure \ref{fig:oidcflow}. The process flow steps 
-    are: the client application requests an authentication from the identity 
-    provider, the end user is authenticated and authorization is obtained, the 
-    indetity provider responds to the initial authentication request by sending 
-    ID token and a possible access token, the client application can request 
-    the end user claims from the authorization server with the access token, 
-    and finally the authorization service returns the claims to the client 
-    application.
+    An example of an OIDC flow is presented in figure \ref{fig:oidcflow}. The 
+    process flow steps are: the client application requests an authentication 
+    from the identity provider, the end user is authenticated and authorization 
+    is obtained, the indetity provider responds to the initial authentication 
+    request by sending ID token and a possible access token, the client 
+    application can request the end user claims from the authorization server 
+    with the access token, and finally the authorization service returns the 
+    claims to the client application. 
 \end{sloppypar}
 
-
+\section{Authorization}
+\begin{sloppypar}
+    Authorization of the user rights can be implemented in various ways. One of 
+    which is an authorization service which can contain the access control 
+    matrix. Services being accessed verify from the authorization service that 
+    the client user or the role that the user has can access the requested 
+    service or functionality. In MA, the access rights to functionality can 
+    be implemented using annotations within the source code. The authorization 
+    is verified in memory and without any communication over the network. 
+\end{sloppypar}
+\begin{sloppypar}
+    In MSA accessing the access control matrix or matrices is not as easy as it 
+    is in MA. In order to verify that a specific right exists, the service would 
+    have communication with the authorization service. This communication would 
+    need to happen every time a user tries to access a functionality with 
+    access restrictions. This could potentially lead to extremely lively 
+    communication from all the services forming a bottleneck at to the 
+    authorization service.
+\end{sloppypar}
 % \begin{sloppypar}
-%     session, 
-%     JSON Web Token (JWT) https://tools.ietf.org/html/rfc7519, 
-%     token (JWT, OAuth 2.0), 
-%     (API gateway, IdP) vs distribution 
+%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
+% \end{sloppypar}
+
+\subsection{Authorization in Monolith Architecture}
+\begin{sloppypar}
+    In MA, it is possible to implement features in such ways that a session can 
+    carry user information. This information can consist of the granted roles 
+    and rights for the user. This session can be queried when access control is 
+    needed to execute an action or operation.
+\end{sloppypar}
+% \begin{sloppypar}
+%     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
 % \end{sloppypar}
 % \begin{sloppypar}
 %     Identity and Access Management (IAM),
-%     Identity federation, 
-%     Azure Active Directory,
-%     Active Directory Federation Services (ADFS),
+%     Identity federation, Azure Active Directory, Active Directory Federation Services (ADFS),
 %     Google, Facebook, Twitter, LinkedIn etc.,
-%     Single-Sign-On (SSO),
-%     Security Assertion Markup Language (SAML),
-%     SAML identity provider,
-%     OpenId provider,
-%     OAuth,
+%     Single-Sign-On (SSO), Security Assertion Markup Language (SAML),
+%     SAML identity provider, OpenId provider, OAuth 2.0,
 %     OpenId Connect (OIDC),
 %     Identity Management: Identification, Authentication, Authorization.
 %     \dots
@@ -295,7 +316,7 @@
 \end{sloppypar}
 
 
-\subsubsection{Known Vulmerabilities}
+\subsubsection{Known Vulnerabilities}
 \begin{sloppypar}
     The choices for the algorithm for signing the JWT algorithm contain 
     "none" as one of the choices. This was found to be troublesome by 
@@ -352,36 +373,7 @@
 % -----------------------------------------------------------------------------
 
 
-\section{Authorization}
-\begin{sloppypar}
-    Authorization of the user rights can be implemented in various ways. One of 
-    which is an authorization service which can contain the access control 
-    matrix. Services being accessed verify from the authorization service that 
-    the client user or the role that the user has can access the requested 
-    service or functionality. In MA, the access rights to functionality can 
-    be implemented using annotations within the source code. The authorization 
-    is verified in memory and without any communication over the network. 
-\end{sloppypar}
-\begin{sloppypar}
-    In MSA accessing the access control matrix or matrices is not as easy as it 
-    is in MA. In order to verify that a specific right exists, the service would 
-    have communication with the authorization service. This communication would 
-    need to happen every time a user tries to access a functionality with 
-    access restrictions. This could potentially lead to extremely lively 
-    communication from all the services forming a bottleneck at to the 
-    authorization service.
-\end{sloppypar}
-% \begin{sloppypar}
-%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
-% \end{sloppypar}
 
-\subsection{Authorization in Monolith Architecture}
-\begin{sloppypar}
-    In MA, it is possible to implement features in such ways that a session can 
-    carry user information. This information can consist of the granted roles 
-    and rights for the user. This session can be queried when access control is 
-    needed to execute an action or operation.
-\end{sloppypar}
 
 % \subsection{Authorization in Microservice Architecture}
 % % --------------------------------------------------------------------
@@ -413,8 +405,7 @@
     As already explained, in MA, the service components can communicate using 
     events, procedure calls or other methods available within a single server 
     machine. Usually all this communication stays within a single computer and 
-    thus does not eas
-    ily compromise confidentiality.
+    thus does not easily compromise confidentiality.
 \end{sloppypar}
 \begin{sloppypar}
     
