@@ -63,7 +63,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     In this thesis, the MSA and related security literature is surveyed and the 
-    main differences between MA and MSA on security aspects are discussed.
+    main differences between MA and MSA on security aspects are discussed. 
 \end{sloppypar}
 \begin{sloppypar}
     The first chapter discusses the \dots
@@ -165,7 +165,7 @@
 
 \section{Security}
 \begin{sloppypar}
-    \citet{secconmsa} implemented a test system mimicking the Deutsche Bahn 
+    \citet{closer18} implemented a test system mimicking the Deutsche Bahn 
     seat reservation system using MSA. The purpose of the test system was to
     analyze security risks that were introduced by the implementation. In the 
     study they categorized the solution to three layers: first of which was the 
@@ -179,8 +179,15 @@
     security is very difficult and resource intensive. The rewards from a good 
     security are invisible. When microservices are implemented or even planned 
     the security should be taken into account as early as possible. 
-    Implementing security later in the project or as an after thought is can be 
+    Implementing security later in the project or as an after thought can be 
     more expensive and very difficult.
+\end{sloppypar}
+\begin{sloppypar}
+    Implementing security is hard. A theoretical proof for this can be found in 
+    \citet{andersson2001information}. His main finding was that an attacker has 
+    an advantage over the developers trying to defend a system. For the system 
+    to be secure the defending developers have to find all of the bugs where as 
+    an attacker has to find only one.
 \end{sloppypar}
 
 \section{Authentication}
@@ -202,6 +209,19 @@
     service implementation has to take this into account. The service has to 
     adhere to practices that minimize the risks of data breaches. 
 \end{sloppypar}
+\begin{sloppypar}
+    As has been mentioned previously implementing securoty is hard and resource 
+    intensive. Therefore, the authentication implementation should adhere to an 
+    already existing framework or an another entity providing the 
+    authentication. This is the case for both the MA and MSA. The available 
+    choices include Lightweight Directory Access Protocol (LDAP), OpenID Connect 
+    (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
+\end{sloppypar}
+
+\subsection{OIDC}
+\begin{sloppypar}
+\end{sloppypar}
+
 
 % \begin{sloppypar}
 %     session, 
