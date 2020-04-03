@@ -72,7 +72,6 @@
 \end{sloppypar}
 
 
-
 % --------------------------------------------------------------------
 
 
@@ -119,9 +118,13 @@
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA_API_GATEWAY.png}}
     \centering
-    \caption{Microservice Architecture With API Gateway}
+    \caption{Microservice Architecture With API Gateway \citep{oidcflow}}
     \label{fig:microserviceapigateway}
 \end{figure}
+
+
+% --------------------------------------------------------------------
+
 
 \section{Changing the architecture}
 \begin{sloppypar}
@@ -163,6 +166,10 @@
     would not be as performant \citep{fowlerlewisms}.
 \end{sloppypar}
 
+
+% --------------------------------------------------------------------
+
+
 \section{Security}
 \begin{sloppypar}
     \citet{closer18} implemented a test system mimicking the Deutsche Bahn 
@@ -190,6 +197,10 @@
     an attacker has to find only one.
 \end{sloppypar}
 
+
+% --------------------------------------------------------------------
+
+
 \section{Authentication}
 \begin{sloppypar}
     In the cases where the user has to be authenticated, the web service needs 
@@ -201,9 +212,9 @@
     misuse the credentials.
 \end{sloppypar}
 \begin{sloppypar}
-    The credential counterparts i.e. the secret shared by the server and the user 
-    have to be available for the web service for verification. When using MSA, 
-    the service should own it's own data. When ever information is 
+    The credential counterparts i.e. the secret shared by the server and the 
+    user have to be available for the web service for verification. When using 
+    MSA, the service should own it's own data. When ever information is 
     available it is a target for thieves and hackers. The services in MSA are 
     to be individually deployable and the service scalable. Authentication 
     service implementation has to take this into account. The service has to 
@@ -214,12 +225,32 @@
     intensive. Therefore, the authentication implementation should adhere to an 
     already existing framework or an another entity providing the 
     authentication. This is the case for both the MA and MSA. The available 
-    choices include Lightweight Directory Access Protocol (LDAP), OpenID Connect 
-    (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
+    choices include Lightweight Directory Access Protocol (LDAP), OpenID 
+    Connect (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
 \end{sloppypar}
+
+% --------------------------------------------------------------------
 
 \subsection{OIDC}
 \begin{sloppypar}
+    OIDC is an identity layer to accompany OAuth 2.0 authorization framework 
+    based protocol. 
+\end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{OIDC_FLOW.png}}
+    \centering
+    \caption{OIDC steps}
+    \label{fig:oidcflow}
+\end{figure}
+\begin{sloppypar}
+    OIDC flow is presented in figure \ref{fig:oidcflow}. The process flow steps 
+    are: the client application requests an authentication from the identity 
+    provider, the end user is authenticated and authorization is obtained, the 
+    indetity provider responds to the initial authentication request by sending 
+    ID token and a possible access token, the client application can request 
+    the end user claims from the authorization server with the access token, 
+    and finally the authorization service returns the claims to the client 
+    application.
 \end{sloppypar}
 
 
