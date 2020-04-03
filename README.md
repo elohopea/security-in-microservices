@@ -1,6 +1,9 @@
 Direct Link to PDF:
 https://github.com/elohopea/security-in-microservices/blob/master/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/main.pdf
 
+Direct Link to PDF:
+https://github.com/elohopea/security-in-microservices/blob/master/TIK_kand_latex-pohja_kandityolle_ja_tutkimussuunnitelmalle/example.pdf
+
 # security-in-microservices
 My Bachelor's thesis. Aalto University. Computer Science. Security in Microservices.
 
