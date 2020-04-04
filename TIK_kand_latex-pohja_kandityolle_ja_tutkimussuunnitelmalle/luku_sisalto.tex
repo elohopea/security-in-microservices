@@ -38,7 +38,7 @@
     the possible complexity inherint in the entwined monolith. The amount of 
     code to refactor is much larger than in a small microservice. Microservice 
     should do one thing and, as such, it should be more understandable.
-\end{sloppypar} 
+\end{sloppypar}
 \begin{sloppypar}
     The Stack Overflow annual survey \citep{sosurvey2019} conducted on 
     developers found that half of the respondents identified as full-stack or 
@@ -86,9 +86,22 @@
 \begin{sloppypar}
     MA can be visually presented as in figure \ref{fig:monolith}. The web 
     service is a layered structure in which all of the different layers have a 
-    specific task to perform. This follows the Model-View-Controller design 
+    specific task to perform. This follows the Model-View-Controller (MVC) design 
     pattern \citep{trygvemvc}. The UI is the View, the business logic is the 
     Controller, and the database is the Model.
+\end{sloppypar}
+\begin{sloppypar}
+    \citet{fowlerlewisms} define the microservice styles as follows: 
+    the service is to be componentized using services in which a component is 
+    indepently replaceable and upgradeable, the services are organized around 
+    business capability rather a design pattern such as the previously mentioned MVC, 
+    a team should responsible of their product for it's full service life, 
+    the services are to contain the logic and communicate using "dumb pipes",
+    \textbf{Decentralized Governance,}
+    \textbf{Decentralized Data Management,}
+    \textbf{Infrastructure Automation,}
+    \textbf{Design for failure, and}
+    \textbf{Evolutionary Design.}
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA.png}}
@@ -97,7 +110,7 @@
     \label{fig:microservice}
 \end{figure}
 \begin{sloppypar}
-    The MSA presented in figure \ref{fig:microservice} has many problem 
+    An example for MSA, presented in figure \ref{fig:microservice}, has many problem 
     areas of which one is the challenging security implementation. 
     This is due to the fact that every microservice accessible to the client 
     can also be accessed or contacted by other more malicious parties in the 
@@ -749,7 +762,7 @@ heavyweight
 \section{Conclusion}
 \begin{sloppypar}
     This paper discussed the security aspects of changing the architecture from 
-    MA to MSA.
+    MA to MSA. 
 \end{sloppypar}
 \begin{sloppypar}
     In practice the previous MA that has been changed to MSA can have more 
@@ -794,7 +807,8 @@ heavyweight
     Many security aspects were not discussed.
 \end{sloppypar}
 \begin{sloppypar}
-    Future research on the different design patterns on the architecture change.
+    Future research on the security aspects of the different design patterns 
+    available for the architecture change.
 \end{sloppypar}
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
