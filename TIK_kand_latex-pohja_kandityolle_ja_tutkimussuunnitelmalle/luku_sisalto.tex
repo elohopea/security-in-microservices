@@ -17,7 +17,7 @@
     the whole industry. Also, when a new service is being created the business 
     domain might not be established yet. Additionally there might exist a fair 
     amount of uncertainty in what exactly is to be developed. This is 
-    furthermore amplified by using agile software development methods in which
+    furthermore amplified by the use of agile software development methods in which
     the change in requirements is welcome even in later stages of the 
     development \citep{agilemanifesto}.
 \end{sloppypar}
@@ -68,9 +68,8 @@
     main differences between MA and MSA on security aspects are discussed. 
 \end{sloppypar}
 \begin{sloppypar}
-    The first chapter discusses the \dots
-    The last chapter in the thesis contains the conclusions and presents further 
-    research topics.
+    \textbf{The first chapter discusses the \dots}
+    \textbf{The last chapter in the thesis contains the conclusions and presents further research topics.}
 \end{sloppypar}
 
 
@@ -142,7 +141,10 @@
     In order for the process to be as simple as possible, the MA is or at least 
     should be split into modules with separation of concerns \citep{secchalmsa}. 
     The actual splitting of the monolith can be carried out in various ways, 
-    one of which is Domain Driven Design \citep{newman2019}.
+    one of which is Domain Driven Design \citep{evans2003}. The selection of 
+    boundaries for the services is critical. If this is done incorrectly all 
+    the affected services need to be refactored to mend the error 
+    \citep{newman2019}.
 \end{sloppypar}
 \begin{sloppypar}
     The MSA differs from a MA in fundamental ways. According to 
@@ -206,12 +208,13 @@
 \section{Authentication and Authorization}
 \begin{sloppypar}
     In the cases where the user has to be authenticated, the web service needs 
-    a way to do this securily. Usually authentication is done using a tuple 
-    containing user credentials i.e. a username and a password for the user. The
-    user is authenticated and a key or token is transmitted to the user via the 
-    network. This communication in both MA and MSA, should be encrypted in a way 
-    that none of the actors in the transfer path can intercept the message and 
-    misuse the credentials.
+    a way to do this securily. There are many authentication schemes available 
+    but users prefer the password \citep{passwordisdead}. Due to this the 
+    authentication is usually done using a tuple containing user credentials 
+    i.e. a username and a password. The user is authenticated and a key or 
+    token is transmitted to the user via the network. This communication in 
+    both MA and MSA, should be encrypted in a way that none of the actors in 
+    the transfer path can intercept the message and misuse the credentials. 
 \end{sloppypar}
 \begin{sloppypar}
     The credential counterparts i.e. the secret shared by the server and the 
@@ -252,7 +255,7 @@
     \label{fig:MA_AUTH}
 \end{figure}
 
-% --------------------------------------------------------------------
+\subsection{Authentication and Authorization in MSA}
 \begin{sloppypar}
     Authorization of the user rights can be implemented in various ways. One of 
     which is an authorization service which can contain the access control 
@@ -279,8 +282,7 @@
     \label{fig:MSA_AUTH_SERVICE}
 \end{figure}
 
-
-
+% --------------------------------------------------------------------
 
 \subsection{OIDC}
 \begin{sloppypar}
@@ -351,7 +353,6 @@
     signed using a private key it can be verified by all parties in 
     possession of the public key. 
 \end{sloppypar}
-
 
 \subsubsection{Known Vulnerabilities}
 \begin{sloppypar}
@@ -470,7 +471,8 @@
     As already explained, in MA, the service components can communicate using 
     events, procedure calls or other methods available within a single server 
     machine. Usually all this communication stays within a single computer and 
-    thus does not easily compromise confidentiality.
+    thus does not easily compromise confidentiality. This is not the case in 
+    MSA.
 \end{sloppypar}
 \begin{sloppypar}
     
