@@ -397,52 +397,7 @@
     \label{fig:OPAQUE_TOKEN_API_GATEWAY}
 \end{figure}
 
-% \subsection{Attacks}
-% \begin{sloppypar}
-%     Authentication can be attacked by a multitude of methods.     
-%     \begin{itemize}
-%         \item Cracking
-%         \item Impersonation attacks
-%         \item Hacking the system
-%         \item Malware
-%         \item Social engineering
-%         \item Cracking the encryption on the communication channel exchanging 
-%         credentials and keys or tokens.
-%     \end{itemize}
-% \end{sloppypar}
-% \begin{sloppypar}
-%     From 2013 onwards malware and data breaches performed by hackers have 
-%     increased. The motivation to steal user data for hackers is the value of 
-%     them in the black market. The damage of a data breach to the service 
-%     provider can be substantial. For example the Yahoo data breach damages have 
-%     been estimated to have reached \$440 billion. The attacks in general have 
-%     been targeted to entities with valuable data and insufficient security 
-%     infrastructure. The least likely target to be hacked where non profit 
-%     organisations and the most likely were medical related organizations 
-%     \citep{breach}. The hacked account credentials have to some extent been 
-%     available for download from the web. \citet{pwned} created a service where 
-%     everyone can verify whether any of their accounts are amongst the ones added 
-%     to the service. The service named as ”’;– have i been pwned ?” allows users 
-%     to enter their username or password to the site and see a result.
-% \end{sloppypar}
-
-% \subsection{Authentication in Monolith}
-% \begin{sloppypar}
-%     Discussion on various ways to execute authentication in MA. 
-% \end{sloppypar}
-
-% \subsubsection{Authentication in Microservice Architecture}
-% \begin{sloppypar}
-% \end{sloppypar}
-
-
 % -----------------------------------------------------------------------------
-
-
-
-
-% \subsection{Authorization in Microservice Architecture}
-% % --------------------------------------------------------------------
 % \section{Session}
 % \subsection{Session in Monolith}
 % \subsection{Session in Microservice Architecture}
@@ -450,20 +405,6 @@
 % \section{Cloud}
 % \subsection{Monolith}
 % \subsection{Microservices Architecture}
-% % --------------------------------------------------------------------
-% \section{Monitoring}
-% \subsection{Monolith}
-% \subsection{Microservices Architecture}
-% % --------------------------------------------------------------------
-% \section{Logging}
-% \subsection{Monolith}
-% \subsection{Microservices Architecture}
-% % --------------------------------------------------------------------
-% \section{Fault Tolerance}
-% \subsection{Monolith}
-% \subsection{Microservices Architecture}
-
-
 % --------------------------------------------------------------------
 
 \section{Communication}
@@ -474,38 +415,40 @@
     thus does not easily compromise confidentiality. This is not the case in 
     MSA.
 \end{sloppypar}
+
+
+
+
 \begin{sloppypar}
-    
+    In MSA single services communicate via a network.
+    TODO
+
+    Next messaging systems list is from \citep{secchalmsa}:
+lightweight
+-
+    REST API, Sync RPC,GraphQl
+    -
+    Async REST, gRPC
+    - 
+    Apache Kafka, ZeroMQ
+    -
+    Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
+    -
+    AMQP: RabbitMQ, Qpid, HornetQ
+    -
+    MuleESB, Apache ServiceMix, JBossESB
+-
+heavyweight
+    WebSocket
 \end{sloppypar}
 
+\subsection{Event-Driven Communication}
+\begin{sloppypar}
+\end{sloppypar}
 
-% \begin{sloppypar}
-%     Microservices can not trust any of the \citep{otterstad}
-% \end{sloppypar}
-
-
-% \begin{sloppypar}
-%     In MSA single services communicate via a network.
-%     TODO
-
-%     Next messaging systems list is from \citep{secchalmsa}:
-% lightweight
-% -
-%     REST API, Sync RPC,GraphQl
-%     -
-%     Async REST, gRPC
-%     - 
-%     Apache Kafka, ZeroMQ
-%     -
-%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
-%     -
-%     AMQP: RabbitMQ, Qpid, HornetQ
-%     -
-%     MuleESB, Apache ServiceMix, JBossESB
-% -
-% heavyweight
-%     WebSocket
-% \end{sloppypar}
+\subsection{Remote Procedure Calls (RPC)}
+\begin{sloppypar}
+\end{sloppypar}
 
 \subsection{Representational State Transfer (REST)}
 \begin{sloppypar}
@@ -525,9 +468,6 @@
     verification.
 \end{sloppypar}
 
-% \subsection{Event-Driven Communication}
-% \begin{sloppypar}
-% \end{sloppypar}
 
 \subsection{Coping With Failure in Communication}
 \begin{sloppypar}
@@ -546,6 +486,12 @@
     unresponsive and crashing when a denial of service attack is carried out on 
     the service.
 \end{sloppypar}
+
+
+% --------------------------------------------------------------------
+
+
+
 
 % --------------------------------------------------------------------
 % \section{Defence in depth}
@@ -666,11 +612,7 @@
 % \begin{sloppypar}
 %     Information integrity in an MA web service is usually left to a single database 
 %     and sound architectural choices (REALLY? SOURCE).
-%     Transactions can be used when updating database constents to make sure that
-%     atomicity, consistency, isolation, and durability (ACID) \citep{acid} is followed.
-%     When using MSA according to the definition each of the micro services should contain 
-%     or have access to it's own data i.e. database. This leads to extreme difficulties in information integrity.
-%     TODO
+%     
 % \end{sloppypar}
 % --------------------------------------------------------------------
 % \section{Availability}
@@ -684,9 +626,26 @@
 %     D-o-S 
 % \end{sloppypar}
 % --------------------------------------------------------------------
+\section{Defence-in-Depth}
+\begin{sloppypar}
+    Microservices can not trust any of the \citep{otterstad}
+\end{sloppypar}
 
 
-\section{Other MSA specific security matters}
+
+\section{Other Security Concerns}
+
+\subsection{Transaction}
+\begin{sloppypar}
+    Transactions can be used when updating database constents to make sure that
+    atomicity, consistency, isolation, and durability (ACID) \citep{acid} is 
+    followed. When using MSA according to the definition each of the micro 
+    services should contain or have access to it's own data i.e. database. 
+    In MA Transactions easy/easier. In MSA not. How to make sure that a 
+    previously single operation is carried out in it's entirety when multiple 
+    services are used to perform the desired task?
+\end{sloppypar}
+
 % \begin{sloppypar}
 
 % \end{sloppypar}
@@ -699,10 +658,8 @@
 % \subsection{Monitoring and logging}
 % \begin{sloppypar}
 % \end{sloppypar}
-% \subsection{Software Development}
-% \begin{sloppypar}
-% \end{sloppypar}
-% \subsection{Software Development}
+
+\subsection{Software Development}
 \begin{sloppypar}
     When software is developed using MA, it is usually deployed as a whole and 
     the program code can be compiled, tested and used as a single unit or 
@@ -776,6 +733,14 @@
 \end{sloppypar}
 
 
+
+\subsection{Monitoring and Logging}
+\begin{sloppypar}
+    MA logging relatively easy, just use probably already configered logger or configure and use on.
+\end{sloppypar}
+\begin{sloppypar}
+    MSA - each need to have their own logger. Where to log? 
+\end{sloppypar}
 
 
 % --------------------------------------------------------------------
