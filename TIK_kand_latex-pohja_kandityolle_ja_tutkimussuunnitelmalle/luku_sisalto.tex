@@ -86,22 +86,23 @@
 \begin{sloppypar}
     MA can be visually presented as in figure \ref{fig:monolith}. The web 
     service is a layered structure in which all of the different layers have a 
-    specific task to perform. This follows the Model-View-Controller (MVC) design 
-    pattern \citep{trygvemvc}. The UI is the View, the business logic is the 
-    Controller, and the database is the Model.
+    specific task to perform. This follows the Model-View-Controller (MVC) 
+    design pattern \citep{trygvemvc}. The UI is the View, the business logic is 
+    the Controller, and the database is the Model.
 \end{sloppypar}
 \begin{sloppypar}
-    \citet{fowlerlewisms} define the microservice styles as follows: 
+    \citet{fowlerlewisms} define the microservice style as follows: 
     the service is to be componentized using services in which a component is 
     indepently replaceable and upgradeable, the services are organized around 
-    business capability rather a design pattern such as the previously mentioned MVC, 
-    a team should responsible of their product for it's full service life, 
-    the services are to contain the logic and communicate using "dumb pipes",
-    \textbf{Decentralized Governance,}
-    \textbf{Decentralized Data Management,}
-    \textbf{Infrastructure Automation,}
-    \textbf{Design for failure, and}
-    \textbf{Evolutionary Design.}
+    business capability rather a design pattern such as the previously 
+    mentioned MVC, a team should responsible of their product for it's full 
+    service life, the services are to contain the logic and communicate using 
+    a communication system without business logic "smart enpoints and dumb 
+    pipes", decentralized governance meaning that choices such as the 
+    technology to use or architecture are not dictated to developers, 
+    decentralized data management, infrastructure automation,
+    the whole application needs to be fault tolerant since individual services 
+    might fail or become unavailable, and evolutionary design.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA.png}}
