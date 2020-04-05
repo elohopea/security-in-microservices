@@ -104,6 +104,13 @@
     the whole application needs to be fault tolerant since individual services 
     might fail or become unavailable, and evolutionary design.
 \end{sloppypar}
+\begin{sloppypar}
+    \citet{newman2019} definition for a microservice is a service that: is 
+    independently deployable, is modeled around business domain, that owns the 
+    data that they need to operate, that communicates via network, is 
+    technology agnostic, that encapsulates data storage and retrieval and that 
+    has stable interface.
+\end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA.png}}
     \centering
@@ -217,9 +224,18 @@
 
 
 % --------------------------------------------------------------------
+% \begin{sloppypar}
+%     authorization, access control, policy decision point (PDP), policy enforcement point (PEP), 
+%     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
+% \end{sloppypar}
+% --------------------------------------------------------------------
 
-
-\section{Authentication and Authorization}
+\section{Access control}
+\begin{sloppypar}
+    Access control consists of user authentication and authorization. A user has to 
+    authenticate him/her self and authorization is acquired to access to 
+    information or property.
+\end{sloppypar}
 \begin{sloppypar}
     In the cases where the user has to be authenticated, the web service needs 
     a way to do this securily. There are many authentication schemes available 
@@ -412,14 +428,37 @@
 \end{figure}
 
 % -----------------------------------------------------------------------------
-% \section{Session}
-% \subsection{Session in Monolith}
-% \subsection{Session in Microservice Architecture}
-% % --------------------------------------------------------------------
-% \section{Cloud}
-% \subsection{Monolith}
-% \subsection{Microservices Architecture}
+
+
+\section{Session}
+\begin{sloppypar}
+    Client handled session is easy to tamper with and has risks involved. The 
+    service would either have to trust the client offered session or verify a 
+    signature. In both of these cases the client application would have to be 
+    aware of the service and would be able to communicate with it directly. 
+    This would bring considerable overhead on all the services and a security 
+    risk.
+\end{sloppypar}
+\begin{sloppypar}
+    Sessions can be used in MSA when the architecture has an API Gateway. The 
+    session is stored in the Gateway and a session key (?) is carried in the 
+    requests made by the client application. The API Gateway then verifies the
+    request and can grant access to specific service. Without the Gateway the
+    session would have to be either centrally maintained at a session service 
+    or be handeld by the client and passed along in the requests.
+\end{sloppypar}
+
+
 % --------------------------------------------------------------------
+
+
+\section{Cloud}
+\subsection{Monolith}
+\subsection{Microservices Architecture}
+
+
+% --------------------------------------------------------------------
+
 
 \section{Communication}
 \begin{sloppypar}
@@ -429,10 +468,6 @@
     thus does not easily compromise confidentiality. This is not the case in 
     MSA.
 \end{sloppypar}
-
-
-
-
 \begin{sloppypar}
     In MSA single services communicate via a network.
     TODO
@@ -440,7 +475,7 @@
     Next messaging systems list is from \citep{secchalmsa}:
 lightweight
 -
-    REST API, Sync RPC,GraphQl
+    REST API, Sync RPC, GraphQl
     -
     Async REST, gRPC
     - 
@@ -482,7 +517,6 @@ heavyweight
     verification.
 \end{sloppypar}
 
-
 \subsection{Coping With Failure in Communication}
 \begin{sloppypar}
     \citet{DBLP:journals/corr/MontesiW16} present widely used design pattern for MSA.
@@ -505,150 +539,20 @@ heavyweight
 % --------------------------------------------------------------------
 
 
-
-
-% --------------------------------------------------------------------
-% \section{Defence in depth}
-% \begin{sloppypar}
-%     \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
-%     perimeter defence -> neglect security of individual microservices.
-% \end{sloppypar}
-% \begin{sloppypar}
-% \end{sloppypar}
-% \begin{sloppypar}
-% \end{sloppypar}
-% \section{Random rambling}
-% \begin{sloppypar}
-%     This paper could be about authorization and the switch from MA to MSA.
-%     The authorization can be designed and implemented in so many ways that
-%     the paper should probably be narrowed down even further.
-% \end{sloppypar}
-% \begin{sloppypar}
-%     Sessions can be used in MSA when the architecture has an API Gateway. The 
-%     session is stored in the Gateway and a session key (?) is carried in the 
-%     requests made by the client application. The API Gateway then verifies the
-%     request and can grant access to specific service. Without the Gateway the
-%     session would have to be either centrally maintained at a session service 
-%     or be handeld by the client and passed along in the requests.
-% \end{sloppypar}
-% \begin{sloppypar}
-%     Client handled session is easy to tamper with and has risks involved. The 
-%     service would either have to trust the client offered session or verify a 
-%     signature. In both of these cases the client application would have to be 
-%     aware of the service and would be able to communicate with it directly. 
-%     This would bring considerable overhead on all the services and a security 
-%     risk.
-% \end{sloppypar}
-% \section{Comments}
-% \begin{sloppypar}
-%     authentication, 
-%     credential
-% \end{sloppypar}
-% \begin{sloppypar}
-%     authorization, 
-%     access control, 
-%     policy decision point (PDP), 
-%     policy enforcement point (PEP), 
-%     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
-% \end{sloppypar}
-% --------------------------------------------------------------------
-% \section{Definitions}
-% \begin{sloppypar}
-%     This thesis uses the following definitions.
-% \end{sloppypar}
-
-% \subsection{Microservice}
-% \begin{sloppypar}
-%     MSA can be viewed as an extension of the service oriented 
-%     architecture (SOA)\citep{newman2019,fowlerlewisms}. It's guiding principles are stated in the SOA manifesto 
-%     \citep{soamanifesto} and one is to prioritize:
-%     \begin{quotation}
-%         \noindent \it
-%         \begin{itemize}
-%             \item Business value over technical strategy
-%             \item Strategic goals over project-specific benefits 
-%             \item Intrinsic interoperability over custom integration 
-%             \item Shared services over specific-purpose implementations 
-%             \item Flexibility over optimization 
-%             \item Evolutionary refinement over pursuit of initial perfection
-%         \end{itemize}
-%     \end{quotation}
-% \end{sloppypar}
-% \begin{sloppypar}
-%     A microservice is a service that: is independently deployable,
-%     is modeled around business domain,
-%     that owns the data that they need to operate,
-%     that communicates via network,
-%     is technology agnostic,
-%     that encapsulates data storage and retrieval and 
-%     that has stable interface \citep{newman2019}.
-% \end{sloppypar}
-
-% \subsection{Security}
-% \begin{sloppypar}
-%     Security can be defined in multiple ways but in this thesis security 
-%     and more specifically information security is defined as consisting of 
-%     Confidentiality, Integrity, and Availability (CIA) as is stated in the 
-%     pocket book on ISO/IEC 27001 -standard for information security \citep{isoiec27001}.
-% \end{sloppypar}
-% \begin{sloppypar}
-%     The ISO/IEC 27001 standard defines confidentiality as such that information 
-%     or property is available to the authorized user only. The authorized users 
-%     can consist of persons, processes or entities to whom the information or 
-%     property can be disclosed. Integrity means that the data or property is 
-%     safeguarded for accuracy and completeness. Availability in this web service
-%     context is defined as such that the property or information is available 
-%     when it is needed.
-% \end{sloppypar}
-% --------------------------------------------------------------------
-%\section{Confidentiality}
-%\begin{sloppypar}
-%     Confidentiality in a web service is usually critical security feature. 
-%     There are specific services which do not nead information confidentiality 
-%     regarding some of the data such as public weather services and other similar data.
-%     Some of the information is still regarded sensitive and must be kept confidential. 
-%     These data can consists of personal, user, logs or other similar content.
-%     Users should not be able to use or view content not authorized to him/her. 
-%     To verify this a form of access control has to be performed. Access control 
-%     consists of user authentication and authorization. A user has to 
-%     authenticate him/her self and authorization is acquired to access to 
-%     information or property.
-% \end{sloppypar}
-% \begin{sloppypar}
-%     In an MA access control can be implemented using sessions. 
-%     A user authenticates using appropriate channels and a session with a session key is created. 
-%     The session can have an expiration time and the messages originating from 
-%     the user interface (UI) carry this key. Sessions and session keys can be used 
-%     in a distributed system which MSA is but the implementation is more difficult \citep{authinmsa}.
-% \end{sloppypar}
-% --------------------------------------------------------------------
-% \section{Integrity}
-% \begin{sloppypar}
-%     Information integrity in an MA web service is usually left to a single database 
-%     and sound architectural choices (REALLY? SOURCE).
-%     
-% \end{sloppypar}
-% --------------------------------------------------------------------
-% \section{Availability}
-% \begin{sloppypar}
-%     Availability in this web service context is defined as such that the property or information 
-%     is available when it is needed.
-% \end{sloppypar}
-
-% \subsection{Possible Attacks}
-% \begin{sloppypar}
-%     D-o-S 
-% \end{sloppypar}
-% --------------------------------------------------------------------
 \section{Defence-in-Depth}
 \begin{sloppypar}
     Microservices can not trust any of the \citep{otterstad}
 \end{sloppypar}
+\begin{sloppypar}
+    \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
+    perimeter defence -> neglect security of individual microservices.
+\end{sloppypar}
 
+
+% --------------------------------------------------------------------
 
 
 \section{Other Security Concerns}
-
 \subsection{Transaction}
 \begin{sloppypar}
     Transactions can be used when updating database constents to make sure that
@@ -660,18 +564,12 @@ heavyweight
     services are used to perform the desired task?
 \end{sloppypar}
 
-% \begin{sloppypar}
 
-% \end{sloppypar}
+\subsection{Platforms}
+\begin{sloppypar}
+    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
+\end{sloppypar}
 
-% \subsection{Platforms}
-% \begin{sloppypar}
-%     Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
-% \end{sloppypar}
-
-% \subsection{Monitoring and logging}
-% \begin{sloppypar}
-% \end{sloppypar}
 
 \subsection{Software Development}
 \begin{sloppypar}
@@ -730,7 +628,6 @@ heavyweight
 %     https://www.consul.io
 % \end{sloppypar}
 
-
 \subsection{Externalized configuration}
 \begin{sloppypar}
     To allow for easy configuration change management there should exist a 
@@ -745,8 +642,6 @@ heavyweight
     the behaviour of the system. Therefore, the content must be stored safely 
     and not allowed to be read or altered by unauthorized users.
 \end{sloppypar}
-
-
 
 \subsection{Monitoring and Logging}
 \begin{sloppypar}
