@@ -588,11 +588,17 @@
 \begin{sloppypar}
     The use of service mesh greatly simplifies the microservice since the proxy 
     can contain many of the features that would otherwise repeat in all of the 
-    services.
+    services. The service mesh can provide a certificate authority for the 
+    communication between services. The proxies act on behalf of the service 
+    and all proxy-to-proxy communication can be encrypted on the transport 
+    layer using TLS \citep{pathtoservicemesh}. 
+\end{sloppypar}
+\begin{sloppypar}
+    Service mesh allows for multicloud installations. 
 \end{sloppypar}
 
 
-\section{Platforms}
+\section{Orchestration solutions}
 \begin{sloppypar}
     Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
 \end{sloppypar}
@@ -681,30 +687,35 @@
     and not allowed to be read or altered by unauthorized users.
 \end{sloppypar}
 
-\subsection{Monitoring and Logging}
+\subsection{Logging}
 \begin{sloppypar}
-    MA logging relatively easy, just use probably already configered logger or 
-    configure and use on.
+    Logging in MA is relatively easy. The chosen logging solution is used and 
+    logs are created in easily configurable locations.
 \end{sloppypar}
 \begin{sloppypar}
-    MSA - each need to have their own logger. Where to log? 
+    In MSA this can be more difficult. Each of the microservices need to have 
+    their own logger and each of these need to be configured to log to a 
+    proper location.
 \end{sloppypar}
-
-
 
 \subsection{Defence-in-Depth}
 \begin{sloppypar}
     Microservices can not trust any of the \citep{otterstad}
 \end{sloppypar}
 \begin{sloppypar}
-    \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
+    \citet{defdepau} propose a solution for secure communication in MSA even in 
+    multicloud solutions. 
     perimeter defence -> neglect security of individual microservices.
 \end{sloppypar}
 
+\subsection{Testing}
+\begin{sloppypar}
+    The possible ways to fail for a web service consisting of a large number of 
+    microservices are numerous. One solution for testing for outages is the 
+    Netflix created Chaos Monkey \citep{chaosmonkey}. It is used for resilience 
+    testing and can terminate containers or virtual machines at random.
+\end{sloppypar}
 
-
-
-% --------------------------------------------------------------------
 
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
