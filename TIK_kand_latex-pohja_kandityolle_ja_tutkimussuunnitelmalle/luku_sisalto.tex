@@ -219,7 +219,10 @@
     \citet{andersson2001information}. His main finding was that an attacker has 
     an advantage over the developers trying to defend a system. For the system 
     to be secure the defending developers have to find all of the bugs where as 
-    the attacker has to find only one.
+    the attacker has to find only one. Therefore, to make systems more secure 
+    the use of tools and frameworks that have been tested and are already in 
+    use is preferable to developing one's own solutions for a well known and 
+    already solved problem.
 \end{sloppypar}
 
 
@@ -229,6 +232,7 @@
 %     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
 % \end{sloppypar}
 % --------------------------------------------------------------------
+
 
 \section{Access control}
 \begin{sloppypar}
@@ -340,8 +344,6 @@
 % \begin{sloppypar}
 %     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
 % \end{sloppypar}
-
-
 % \begin{sloppypar}
 %     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
 % \end{sloppypar}
@@ -469,35 +471,51 @@
     MSA.
 \end{sloppypar}
 \begin{sloppypar}
-    In MSA single services communicate via a network.
-    TODO
-
-    Next messaging systems list is from \citep{secchalmsa}:
-lightweight
--
-    REST API, Sync RPC, GraphQl
-    -
-    Async REST, gRPC
-    - 
-    Apache Kafka, ZeroMQ
-    -
-    Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
-    -
-    AMQP: RabbitMQ, Qpid, HornetQ
-    -
-    MuleESB, Apache ServiceMix, JBossESB
--
-heavyweight
-    WebSocket
+    In MSA single services communicate via a network. There are multiple 
+    protocols or messaging system to choose from such as, REST API, Advanced 
+    Message Queuing Protocol (AMQP), Enterprise Service Bus (ESB), and Remote 
+    Procedure Calls (RPC). For a more complete list view \citet{secchalmsa}. 
+    In this paper REST API is to be examined further. In few instances some of 
+    the other systems are discussed briefly.
 \end{sloppypar}
-
-\subsection{Event-Driven Communication}
 \begin{sloppypar}
+    \citet{servicemesh} lists the typical fallacies that developers fall victim 
+    to when designing distributed systems: 
+    \begin{itemize}
+        \item The network is reliable
+        \item Latency is zero
+        \item Bandwidth is infinite
+        \item The network is secure
+        \item Topology doesn’t change
+        \item There is one administrator
+        \item Transport cost is zero
+        \item The network is homogeneous
+      \end{itemize}
 \end{sloppypar}
+%     TODO
 
-\subsection{Remote Procedure Calls (RPC)}
-\begin{sloppypar}
-\end{sloppypar}
+%     Next messaging systems list is from \citet{secchalmsa}:
+% lightweight
+% -
+%     REST API, Sync RPC, GraphQl
+%     -
+%     Async REST, gRPC
+%     - 
+%     Apache Kafka, ZeroMQ
+%     -
+%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
+%     -
+%     AMQP: RabbitMQ, Qpid, HornetQ
+%     -
+%     MuleESB, Apache ServiceMix, JBossESB
+% -
+% heavyweight
+%     WebSocket
+
+
+% \subsection{Event-Driven Communication}
+% \begin{sloppypar}
+% \end{sloppypar}
 
 \subsection{Representational State Transfer (REST)}
 \begin{sloppypar}
@@ -539,18 +557,43 @@ heavyweight
 % --------------------------------------------------------------------
 
 
-\section{Defence-in-Depth}
+
+
+\section{Service Mesh}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{service_mesh.png}}
+    \centering
+    \caption{Service mesh basic architecture \citep{servicemesh}}
+    \label{fig:service_mesh_basic_architecture}
+\end{figure}
 \begin{sloppypar}
-    Microservices can not trust any of the \citep{otterstad}
+    A service mesh tries to solve the service-to-service communication 
+    challenges and to allow for monitoring of the entire system. In figure 
+    \ref{fig:service_mesh_basic_architecture} a very basic service mesh 
+    architecture is presented. The architecture consists of a Control plane 
+    and a Data plane. The Control plane offers: a user interface for system 
+    administrators, Policy Information Point (PIP) and Policy Decision Point 
+    (PDP), and collected metrics of the behaviour and actions in and of the 
+    system. The data moves in the dataplane. Each microservice is accompanied 
+    by a proxy. All requests and responses flow through the proxies and ar 
+    controlled by the Control plane. The microservices do not necessarily have 
+    to be aware of the proxy that is in the information path.
 \end{sloppypar}
 \begin{sloppypar}
-    \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
-    perimeter defence -> neglect security of individual microservices.
+    There are several products available for a service mesh, such as Istio, 
+    Linkerd, and Consul Connect to mention a few. As was the case with 
+    authentication and security in general it is not advisable to implement 
+    security critical features if there exists an off-the-shelf alternative.
+\end{sloppypar}
+\begin{sloppypar}
+    
 \end{sloppypar}
 
 
-% --------------------------------------------------------------------
-
+\section{Platforms}
+\begin{sloppypar}
+    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
+\end{sloppypar}
 
 \section{Other Security Concerns}
 \subsection{Transaction}
@@ -563,13 +606,6 @@ heavyweight
     previously single operation is carried out in it's entirety when multiple 
     services are used to perform the desired task?
 \end{sloppypar}
-
-
-\subsection{Platforms}
-\begin{sloppypar}
-    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
-\end{sloppypar}
-
 
 \subsection{Software Development}
 \begin{sloppypar}
@@ -645,15 +681,32 @@ heavyweight
 
 \subsection{Monitoring and Logging}
 \begin{sloppypar}
-    MA logging relatively easy, just use probably already configered logger or configure and use on.
+    MA logging relatively easy, just use probably already configered logger or 
+    configure and use on.
 \end{sloppypar}
 \begin{sloppypar}
     MSA - each need to have their own logger. Where to log? 
 \end{sloppypar}
 
 
+
+\subsection{Defence-in-Depth}
+\begin{sloppypar}
+    Microservices can not trust any of the \citep{otterstad}
+\end{sloppypar}
+\begin{sloppypar}
+    \citet{defdepau} propose a solution for secure communication in MSA even in multicloud solutions.
+    perimeter defence -> neglect security of individual microservices.
+\end{sloppypar}
+
+
+
+
+% --------------------------------------------------------------------
+
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
+
 
 \section{Conclusion}
 \begin{sloppypar}
