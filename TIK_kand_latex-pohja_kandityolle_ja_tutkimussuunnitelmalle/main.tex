@@ -6,7 +6,6 @@
 %\documentclass[12pt,a4paper,finnish,oneside,draft]{article} % luonnos, nopeampi
 
 % Valitse 'input encoding':
-%\usepackage[latin1]{inputenc} % merkistökoodaus, jos ISO-LATIN-1:tä.
 \usepackage[utf8]{inputenc}   % merkistökoodaus, jos käytetään UTF8:a
 % Valitse 'output/font encoding':
 %\usepackage[T1]{fontenc}      % korjaa ääkkösten tavutusta, bittikarttana
@@ -14,10 +13,6 @@
 % Kieli- ja tavutuspaketit:
 \usepackage[english,swedish,finnish]{babel}
 % Kurssin omat asetukset aaltosci_t.sty:
-%\usepackage{aaltosci_t}
-% Jos kirjoitat muulla kuin suomen kielellä valitse:
-%\usepackage[finnish]{aaltosci_t}           
-%\usepackage[swedish]{aaltosci_t}           
 \usepackage[english]{aaltosci_t}           
 % Muita paketteja:
 \usepackage{alltt}
@@ -69,11 +64,6 @@
 \input{makroja}       % Haetaan joitakin makroja
 
 % Kieli:
-% Kielesi, jolla kandidaatintyön kirjoitat: finnish, swedish, english.
-% Tästä tulee mm. tietyt otsikkonimet ja kuva- ja taulukkoteksteihin 
-% (Kuva, Figur, Figure), (Taulukko, Tabell, Table) sekä oikea tavutus.
-%\selectlanguage{finnish}
-%\selectlanguage{swedish}
 \selectlanguage{english}
 
 % Sivunumeroinnin kanssa pieniä ristiriitaisuuksia.
@@ -104,52 +94,27 @@
 \author{Tommi Jäske}
 
 % Otsikko nimiölehdelle. Yleensä sama kuin seuraavana oleva \TITLE, 
-% mutta jos nimiölehdellä tarvetta "kaksiosaiselle" kaksiriviselle
-%\title{\LaTeX{}-pohja kandidaatintyötä varten ohjeiden kera ja varuilta 
-%kokeillaan vähän ylipitkää otsikkoa}
 % 2-osainen otsikko:
 \title{Security in Microservice Architecture \\[5mm] - Impact of a Switch from Monolith to Microservices}
 
 % Otsikko tiivistelmään. Jos lisäksi engl. tiivistelmä, niin viimeisin:
 \TITLE{Turvallisuus mikropalveluarkkitehtuurissa\\[5mm] - Monoliitisesta arkkitehtuurista siirtyminen mikropalveluarkkitehtuuriin ja sen vaikutukset.}
-%\TITLE{\LaTeX{} för kandidatseminariet med jättelång rubrik som fortsätter och
-% fortsätter ännu}
 \ENTITLE{Security in Microservice Architecture \\[5mm] - Impact of a Switch from Monolith to Microservices}
-% 2-osainen otsikko korvataan täällä esim. pisteellä:
-%\TITLE{\LaTeX{}-pohja kandidaatintyölle. Pitkiä rivejä kokeilun vuoksi.}
 
 % Ohjaajan laitos suomi/ruotsi ja tarvittaessa eng (tiivistelmän kieli/kielet)
 %\DEPT{Poimi tähän ohjaajasi laitos, DEPT, main.tex}
-% suomi:
 \DEPT{Tietotekniikan laitos}               % T
-%\DEPT{Tietojenkäsittelytieteen laitos}     % TKT
-%\DEPT{Mediatekniikan laitos}               % ME
-% ruotsi:
-%\DEPT{Institutionen för datateknik}        % T
-%\DEPT{Institutionen för datavetenskap}     % TKT
-%\DEPT{Institutionen för mediateknik}       % ME
-% englanti:
 \ENDEPT{Department of Computer Science}     % T
-%\ENDEPT{Department of Information and Computer Science} % TKT
-%\ENDEPT{Department of Media Technology}                 % ME
 
 % Vuosi ja päivämäärä, jolloin työ on jätetty tarkistettavaksi.
 \YEAR{2020}
 \DATE{April 17, 2020}
-%\DATE{31. helmikuuta 2011}
-%\DATE{Den 31 februari 2011}
+\DATE{17. huhtikuuta 2020}
 \ENDATE{April 17, 2020}
 
 % Kurssin vastuuopettaja ja työsi ohjaaja(t)
 \SUPERVISOR{Professori  Eero Hyvönen}
 \INSTRUCTOR{Professori Tuomas Aura}
-%\INSTRUCTOR{Ohjaajantitteli Sinun Ohjaajasi, ToinenTitt Matti Meikäläinen}
-% DI       // på svenska DI diplomingenjör
-% TkL      // TkL teknologie licentiat
-% TkT      // TkD teknologie doctor
-% Dosentti Dos. // Doc. Docent
-% Professori Prof. // Prof. Professor
-% 
 % Jos tiivistelmä englanniksi, niin:
 \ENSUPERVISOR{Professor  Eero Hyvönen}
 \ENINSTRUCTOR{Professor Tuomas Aura}
@@ -161,64 +126,14 @@
 
 % Kirjoita tänne HOPS:ssa vahvistettu pääaineesi.
 % Pääainekoodit TIK-opinto-oppaasta.
-
 \PAAAINE{Computer Science}
-%Tietotekniikka
-%Datateknik
-%Computer Science and Engineering
 \CODE{SCI3027}
 
-%\PAAAINE{Ohjelmistotuotanto ja -liiketoiminta}
-%\CODE{T3003}
-%
-%\PAAAINE{Tietoliikenneohjelmistot}
-%\CODE{T3005}
-%
-%\PAAAINE{WWW-teknologiat} % vuodesta 2010
-%\CODE{IL3012}
-%
-%\PAAAINE{Mediatekniikka} % vuoteen 2010, kts. seur.
-%\CODE{T3004}
-%
-%\PAAAINE{Mediatekniikka} % vuodesta 2010, kts. edell.
-%\CODE{IL3011}
-%
-%\PAAAINE{Tietojenkäsittelytiede} % vuodesta 2010
-%\CODE{IL3010}
-%
-%\PAAAINE{Informaatiotekniikka} % vuoteen 2010
-%\CODE{T3006}
-%
-%\PAAAINE{Tietojenkäsittelyteoria} % vuoteen 2010
-%\CODE{T3002}
-%
-%\PAAAINE{Ohjelmistotekniikka}
-%\CODE{T3001}
-
 % Avainsanat tiivistelmään. Tarvittaessa myös englanniksi:
-
 \KEYWORDS{monoliitti, mikropalvelu, arkkitehtuuri, tietoturva, vaihto}
 \ENKEYWORDS{monolith, microservice, architecture, security, switch}
-
-% Tiivistelmään tulee opinnäytteen sivumäärä.
-% Kirjoita lopulliset sivumäärät käsin tai kokeile koodia. 
-%
-% Ohje 29.8.2011 kirjaston henkilökunnalta:
-%   - yhteissivumäärä nimiölehdeltä ihan loppuun
-%   - "kaikkien yksinkertaisin ja yksiselitteisin tapa"
-%
-% VANHA // Ohje 14.11.2006, luku 4.2.5:
-% VANHA // - sivumäärä = tekstiosan (alkaen johdantoluvusta) ja 
-% VANHA //  lähdeluettelon sivumäärä, esim. "20"
-% VANHA // - jos liitteet, niin edellisen lisäksi liitteiden sivumäärä,
-% VANHA //  tyyli "20 + 5", jossa 5 sivua liitteitä 
-% VANHA // - HUOM! Tässä oletuksena sivunumerointi alkaa nimiölehdestä 
-% VANHA //  sivunumerolla 1. %   Toisin sanoen, viimeisen lähdeluettelosivun 
-% VANHA //  sivunumero EI ole sivujen määrä vaan se pitää laskea tähän käsin
-
-%\PAGES{Kirjoita tähän oikea määrä, tässä esimerkissä 23}
-\PAGES{?}  % kaikki sivut laskettuna nimiölehdestä lähdeluettelon tai 
-             % mahdollisten liitteiden loppuun. Tässä 23 sivua
+% kaikki sivut laskettuna nimiölehdestä lähdeluettelon tai mahdollisten liitteiden loppuun
+\PAGES{?}
 
 %\thispagestyle{empty}  % nimiölehdellä ei ole sivunumerointia; tyylin mukaan ei tehdäkään?!
 
@@ -254,27 +169,6 @@
 %\clearpage                     % luku loppuu, loput kelluvat tänne
 \newpage
 
-% -------------- Kuvat ja taulukot ------------------------------------
-% Kirjoissa (väitöskirja) on usein tässä kuvien ja taulukoiden listaus.
-% Suositus: Ei kandityöhön.
-
-% -------------- Alkusanat --------------------------------------------
-% Suositus: ÄLÄ käytä kandidaatintyössä. Jos käytät, niin omalle 
-% sivulleen käyttäen tarvittaessa \newpage
-%
-%\input{luku_alkusanat}
-%\clearpage                     % luku loppuu, loput kelluvat tänne
-%\newpage                       % pakota sivunvaihto
-%
-%SH: Alkusanoissa voi kiittää tahoja, jotka ovat merkittävästi edistäneet
-% työn valmistumista. Tällaisia voivat olla esimerkiksi yritys, jonka
-% tietokantoja, kontakteja tai välineistöä olet saanut käyttöösi,
-% haastatellut henkilöt, ohjaajasi tai muut opettajat ja myös
-% henkilökohtaiset kontaktisi, joiden tuki on ollut korvaamatonta työn
-% kirjoitusvaiheessa. Alkusanat jätetään tyypillisesti pois
-% kandidaatintyöstä, joka on laajuudeltaan vielä niin suppea, ettei
-% kiiteltäviä tahoja luontevasti ole.
-
 % ---------------------------------------------------------------------
 % -------------- Tekstiosa alkaa --------------------------------------
 % ---------------------------------------------------------------------
@@ -302,18 +196,7 @@
                                % alkamaan uudelta sivulta
 
 % -------------- Lähdeluettelo / reference list -----------------------
-%
-% Lähdeluettelo alkaa aina omalta sivultaan; pakota lähteet alkamaan
-% joko \clearpage tai \newpage
-%
-%
-% Muista, että saat kirjallisuusluettelon vasta
-%  kun olet kääntänyt ja kaulinnut "latex, bibtex, latex, latex"
-%  (ellet käytä Makefilea ja "make")
-
-% Viitetyylitiedosto aaltosci_t.bst; muokattu HY:n tktl-tyylistä.
 \bibliographystyle{aaltosci_t}
-% Katso myös tämän tiedoston yläosan "preamble" ja siellä \bibpunct.
 
 % Muutetaan otsikko "Kirjallisuutta" -> "Lähteet"
 \renewcommand{\refname}{\REFERENCES}  % article-tyyppisen
@@ -331,14 +214,6 @@
 \clearpage         % erotetaan mahd. liitteet alkamaan uudelta sivulta
 
 % -------------- Liitteet / Appendices --------------------------------
-%
-% Liitteitä ei yleensä tarvita. Kommentoi tällöin seuraavat
-% rivit.
-
-% Tiivistelmässä joskus matemaattisen kaavan tarkempi johtaminen, 
-% haastattelurunko, kyselypohja, ylimääräisiä kuvia, lyhyitä 
-% ohjelmakoodeja tai datatiedostoja.
-
 \appendix
 %\input{luku_liitteet}
 
