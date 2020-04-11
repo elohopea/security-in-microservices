@@ -1,14 +1,13 @@
 
 % --------------------------------------------------------------------
 
-
 \section{Introduction}
 \begin{sloppypar}
     In recent years, mobile applications and web services which cater to them 
     have revolutionized our daily lives by infiltrating social life, shopping 
     and almost every aspect of our existence. The rapid expansion and, at times, 
     even faster decline of these web services needs a matching architecture to 
-    meet their very specific needs.  
+    meet their very specific needs.
 \end{sloppypar}
 \begin{sloppypar}
     There are many web services already in use which were designed and 
@@ -54,9 +53,9 @@
      Microservices are not the proper choice for all web services 
      \citep{newman2019}. Microservices offer multiple benefits such as easier 
      scalability and more modular structure for the application. When the 
-     architecture needs to be changed, the process needs to happen in an orderly 
-     and safe way. Often overlooked security aspects need to be identified and 
-     addressed as early as possible.
+     architecture needs to be changed, the process needs to happen in an 
+     orderly and safe way. Often overlooked security aspects need to be 
+     identified and addressed as early as possible.
 \end{sloppypar}
 \begin{sloppypar}
     Microservice Architecture (MSA) differs in many ways from 
@@ -68,8 +67,15 @@
     main differences between MA and MSA on security aspects are discussed. 
 \end{sloppypar}
 \begin{sloppypar}
-    \textbf{The first chapter discusses the \dots}
-    \textbf{The last chapter in the thesis contains the conclusions and presents further research topics.}
+    This thesis is organized as follows. The first chapter of this thesis 
+    compares the two architectures and the second chapter discusses the 
+    changing of architecture from MA to MSA. The third chapter presents the 
+    main security aspects in the architectural change. The fourth and fifth 
+    chapter discuss the key security aspects that need to be addressed when the 
+    architecture is to be changed: access control, and system communication, 
+    respectively. In the sixth chapter other relevant security concerns are 
+    discussed. The last chapter in the thesis presents the conclusions and 
+    further research to be conducted on the subject.
 \end{sloppypar}
 
 
@@ -429,10 +435,11 @@
     \label{fig:OPAQUE_TOKEN_API_GATEWAY}
 \end{figure}
 
+
 % -----------------------------------------------------------------------------
 
 
-\section{Session}
+\subsection{Session}
 \begin{sloppypar}
     Client handled session is easy to tamper with and has risks involved. The 
     service would either have to trust the client offered session or verify a 
@@ -443,7 +450,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     Sessions can be used in MSA when the architecture has an API Gateway. The 
-    session is stored in the Gateway and a session key (?) is carried in the 
+    session is stored in the Gateway and a session key is carried in the 
     requests made by the client application. The API Gateway then verifies the
     request and can grant access to specific service. Without the Gateway the
     session would have to be either centrally maintained at a session service 
@@ -453,13 +460,6 @@
 
 % --------------------------------------------------------------------
 
-
-\section{Cloud}
-\subsection{Monolith}
-\subsection{Microservices Architecture}
-
-
-% --------------------------------------------------------------------
 
 
 \section{Communication}
@@ -493,22 +493,14 @@
       \end{itemize}
 \end{sloppypar}
 %     TODO
-
 %     Next messaging systems list is from \citet{secchalmsa}:
 % lightweight
-% -
 %     REST API, Sync RPC, GraphQl
-%     -
 %     Async REST, gRPC
-%     - 
 %     Apache Kafka, ZeroMQ
-%     -
 %     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
-%     -
 %     AMQP: RabbitMQ, Qpid, HornetQ
-%     -
 %     MuleESB, Apache ServiceMix, JBossESB
-% -
 % heavyweight
 %     WebSocket
 
@@ -557,9 +549,48 @@
 % --------------------------------------------------------------------
 
 
+\section{Virtualization}
+\begin{sloppypar}
+    Both MA and MSA web services can be installed on servers operated by the 
+    organization or individuals them selves. The software can be installed on 
+    the host operating system directly or a virtualization technology can be 
+    used.
+\end{sloppypar}
+\begin{sloppypar}
+    Virtualization can be carried out in various ways but the discussion in 
+    this paper is to be on virtual machines (VM) and containerization. VM is a 
+    complete installation of all the software needed for a system to run. In 
+    its basic form a container uses the host operating system capabilities 
+    without the need to install operating system or non essential software a 
+    new. Only the application and its dependencies are needed. VMs are run on 
+    the host by a hypervisor and containers by an engine or the host operating 
+    system. Running an application on VM or on a container does not differ for 
+    the application or in this case, for the web service, the environment is 
+    similar.
+\end{sloppypar}
+
+\subsection{Monolith}
+\begin{sloppypar}
+
+\end{sloppypar}
+
+\begin{sloppypar}
+\end{sloppypar}
+\subsection{Microservices Architecture}
 
 
-\section{Service Mesh}
+% --------------------------------------------------------------------
+
+
+\section{Orchestration solutions}
+\begin{sloppypar}
+    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
+\end{sloppypar}
+
+
+
+
+\subsection{Service Mesh}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{service_mesh.png}}
     \centering
@@ -598,10 +629,8 @@
 \end{sloppypar}
 
 
-\section{Orchestration solutions}
-\begin{sloppypar}
-    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
-\end{sloppypar}
+% --------------------------------------------------------------------
+
 
 \section{Other Security Concerns}
 \subsection{Transaction}
@@ -719,8 +748,27 @@
     The possible ways to fail for a web service consisting of a large number of 
     microservices are numerous. One solution for testing for outages is the 
     Netflix created Chaos Monkey \citep{chaosmonkey}. It is used for resilience 
-    testing and can terminate containers or virtual machines at random.
+    testing and can terminate containers or VMs at random.
 \end{sloppypar}
+
+\section{Decision Flowcharts}
+\begin{sloppypar}
+    In this chapter flowcharts are presented that capture the main 
+    findings and the factors affecting decision making in and architectural 
+    switch.
+\end{sloppypar}
+\begin{sloppypar}
+    In figure \ref{fig:auth_flowchart} a decision flowchart for authentication 
+    and authorization is presented.
+\end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{AUTH_FLOWCHART.png}}
+    \centering
+    \caption{Authorization flowchart.}
+    \label{fig:auth_flowchart}
+\end{figure}
+
+
 
 
 % --------------------------------------------------------------------

@@ -1,55 +1,77 @@
-% Tiivistelmät tehdään viimeiseksi. 
-%
-% Tiivistelmä kirjoitetaan käytetyllä kielellä (JOKO suomi TAI ruotsi)
-% ja HALUTESSASI myös samansisältöisenä englanniksi.
-%
 % Avainsanojen lista pitää merkitä main.tex-tiedoston kohtaan \KEYWORDS.
 
 \begin{fiabstract}
-    Kirjoitetaan myöhemmin.
-%   Tiivistelmä on muusta työstä täysin irrallinen teksti, joka
-%   kirjoitetaan tiivistelmälomakkeelle vasta, kun koko työ on
-%   valmis. Se on suppea ja itsenäinen teksti, joka kuvaa olennaisen
-%   opinnäytteen sisällöstä. Tavoitteena selvittää työn merkitys
-%   lukijalle ja antaa yleiskuva työstä. Tiivistelmä markkinoi työtäsi
-%   potentiaalisille lukijoille, siksi tutkimusongelman ja tärkeimmät
-%   tulokset kannattaa kertoa selkeästi ja napakasti. Tiivistelmä
-%   kirjoitetaan hieman yleistajuisemmin kuin itse työ, koska teksti
-%   palvelee tiedonvälitystarkoituksessa laajaa yleisöä.
-
-%   Tiivistelmän rakenne: 
-% teksti jäsennetään kappaleisiin (3--5 kappaletta);
-% ei väliotsikkoja; 
-% ei mitään työn ulkopuolelta; 
-% ei tekstiviitteitä tai lainauksia;
-% vähän tai ei ollenkaan viittauksia työhön 
-% (ei ollenkaan: ``luvussa 3'' tms., mutta koko työhön voi 
-% viitata esim. sanalla ``kandidaatintyössä'';
-% ei kuvia ja taulukoita.
-
-% Tiivistelmässä otetaan ``löysät pois'':
-% ei työn rakenteen esittelyä;
-% ei itsestäänselvyyksiä;
-% ei turhaa toistoa;
-% älä jätä lukijaa nälkäiseksi, eli kerro asiasisältö, 
-% älä vihjaa, että työssä kerrotaan se.
-
-% Tiivistelmän tyypillinen rakenne: 
-% (1) aihe, tavoite ja rajaus 
-% (heti alkuun, selkeästi ja napakasti, ei johdattelua);
-% (2) aineisto ja menetelmät (erittäin lyhyesti);
-% (3) tulokset (tälle enemmän painoarvoa); 
-% (4) johtopäätökset (tälle enemmän painoarvoa).
-%
-%Tiivistelmätekstiä tähän (\languagename). Huomaa, että tiivistelmä tehdään %vasta kun koko työ on muuten kirjoitettu.
+    \begin{sloppypar}
+        Verkkopalvelut on usein toteutettu käyttäen monoliittista 
+        arkkitehtuuria. Tämä arkkitehtuuri ei skaalaudu eikä mahdollista 
+        ketterää kehitystä. Mikropalveluarkkitehtuurin käyttö mahdollistaa nämä 
+        sekä useita muita etuja.
+    \end{sloppypar}
+    \begin{sloppypar}    
+        % (1) aihe, tavoite ja rajaus 
+        Tämän kandidaatintyön aiheena on tietoturva siirryttäessä 
+        monoliittisesta arkkitehtuurista mikropalveluarkkitehtuuriin 
+        verkkopalveluissa. Tämän kandidaatintyön tarkoituksena oli selvittää 
+        keskeisimmät tietoturvakysymykset arkkitehtuurin vaihdoksessa ja 
+        esittää löydettyihin ongelmakohtiin ratkaisuja.
+    \end{sloppypar}
+    \begin{sloppypar}
+        % (2) aineisto ja menetelmät (erittäin lyhyesti);
+        Aineistona käytettiin artikkeleja sekä alan 
+        peruskirjallisuutta. Työ toteutettiin kirjallisuustutkimuksena.
+    \end{sloppypar}
+    \begin{sloppypar}        
+        % (3) tulokset (tälle enemmän painoarvoa); 
+        Tietoturvahaasteita ovat palvelun sisäinen viestintä, saavutettavuus ja 
+        skaalautuvuus, ajoympäristön tietoturva ja tunnistaminen ja 
+        valtuuttaminen.
+    \end{sloppypar}
+    \begin{sloppypar}
+        % (4) johtopäätökset (tälle enemmän painoarvoa).
+        Työssä havaittiin, että mikropalveluarkkitehtuuriinsiirtymisessä on 
+        merkittäviä tietoturvariskejä, jotka tulee huolellisesti eritellä ja 
+        ratkaista jokaisessa arkkitehtuurin vaihdoksessa tapauskohtaisesti. 
+        Tietoturvan suunnittelu ja toteutus tulee suorittaa suurta 
+        huolellisuutta noudattaen ja mahdollisuuksien mukaan valmiita 
+        toteutuksia käyttäen.
+    \end{sloppypar}
 \end{fiabstract}
 
-%\begin{svabstract}
-%  Ett abstrakt hit 
-%%(\languagename)
-%\end{svabstract}
+
+
+
+
+
 
 \begin{enabstract}
-Will be written.
-%(\languagename)
+    \begin{sloppypar}
+        There are many web services in use which were designed and implemented 
+        before the onslaught of microservices. These services might benefit 
+        from architectural change to microservices. Since the architectures
+        are very different the security aspects need to be taken into account.
+    \end{sloppypar}
+    \begin{sloppypar}    
+        % (1) aihe, tavoite ja rajaus 
+        The topic of this bachelors thesis is the security in microservice 
+        architecture when switching from a monolithic architecture to 
+        microservices architecture. This thesis presents the key security 
+        considerations and presents solutions to the major security aspects.
+    \end{sloppypar}
+    \begin{sloppypar}
+        % (2) aineisto ja menetelmät (erittäin lyhyesti);
+        The research is carried out as a literary study.
+        The literature consists of articles and textbooks.
+        The articles used in this study were gathered from Scopus, 
+        GoogleScholar, and internet sources that were deemed reliable.
+    \end{sloppypar}
+    \begin{sloppypar}
+        % (3) tulokset (tälle enemmän painoarvoa); 
+        The main security considerations are: communication, configuration, 
+        and authentication and authorization. 
+    \end{sloppypar}
+    \begin{sloppypar}
+        % (4) johtopäätökset (tälle enemmän painoarvoa).
+        Security has to be taken into account as early as possible in a project 
+        and the use of tools should be encouraged.
+    \end{sloppypar}
 \end{enabstract}
