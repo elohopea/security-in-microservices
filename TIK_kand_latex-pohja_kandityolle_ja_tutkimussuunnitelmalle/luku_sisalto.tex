@@ -204,23 +204,6 @@
 
 \section{Security}
 \begin{sloppypar}
-    \citet{closer18} implemented a test system mimicking the Deutsche Bahn seat
-    reservation system using MSA. The purpose of the test system was to analyze
-    security risks that were introduced by the implementation. In the study they
-    categorized the solution to three layers: first of which was the compute
-    provider, the second was the encapsulation tehcnology, and the third one was
-    the deployment. The technologies for these layers were: Amazon Web services,
-    Docker for containers, and Kubernetes (k8s) nodes, respectively. They found
-    out that the cloud-based infrastructure when used in MSA resulted in a more
-    complex solution than in MA. The added layers such as the K8s, have to be
-    configured correctly and an error in one could potentially compromise the
-    whole system. In addiniton, implementation of security is very difficult and
-    resource intensive. The rewards from a good security are invisible. When
-    microservices are implemented or even planned the security should be taken
-    into account as early as possible. Implementing security later in the
-    project or as an after thought can be more expensive and very difficult.
-\end{sloppypar}
-\begin{sloppypar}
     Implementing security is hard. A theoretical proof for this can be found in
     \citet{andersson2001information}. His main finding was that an attacker has
     an advantage over the developers trying to defend a system. For the system
@@ -230,13 +213,25 @@
     is preferable to developing one's own solutions for a well known and already
     solved problem.
 \end{sloppypar}
+\begin{sloppypar}
+    \citet{closer18} implemented a test system mimicking the Deutsche Bahn seat
+    reservation system using MSA. The purpose of the test system was to analyze
+    security risks that were introduced by the implementation. In the study they
+    categorized the solution to three layers: first of which was the compute
+    provider, the second was the encapsulation technology, and the third one was
+    the deployment. The technologies for these layers were: Amazon Web services,
+    Docker for containers, and Kubernetes (k8s) nodes, respectively. They found
+    out that the cloud-based infrastructure when used in MSA resulted in a more
+    complex solution than in MA. The added layers such as the K8s, have to be
+    configured correctly and an error in one could potentially compromise the
+    whole system. In addition, implementation of security is very difficult and
+    resource intensive. The rewards from a good security are invisible. When
+    microservices are implemented or even planned the security should be taken
+    into account as early as possible. Implementing security later in the
+    project or as an after thought can be more expensive and very difficult.
+\end{sloppypar}
 
 
-% --------------------------------------------------------------------
-% \begin{sloppypar}
-%     authorization, access control, policy decision point (PDP), policy enforcement point (PEP), 
-%     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
-% \end{sloppypar}
 % --------------------------------------------------------------------
 
 
@@ -322,8 +317,6 @@
     \label{fig:MSA_AUTH_SERVICE}
 \end{figure}
 
-% --------------------------------------------------------------------
-
 \subsection{OIDC}
 \begin{sloppypar}
     OIDC is an identity layer to accompany OAuth 2.0 authorization framework
@@ -343,28 +336,12 @@
     request by sending ID token and a possible access token, the client
     application can request the end user claims from the authorization server
     with the access token, and finally the authorization service returns the
-    claims to the client application. 
+    claims to the client application. The presented flow is similar to the OAuth
+    2.0 flow and the token sent to the client application is a Java Script
+    Object Notation Web Token (JWT).  
 \end{sloppypar}
 
-% \section{Authorization}
-% \begin{sloppypar}
-%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
-% \end{sloppypar}
-% \begin{sloppypar}
-%     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
-% \end{sloppypar}
-% \begin{sloppypar}
-%     Identity and Access Management (IAM),
-%     Identity federation, Azure Active Directory, Active Directory Federation Services (ADFS),
-%     Google, Facebook, Twitter, LinkedIn etc.,
-%     Single-Sign-On (SSO), Security Assertion Markup Language (SAML),
-%     SAML identity provider, OpenId provider, OAuth 2.0,
-%     OpenId Connect (OIDC),
-%     Identity Management: Identification, Authentication, Authorization.
-%     \dots
-% \end{sloppypar}
-
-\subsection{Java Script Object Notation Web Token (JWT)}
+\subsection{JWT}
 \begin{sloppypar}
     JWT is a format to represent claims. It is base64 encoded, point separated
     strings, which can easily be carried in the HTTP request or response. The
@@ -438,7 +415,7 @@
 % -----------------------------------------------------------------------------
 
 
-\subsection{Session}
+\section{Session}
 \begin{sloppypar}
     Client handled session is easy to tamper with and has risks involved. The
     service would either have to trust the client offered session or verify a
@@ -457,7 +434,6 @@
 
 
 % --------------------------------------------------------------------
-
 
 
 \section{Communication}
@@ -488,24 +464,8 @@
         \item There is one administrator
         \item Transport cost is zero
         \item The network is homogeneous
-      \end{itemize}
+    \end{itemize}
 \end{sloppypar}
-%     TODO
-%     Next messaging systems list is from \citet{secchalmsa}:
-% lightweight
-%     REST API, Sync RPC, GraphQl
-%     Async REST, gRPC
-%     Apache Kafka, ZeroMQ
-%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
-%     AMQP: RabbitMQ, Qpid, HornetQ
-%     MuleESB, Apache ServiceMix, JBossESB
-% heavyweight
-%     WebSocket
-
-
-% \subsection{Event-Driven Communication}
-% \begin{sloppypar}
-% \end{sloppypar}
 
 \subsection{Representational State Transfer (REST)}
 \begin{sloppypar}
@@ -546,7 +506,7 @@
 % --------------------------------------------------------------------
 
 
-\section{Virtualization}
+\section{Virtualization and Orchestration}
 \begin{sloppypar}
     Both MA and MSA web services can be installed on servers operated by the
     organization or individuals them selves. The software can be installed on
@@ -554,40 +514,30 @@
     used.
 \end{sloppypar}
 \begin{sloppypar}
-    Virtualization can be carried out in various ways but the discussion in this
-    paper is to be on virtual machines (VM) and containerization. VM is a
-    complete installation of all the software needed for a system to run. In its
-    basic form a container uses the host operating system capabilities without
-    the need to install operating system or non essential software a new. Only
-    the application and its dependencies are needed. VMs are run on the host by
-    a hypervisor and containers by an engine or the host operating system.
-    Running an application on VM or on a container does not differ for the
-    application or in this case, for the web service, the environment is
-    similar.
+    Virtualization can be carried out in various ways but in this paper is to be
+    on virtual machines (VM) and containerization. VM is a complete installation
+    of all the software needed for a system to run. In its basic form a
+    container uses the host operating system capabilities without the need to
+    install operating system or non essential software a new. Only the
+    application and its dependencies are needed. VMs are run on the host by a
+    hypervisor and containers by an engine or the host operating system. Running
+    an application on VM or on a container does not differ for the application
+    or in this case, for the web service, the environment is similar.
 \end{sloppypar}
-
-\subsection{Monolith}
 \begin{sloppypar}
-
+    Containers have considerably lower overhead when compared to VMs. Therefore,
+    they have become the standard deployment virtualization in many of the web
+    services (SOURCE). A container can be created and started easily by an
+    orchestration solution such as, Docker Compose, Docker Swarm, and
+    Kubernetes. All of these layers have to be correctly configured and used
+    according to their specification and best practise.
 \end{sloppypar}
-
-\begin{sloppypar}
-\end{sloppypar}
-\subsection{Microservices Architecture}
 
 
 % --------------------------------------------------------------------
 
 
-\section{Orchestration solutions}
-\begin{sloppypar}
-    Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
-\end{sloppypar}
-
-
-
-
-\subsection{Service Mesh}
+\section{Service Mesh}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{service_mesh.png}}
     \centering
@@ -619,10 +569,11 @@
     services. The service mesh can provide a certificate authority for the
     communication between services. The proxies act on behalf of the service and
     all proxy-to-proxy communication can be encrypted on the transport layer
-    using TLS \citep{pathtoservicemesh}. 
+    using TLS \citep{pathtoservicemesh}. Furthermore, it facilitates the use of
+    mTLS where both parties are verified.
 \end{sloppypar}
 \begin{sloppypar}
-    Service mesh allows for multicloud installations. 
+    Service mesh also allows for multicloud installations. 
 \end{sloppypar}
 
 
@@ -682,7 +633,7 @@
     distinct microservices is a daunting task.
 \end{sloppypar}
 
-\subsection{Service discovery}
+\subsection{Service Discovery}
 \begin{sloppypar}
     Service discovery as presented in \citet{DBLP:journals/corr/MontesiW16} is a
     design pattern in which a registry is kept on currently running
@@ -691,14 +642,7 @@
     service calls to running microservices or by the client directly.
 \end{sloppypar}
 
-% \begin{sloppypar}
-% \end{sloppypar}
-% \begin{sloppypar}
-%     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
-%     https://www.consul.io
-% \end{sloppypar}
-
-\subsection{Externalized configuration}
+\subsection{Externalized Configuration}
 \begin{sloppypar}
     To allow for easy configuration change management there should exist a
     configuration orchestration service. This service should have an API from
@@ -707,24 +651,36 @@
     API.
 \end{sloppypar}
 \begin{sloppypar}
-    The contents of the configuration is highly sensitive information. It
-    consists of addressess, credentials and other information that alter the
-    behaviour of the system. Therefore, the content must be stored safely and
-    not allowed to be read or altered by unauthorized users.
+    The contents of the configuration is highly sensitive information. It can
+    consist of addressess, secrets, and other information that alter the
+    behaviour of the system. Secrets refer to credentials, connection strings,
+    other keys and similar items that are to be kept confidential. Therefore,
+    the content must be stored safely and not allowed to be read or altered by
+    unauthorized users.
 \end{sloppypar}
 
 \subsection{Logging}
 \begin{sloppypar}
     Logging in MA is relatively easy. The chosen logging solution is used and
-    logs are created in easily configurable locations.
+    logs are created in easily configurable locations. In MSA this can be more
+    difficult. Each of the microservices need to have their own logger and each
+    of these need to be configured to log to a proper location. The logs that
+    are created need to be persisted for the length of time allowed and
+    according to the need of the system administration.
 \end{sloppypar}
 \begin{sloppypar}
-    In MSA this can be more difficult. Each of the microservices need to have
-    their own logger and each of these need to be configured to log to a proper
-    location.
+    Without logs it is impossible to verify correct operation of the system nor
+    is it possible to gain knowledge of a possible security breach. 
 \end{sloppypar}
 
-\subsection{Defence-in-Depth}
+
+
+
+
+
+
+
+\subsection{Defense-in-Depth}
 \begin{sloppypar}
     Microservices can not trust any of the \citep{otterstad}
 \end{sloppypar}
@@ -734,10 +690,10 @@
     microservices.
 \end{sloppypar}
 \begin{figure}[h]
-    \includegraphics[scale=0.75]{{Defence_in_depth.png}}
+    \includegraphics[scale=0.75]{{Defense_in_depth.png}}
     \centering
-    \caption{Defence-in-Depth}
-    \label{fig:Defence_in_depth}
+    \caption{Defense-in-Depth}
+    \label{fig:Defense_in_depth}
 \end{figure}
 
 \subsection{Testing}
@@ -767,7 +723,8 @@
 
 
 
-% --------------------------------------------------------------------
+
+
 % --------------------------------------------------------------------
 
 
@@ -819,8 +776,14 @@
     Many security aspects were not discussed.
 \end{sloppypar}
 \begin{sloppypar}
-    Future research on the security aspects of the different design patterns
-    available for the architecture change.
+    The results found in this study can be used to determine if at all
+    architecture change is feasible in a particular case. This though can be the
+    case after other architectural changes or code refactoring. In addition, the
+    results can be used as a guideline for future research.
+\end{sloppypar}
+\begin{sloppypar}
+    Further research is needed on the security aspects of the different design
+    patterns that are available for the architecture change.
 \end{sloppypar}
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
@@ -846,4 +809,63 @@
 % \end{itemize}
 
 % --------------------------------------------------------------------
+
+
+
+
+
+% --------------------------------------------------------------------
+% \begin{sloppypar}
+%     authorization, access control, policy decision point (PDP), policy enforcement point (PEP), 
+%     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
+% \end{sloppypar}
+
+% \begin{sloppypar}
+% \end{sloppypar}
+% \begin{sloppypar}
+%     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
+%     https://www.consul.io
+% \end{sloppypar}
+
+
+% \section{Orchestration solutions}
+% \begin{sloppypar}
+%     Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
+% \end{sloppypar}
+
+% \section{Authorization}
+% \begin{sloppypar}
+%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
+% \end{sloppypar}
+% \begin{sloppypar}
+%     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
+% \end{sloppypar}
+% \begin{sloppypar}
+%     Identity and Access Management (IAM),
+%     Identity federation, Azure Active Directory, Active Directory Federation Services (ADFS),
+%     Google, Facebook, Twitter, LinkedIn etc.,
+%     Single-Sign-On (SSO), Security Assertion Markup Language (SAML),
+%     SAML identity provider, OpenId provider, OAuth 2.0,
+%     OpenId Connect (OIDC),
+%     Identity Management: Identification, Authentication, Authorization.
+%     \dots
+% \end{sloppypar}
+
+%     TODO
+%     Next messaging systems list is from \citet{secchalmsa}:
+% lightweight
+%     REST API, Sync RPC, GraphQl
+%     Async REST, gRPC
+%     Apache Kafka, ZeroMQ
+%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
+%     AMQP: RabbitMQ, Qpid, HornetQ
+%     MuleESB, Apache ServiceMix, JBossESB
+% heavyweight
+%     WebSocket
+
+
+% \subsection{Event-Driven Communication}
+% \begin{sloppypar}
+% \end{sloppypar}
+
 
