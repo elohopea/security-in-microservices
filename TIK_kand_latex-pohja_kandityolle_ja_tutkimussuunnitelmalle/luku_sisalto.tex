@@ -32,11 +32,12 @@
     will be relevant to the near future.
 \end{sloppypar}
 \begin{sloppypar}
-    \citet{10.1007/978-3-319-74433-9_3} finds that as the code base becomes large
-    the Monolith Architecture (MA) leads to slower development. This is due to
-    the possible complexity inherent in the entwined monolith. The amount of
-    code to refactor is much larger than in a small microservice. Microservice
-    should do one thing and, as such, it should be more understandable.
+    \citet{10.1007/978-3-319-74433-9_3} finds that as the code base becomes
+    large the Monolith Architecture (MA) leads to slower development. This is
+    due to the possible complexity inherent in the entwined monolith. The amount
+    of code to refactor is much larger than in a small microservice.
+    Microservice should do one thing and, as such, it should be more
+    understandable.
 \end{sloppypar}
 \begin{sloppypar}
     The Stack Overflow annual survey \citep{sosurvey2019} conducted on
@@ -103,12 +104,12 @@
     capability rather a design pattern such as the previously mentioned MVC, a
     team should responsible of their product for it's full service life, the
     services are to contain the logic and communicate using a communication
-    system without business logic "smart endpoints and dumb pipes", decentralized
-    governance meaning that choices such as the technology to use or
-    architecture are not dictated to developers, decentralized data management,
-    infrastructure automation, the whole application needs to be fault tolerant
-    since individual services might fail or become unavailable, and evolutionary
-    design.
+    system without business logic "smart endpoints and dumb pipes",
+    decentralized governance meaning that choices such as the technology to use
+    or architecture are not dictated to developers, decentralized data
+    management, infrastructure automation, the whole application needs to be
+    fault tolerant since individual services might fail or become unavailable,
+    and evolutionary design.
 \end{sloppypar}
 \begin{sloppypar}
     \citet{newman2019} definition for a microservice is a service that: is
@@ -349,11 +350,11 @@
     encrypted \citep{RFC7519}. The token may contain an expiration time. If the
     token is used to validate requests without a server side implementation that
     can revoke a token, it will be valid until this time. The JWT token is
-    issued by an authority trusted by the service. In figure
-    a basic bearer token based authentication and
-    authorization is depicted. A client initially enters credentials to a login
-    page and the authorization service issues a token for the user. This token
-    is used in place of the credentials to access restricted resources.
+    issued by an authority trusted by the service. In figure a basic bearer
+    token based authentication and authorization is depicted. A client initially
+    enters credentials to a login page and the authorization service issues a
+    token for the user. This token is used in place of the credentials to access
+    restricted resources.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{TOKEN_AUTH.png}}
@@ -372,14 +373,14 @@
 \subsubsection{Known Vulnerabilities}
 \begin{sloppypar}
     The choices for the algorithm for signing the JWT algorithm contain "none"
-    as one of the choices. This was found to be troublesome by .
-    He found that many libraries did not operate in the desired way. The
-    receiving party could be fooled to validate a mutated token without any
-    signature with the "none" as it's algorithm. In addition to this
-    vulnerability \citet{nonejwt} found that the verification suffered from
-    another fatal flaw. When a token was created by using a symmetric algorithm,
-    the servers could be fooled in to believing that a token signed by just the
-    public key and not the secret HMAC key was a valid one.
+    as one of the choices. This was found to be troublesome by . He found that
+    many libraries did not operate in the desired way. The receiving party could
+    be fooled to validate a mutated token without any signature with the "none"
+    as it's algorithm. In addition to this vulnerability \citet{nonejwt} found
+    that the verification suffered from another fatal flaw. When a token was
+    created by using a symmetric algorithm, the servers could be fooled in to
+    believing that a token signed by just the public key and not the secret HMAC
+    key was a valid one.
 \end{sloppypar}
 
 \subsection{Opaque Token}
@@ -553,8 +554,8 @@
     to send the orchestrator any message on this erroneous behavior. Therefore,
     the orchestrator can have a Health check service. This service can
     periodically send a message to a service and if no response is not received
-    with in reasonable time frame the service is deemed non operational and a new
-    one is to be created by the scheduler. This service is to create the
+    with in reasonable time frame the service is deemed non operational and a
+    new one is to be created by the scheduler. This service is to create the
     individual pods or containers according to the system settings. The last
     orchestration part is the organizational primitives. These are to used to
     e.g. label pods or containers with matching business domain names. This is
@@ -676,11 +677,11 @@
 \end{sloppypar}
 \begin{sloppypar}
     The contents of the configuration is highly sensitive information. It can
-    consist of addresses, secrets, and other information that alter the
-    behavior of the system. Secrets refer to credentials, connection strings,
-    other keys and similar items that are to be kept confidential. Therefore,
-    the content must be stored safely and not allowed to be read or altered by
-    unauthorized users.
+    consist of addresses, secrets, and other information that alter the behavior
+    of the system. Secrets refer to credentials, connection strings, other keys
+    and similar items that are to be kept confidential. Therefore, the content
+    must be stored safely and not allowed to be read or altered by unauthorized
+    users.
 \end{sloppypar}
 
 \subsection{Logging}
@@ -785,7 +786,7 @@
     microservice.
 \end{sloppypar}
 \begin{sloppypar}
-    Many security aspects were not discussed. Only REST API on HTTP was 
+    Many security aspects were not discussed. Only REST API on HTTP was
     discussed in any real extent. 
 \end{sloppypar}
 \begin{sloppypar}
