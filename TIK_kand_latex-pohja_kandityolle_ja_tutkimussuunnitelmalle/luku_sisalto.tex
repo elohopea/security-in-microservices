@@ -45,9 +45,9 @@
     professional experience.
 \end{sloppypar}
 \begin{sloppypar}
-    New developers entering the workforce have a very different mindset than 
-    the older more seasoned professionals. Thus, it is very clear that the ways 
-    of working and paradigms to be used are constantly changing.
+    New developers entering the workforce have a very different mindset than the
+    older more seasoned professionals. Thus, it is very clear that the ways of
+    working and paradigms to be used are constantly changing.
 \end{sloppypar}
 \begin{sloppypar}
      Microservices are not the proper choice for all web services
@@ -505,8 +505,8 @@
 
 % --------------------------------------------------------------------
 
-
-\section{Virtualization and Orchestration}
+\section{Deployment Automation and Production}
+\subsection{Virtualization}
 \begin{sloppypar}
     Both MA and MSA web services can be installed on servers operated by the
     organization or individuals them selves. The software can be installed on
@@ -525,19 +525,50 @@
     or in this case, for the web service, the environment is similar.
 \end{sloppypar}
 \begin{sloppypar}
-    Containers have considerably lower overhead when compared to VMs. Therefore,
-    they have become the standard deployment virtualization in many of the web
-    services (SOURCE). A container can be created and started easily by an
-    orchestration solution such as, Docker Compose, Docker Swarm, and
-    Kubernetes. All of these layers have to be correctly configured and used
+    Containers have considerably lower overhead when compared to VMs. A
+    container can be created and started easily and automatically as needed by
+    an orchestration solution such as, Docker Compose, Docker Swarm, and
+    Kubernetes. All of these tools have to be correctly configured and used
     according to their specification and best practise.
 \end{sloppypar}
 
+\subsection{Orchestration}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{orchestration.png}}
+    \centering
+    \caption{Orchestration constituents\citep{containernetworking}}
+    \label{fig:orchestration_constituents}
+\end{figure}
+\begin{sloppypar}
+    Container orchestration can consist of the services and operations as is
+    depicted in \ref{fig:orchestration_constituents}. The scaling refers to
+    automatically creating or shutting down pods or containers to match
+    utilization level. The containers and the microservices within can have a
+    new version that needs to be rolled into the production. The upgrade service
+    is responsible in doing this. Service discovery is a service which is used
+    to locate running services and as a service to which self registration is
+    carried out. If a service is to become non operational it might not be able
+    to send the orchestrator any message on this erroneous behaviour. Therefore,
+    the orchestrator can have a Healt check service. This service can
+    periodically send a message to a service and if no response is not received
+    with in reasonable timeframe the service is deemed non operational and a new
+    one is to be created by the scheduler. This service is to create the
+    individual pods or containers according to the system settings. The last
+    orchestration part is the organizational primitives. These are to used to
+    e.g. label pods or containers with matching business domain names. This is
+    to make the administration and setup work easier
+    \citep{containernetworking}.
+\end{sloppypar}
+\subsection{Service Discovery}
+\begin{sloppypar}
+    Service discovery as presented in \citet{DBLP:journals/corr/MontesiW16} is a
+    design pattern in which a registry is kept on currently running
+    microservices. The microservices register them selves to the service
+    discovery registry. This registry is used by either a router to route client
+    service calls to running microservices or by the client directly.
+\end{sloppypar}
 
-% --------------------------------------------------------------------
-
-
-\section{Service Mesh}
+\subsection{Service Mesh}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{service_mesh.png}}
     \centering
@@ -633,14 +664,7 @@
     distinct microservices is a daunting task.
 \end{sloppypar}
 
-\subsection{Service Discovery}
-\begin{sloppypar}
-    Service discovery as presented in \citet{DBLP:journals/corr/MontesiW16} is a
-    design pattern in which a registry is kept on currently running
-    microservices. The microservices register them selves to the service
-    discovery registry. This registry is used by either a router to route client
-    service calls to running microservices or by the client directly.
-\end{sloppypar}
+
 
 \subsection{Externalized Configuration}
 \begin{sloppypar}
@@ -704,26 +728,6 @@
     testing and can terminate containers or VMs at random.
 \end{sloppypar}
 
-\section{Decision Flowcharts}
-\begin{sloppypar}
-    In this chapter flowcharts are presented that capture the main findings and
-    the factors affecting decision making in and architectural switch.
-\end{sloppypar}
-\begin{sloppypar}
-    In figure \ref{fig:auth_flowchart} a decision flowchart for authentication
-    and authorization is presented.
-\end{sloppypar}
-\begin{figure}[h]
-    \includegraphics[scale=0.75]{{AUTH_FLOWCHART.png}}
-    \centering
-    \caption{Authorization flowchart.}
-    \label{fig:auth_flowchart}
-\end{figure}
-
-
-
-
-
 
 % --------------------------------------------------------------------
 
@@ -785,87 +789,73 @@
     Further research is needed on the security aspects of the different design
     patterns that are available for the architecture change.
 \end{sloppypar}
-
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
 % ``johtopäätöksiä''. Valitse se otsikko, joka tuntuu sopivammalta työsi
-% luonteeseen. Joka tapauksessa loppuluku sisältää niin työn yhteenvedon
-% kuin johtopäätöksiä työn tulosten perusteella. Pääajatus on antaa
-% lukijalle selvä kuva siitä, miten johdannossa asetettuihin
-% tavoitteisiin työssä vastattiin.
-
+% luonteeseen. Joka tapauksessa loppuluku sisältää niin työn yhteenvedon kuin
+% johtopäätöksiä työn tulosten perusteella. Pääajatus on antaa lukijalle selvä
+% kuva siitä, miten johdannossa asetettuihin tavoitteisiin työssä vastattiin.
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
 % Käsittele loppupuvussa seuraavia asioita (jotakuinkin tässä järjestyksessä):
 % %
-% \begin{itemize}
-%   \item Muistutus työn tavoitteista (sidoksisuus johdantoon)
-%   \item Päätulokset kootaan yhteen, pohditaan niiden merkitystä
-%   \item Suositukset konkreettisiksi toimenpiteiksi (``Mitä sitten?'' 
-% Nyt kun käytössä on tämän työn myötä tullut tieto, 
-% mitä se nyt tarkoittaa tälle asialle/alalle.)
-%   \item Tulosten soveltuvuus, käyttöön liittyvät rajoitukset
-%   \item Jatkotutkimustarve 
-% (``Tulevaisuudessa olisi mielenkiintoista selvittää...'' tms.)
-%   \item Työn onnistumisen arviointi 
-% (Huom! Älä arvioi omaa kirjoitusprosessiasi vaan tekemääsi tutkimusta)
-% \end{itemize}
-
+% \begin{itemize} \item Muistutus työn tavoitteista (sidoksisuus johdantoon)
+%   \item Päätulokset kootaan yhteen, pohditaan niiden merkitystä \item
+%   Suositukset konkreettisiksi toimenpiteiksi (``Mitä sitten?'' Nyt kun
+%   käytössä on tämän työn myötä tullut tieto, mitä se nyt tarkoittaa tälle
+%   asialle/alalle.) \item Tulosten soveltuvuus, käyttöön liittyvät rajoitukset
+%   \item Jatkotutkimustarve (``Tulevaisuudessa olisi mielenkiintoista
+%   selvittää...'' tms.) \item Työn onnistumisen arviointi (Huom! Älä arvioi
+%   omaa kirjoitusprosessiasi vaan tekemääsi tutkimusta) \end{itemize}
 % --------------------------------------------------------------------
-
-
-
-
-
 % --------------------------------------------------------------------
-% \begin{sloppypar}
-%     authorization, access control, policy decision point (PDP), policy enforcement point (PEP), 
-%     A Framework for Policy-based Admission Control https://tools.ietf.org/html/rfc2753
+% \begin{sloppypar} authorization, access control, policy decision point (PDP),
+%     policy enforcement point (PEP), A Framework for Policy-based Admission
+%     Control https://tools.ietf.org/html/rfc2753 \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \begin{sloppypar} \end{sloppypar} \begin{sloppypar}
+% https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
+% https://www.consul.io \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \section{Orchestration solutions} \begin{sloppypar} Docker Swarm, Kubernetes
+% (K8s), Azure, sandbox, virtualization \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \section{Authorization} \begin{sloppypar}
+% https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
+% \end{sloppypar} \begin{sloppypar} token (JWT, OAuth 2.0), (API gateway, IdP)
+% vs distribution \end{sloppypar} \begin{sloppypar} Identity and Access
+% Management (IAM), Identity federation, Azure Active Directory, Active
+% Directory Federation Services (ADFS), Google, Facebook, Twitter, LinkedIn
+% etc., Single-Sign-On (SSO), Security Assertion Markup Language (SAML), SAML
+% identity provider, OpenId provider, OAuth 2.0, OpenId Connect (OIDC), Identity
+% Management: Identification, Authentication, Authorization. \dots
 % \end{sloppypar}
-
-% \begin{sloppypar}
-% \end{sloppypar}
-% \begin{sloppypar}
-%     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
-%     https://www.consul.io
-% \end{sloppypar}
-
-
-% \section{Orchestration solutions}
-% \begin{sloppypar}
-%     Docker Swarm, Kubernetes (K8s), Azure, sandbox, virtualization 
-% \end{sloppypar}
-
-% \section{Authorization}
-% \begin{sloppypar}
-%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
-% \end{sloppypar}
-% \begin{sloppypar}
-%     token (JWT, OAuth 2.0), (API gateway, IdP) vs distribution 
-% \end{sloppypar}
-% \begin{sloppypar}
-%     Identity and Access Management (IAM),
-%     Identity federation, Azure Active Directory, Active Directory Federation Services (ADFS),
-%     Google, Facebook, Twitter, LinkedIn etc.,
-%     Single-Sign-On (SSO), Security Assertion Markup Language (SAML),
-%     SAML identity provider, OpenId provider, OAuth 2.0,
-%     OpenId Connect (OIDC),
-%     Identity Management: Identification, Authentication, Authorization.
-%     \dots
-% \end{sloppypar}
-
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
 %     TODO
 %     Next messaging systems list is from \citet{secchalmsa}:
-% lightweight
-%     REST API, Sync RPC, GraphQl
-%     Async REST, gRPC
-%     Apache Kafka, ZeroMQ
-%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish
-%     AMQP: RabbitMQ, Qpid, HornetQ
-%     MuleESB, Apache ServiceMix, JBossESB
-% heavyweight
-%     WebSocket
-
-
-% \subsection{Event-Driven Communication}
-% \begin{sloppypar}
-% \end{sloppypar}
-
-
+% lightweight REST API, Sync RPC, GraphQl Async REST, gRPC Apache Kafka, ZeroMQ
+%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish AMQP: RabbitMQ,
+%     Qpid, HornetQ MuleESB, Apache ServiceMix, JBossESB heavyweight WebSocket
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \subsection{Event-Driven Communication} \begin{sloppypar} \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \section{Decision Flowcharts} \begin{sloppypar} In this chapter flowcharts are
+% presented that capture the main findings and the factors affecting decision
+% making in and architectural switch. \end{sloppypar} \begin{sloppypar} In
+% figure \ref{fig:auth_flowchart} a decision flowchart for authentication and
+% authorization is presented. \end{sloppypar} \begin{figure}[h]
+% \includegraphics[scale=0.75]{{AUTH_FLOWCHART.png}} \centering
+% \caption{Authorization flowchart.} \label{fig:auth_flowchart} \end{figure}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
