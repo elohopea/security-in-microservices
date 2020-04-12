@@ -64,7 +64,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     In this thesis, the MSA and related security literature is surveyed and the
-    main differences between MA and MSA on security aspects are discussed. 
+    main differences between MA and MSA on security aspects are discussed.
 \end{sloppypar}
 \begin{sloppypar}
     This thesis is organized as follows. The first chapter of this thesis
@@ -732,11 +732,10 @@
 \begin{sloppypar}
     In practice the previous MA that has been changed to MSA can have more
     aspects to go wrong than in previous MA implementation. The deployment can
-    entail installing, virtualization, monitoring, and a plethora of other
-    tools. In some cases, these tools might not even exist and they have to
-    implemented by in house developers and thus more costs are incurred upfront
-    and also in the upkeep of the system. In addition to being more costly own
-    development has higher security risks involved.
+    entail installing, virtualization, monitoring, and other tools. In some
+    cases, these tools have to implemented by in house developers and thus more
+    costs are incurred upfront and also in the upkeep of the system. In addition
+    to being more costly own development has higher security risks involved.
 \end{sloppypar}
 \begin{sloppypar}
     MSA has higher complexity due to more tools needed and having more
@@ -769,7 +768,24 @@
     as such.
 \end{sloppypar}
 \begin{sloppypar}
-    Many security aspects were not discussed.
+    The use of pre-existing tools and frameworks is highly encouraged. The tools
+    currently available such as Docker, Kubernetes, and Istio solve many of the
+    inherent security issues if applied correctly.
+\end{sloppypar}
+\begin{sloppypar}
+    Authentication and authorization in MA and in MSA can differ greatly. In MA
+    a session based authentication and authorization is applicable. This is not
+    the case in MSA especially if a REST API is to be used. In REST API all the
+    information needed to serve a request should be enclosed in the request.
+    Tokens such as JWT cater this and can carry user information and other
+    claims. The tokens are issued and signed by a trusted party. An API Gateway
+    can act as an PEP and allow or disallow a request. Also, if a service mesh
+    is used such as Istio this can be done in the proxy for a specific
+    microservice.
+\end{sloppypar}
+\begin{sloppypar}
+    Many security aspects were not discussed. Only REST API on HTTP was 
+    discussed in any real extent. 
 \end{sloppypar}
 \begin{sloppypar}
     The results found in this study can be used to determine if at all
