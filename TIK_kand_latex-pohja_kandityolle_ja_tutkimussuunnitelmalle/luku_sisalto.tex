@@ -47,8 +47,8 @@
     The Stack Overflow annual survey \citep{sosurvey2019} conducted on
     developers found that half of the respondents identified as full-stack or
     back end developers. 40\% of the respondents had less than five years of
-    professional experience. Thus, the manpower that would be able and willing to keep
-    the old monoliths running is not available.
+    professional experience. Thus, the manpower that would be able and willing
+    to keep the old monoliths running is not available.
 \end{sloppypar}
 \begin{sloppypar}
     Microservices are not the proper choice for all web services
@@ -71,12 +71,12 @@
     This thesis is organized as follows. The first chapter of this thesis
     compares the two architectures and the second chapter discusses the changing
     of architecture from MA to MSA. The third chapter presents the main security
-    aspects of the change. The fourth and fifth chapter discuss
-    the key security aspects that need to be addressed when the architecture is
-    to be changed: access control, and system communication, respectively. In
-    the sixth chapter other relevant security concerns are discussed. The last
-    chapter in this thesis presents the conclusions and further research to be
-    carried out on the subject.
+    aspects of the change. The fourth and fifth chapter discuss the key security
+    aspects that need to be addressed when the architecture is to be changed:
+    access control, and system communication, respectively. In the sixth chapter
+    other relevant security concerns are discussed. The last chapter in this
+    thesis presents the conclusions and further research to be carried out on
+    the subject.
 \end{sloppypar}
 
 
@@ -153,7 +153,7 @@
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA_API_GATEWAY.png}}
     \centering
-    \caption{Microservice Architecture With API Gateway \citep{oidcflow}}
+    \caption{Microservice Architecture With API Gateway \citep{DBLP:journals/corr/MontesiW16}}
     \label{fig:microserviceapigateway}
 \end{figure}
 
@@ -204,13 +204,13 @@
     than a microservice application.
 \end{sloppypar}
 \begin{sloppypar}
-    Requests sent to other microservices through a network are much slower
-    than function calls within one computer. Therefore, the communication
-    patterns should be changed to take into account the change in communication
-    path. If the architecture is changed in such a way that the previous
-    communication model among the components is preserved, there would be an
-    excessive amount of communication and the resulting system would not be as
-    performant \citep{fowlerlewisms}. 
+    Requests sent to other microservices through a network are much slower than
+    function calls within one computer. Therefore, the communication patterns
+    should be changed to take into account the change in communication path. If
+    the architecture is changed in such a way that the previous communication
+    model among the components is preserved, there would be an excessive amount
+    of communication and the resulting system would not be as performant
+    \citep{fowlerlewisms}. 
 \end{sloppypar}
 
 
@@ -228,34 +228,17 @@
     is preferable to developing one's own solution for a well known and already
     solved problem.
 \end{sloppypar}
+\subsection{Identifying Key Security Aspects}
 \begin{sloppypar}
-    \citet{closer18} implemented a test system mimicking the Deutsche Bahn seat
-    reservation system using MSA. The purpose of the test system was to analyze
-    security risks that were introduced by the implementation. In the study they
-    categorized the solution to three layers: first of which was the compute
-    provider, the second was the encapsulation technology, and the third one was
-    the deployment. The technologies for these layers were: Amazon Web services,
-    Docker for containers, and Kubernetes (k8s) nodes, respectively. They found
-    out that the cloud-based infrastructure when used in MSA resulted in a more
-    complex solution than in MA. The added layers such as the K8s, have to be
-    configured correctly and an error in one could potentially compromise the
-    whole system. In addition, implementation of security is very difficult and
-    resource intensive. The rewards from a good security are invisible. When
-    microservices are implemented or even planned the security should be taken
-    into account as early as possible. Implementing security later in the
-    project or as an after thought can be more expensive and very difficult.
+    As has been already established the communication within the web service
+    differ greatly in MA and in MSA. Secure communication is one of the key
+    security aspects to be discussed in this paper. In addition to the
+    communication the Authentication and Authorization is the second critical
+    security concern to be discussed. This will be addressed in the next
+    chapter.
 \end{sloppypar}
 
-
-% --------------------------------------------------------------------
-
-
-\section{Access control}
-\begin{sloppypar}
-    Access control consists of user authentication and authorization. A user has
-    to authenticate him/her self and authorization is acquired to access to
-    information or property.
-\end{sloppypar}
+\section{Authentication and Authorization}
 \begin{sloppypar}
     In the cases where the user has to be authenticated, the web service needs a
     way to do this securely. There are many authentication schemes available but
@@ -286,17 +269,21 @@
 
 \subsection{Authentication and Authorization in MA}
 \begin{sloppypar}
-    In MA, it is possible to implement features in such ways that a session can
-    carry user information. This information can consist of the granted roles
-    and rights for the user. This session can be queried when access control is
-    needed to execute an action or operation or a specific authorization service
-    or module can exist. An example of an web service implemented in MA is
-    presented in figure \ref{fig:MA_AUTH}. The user accessing the web service
-    sends a request to load balancer which has all the information on the
-    currently operational services. Each of the services is a single process in
-    which an authentication and authentication service are present. When a user
-    is first accessing the service credentials are to be verified and in a
-    successful case a session is created for the process. 
+    In MA, it is possible to implement features in such ways that a process in
+    which the application runs has access to a session or a user object or
+    similar that carries user information. This information can consist of the
+    granted roles and rights for the user. This information can be queried
+    easily and securely when access control is needed.  to execute an action or
+    operation or a specific authorization service or module can exist.
+\end{sloppypar}
+\begin{sloppypar}
+    An example of an web service implemented in MA is presented in figure
+    \ref{fig:MA_AUTH}. The user accessing the web service sends a request to
+    load balancer which has all the information on the currently operational
+    services. Each of the services run on a single process in which an
+    authentication and authentication service or functionality are present. When
+    a user is first accessing the service credentials are to be verified and in
+    a successful case a session or a user object is created for the process.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.70]{{MA_AUTH.png}}
@@ -315,6 +302,12 @@
     implemented using annotations within the source code. The authorization is
     verified in memory and without any communication over the network.
 \end{sloppypar}
+\begin{figure}[h]
+    \includegraphics[scale=0.75]{{MSA_AUTH_SERVICE.png}}
+    \centering
+    \caption{MSA authorization service \citep{authinmsa}}
+    \label{fig:MSA_AUTH_SERVICE}
+\end{figure}
 \begin{sloppypar}
     In MSA accessing the access control matrix or matrices is not as easy as it
     is in MA. In order to verify that a specific right exists, the service would
@@ -326,11 +319,23 @@
     \ref{fig:MSA_AUTH_SERVICE}.
 \end{sloppypar}
 \begin{figure}[h]
-    \includegraphics[scale=0.75]{{MSA_AUTH_SERVICE.png}}
+    \includegraphics[scale=0.75]{{TOKEN_AUTH.png}}
     \centering
-    \caption{MSA authorization service \citep{authinmsa}}
-    \label{fig:MSA_AUTH_SERVICE}
+    \caption{Bearer token based authentication \citep{authinmsa}}
+    \label{fig:TOKEN_AUTH}
 \end{figure}
+\begin{sloppypar}
+    To limit the excessive communication a token based authentication and
+    authorization scheme can be used. A simplified process flow is presebted in
+    \ref{fig:TOKEN_AUTH}. A user enters credentials to a login and with these
+    credentials an authentication and authorization service grants the user a
+    token. This token is used to access the services in the system. The services
+    in question trust the issuer of the token and verify the token and the
+    claims within. If the token is accepted and access can be granted the
+    request is serviced without any communication between the services and the
+    authorization service. A specific token based authentication protocol is
+    discussed in the next chapter.
+\end{sloppypar}
 
 \subsection{OIDC}
 \begin{sloppypar}
@@ -370,31 +375,12 @@
     token for the user. This token is used in place of the credentials to access
     restricted resources.
 \end{sloppypar}
-\begin{figure}[h]
-    \includegraphics[scale=0.75]{{TOKEN_AUTH.png}}
-    \centering
-    \caption{Bearer token based authentication \citep{authinmsa}}
-    \label{fig:TOKEN_AUTH}
-\end{figure}
 \begin{sloppypar}
     The signing of JWT can be carried out in various ways. These are presented
     in the \citet{RFC7515}. The signature is computed using the algorithm and
     keys or certificates specified in the header values. When the token is
     signed using a private key it can be verified by all parties in possession
     of the public key.
-\end{sloppypar}
-
-\subsubsection{Known Vulnerabilities}
-\begin{sloppypar}
-    The choices for the algorithm for signing the JWT algorithm contain "none"
-    as one of the choices. This was found to be troublesome by . He found that
-    many libraries did not operate in the desired way. The receiving party could
-    be fooled to validate a mutated token without any signature with the "none"
-    as it's algorithm. In addition to this vulnerability \citet{nonejwt} found
-    that the verification suffered from another fatal flaw. When a token was
-    created by using a symmetric algorithm, the servers could be fooled in to
-    believing that a token signed by just the public key and not the secret HMAC
-    key was a valid one.
 \end{sloppypar}
 
 \subsection{Opaque Token}
@@ -415,9 +401,10 @@
     the services directly. Furthermore, the opaque token be can revoked by
     simply removing it from the storage for the token pairs. The usage of an
     internal JWT can alleviate some of the issues when MA is to be changed to
-    MSA. Though not advisable, the JWT can carry session information and the
-    whole session. This allows for more of the previous MA implementation to be
-    used without as many changes.
+    MSA. Firstly, token theft though still possible, is limited to the time the
+    client is logged on to the system. Secondly, though not advisable, the JWT
+    can carry session information and the whole session. This allows for more of
+    the previous MA implementation to be used without as many changes.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{OPAQUE_TOKEN_API_GATEWAY.png}}
@@ -425,58 +412,6 @@
     \caption{API Gateway and opaque token \citep{authinmsa}}
     \label{fig:OPAQUE_TOKEN_API_GATEWAY}
 \end{figure}
-
-
-% -----------------------------------------------------------------------------
-
-
-\section{Session}
-\begin{sloppypar}
-    Client handled session is easy to tamper with and has risks involved. The
-    service would either have to trust the client offered session or verify a
-    signature. In both of these cases the client application would have to be
-    aware of the service and would be able to communicate with it directly. This
-    would bring considerable overhead on all the services and a security risk.
-\end{sloppypar}
-\begin{sloppypar}
-    Sessions can be used in MSA when the architecture has an API Gateway. The
-    session is stored in the Gateway and a session key is carried in the
-    requests made by the client application. The API Gateway then verifies the
-    request and can grant access to specific service. Without the Gateway the
-    session would have to be either centrally maintained at a session service or
-    be handled by the client and passed along in the requests.
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
-\end{sloppypar}
 
 
 % --------------------------------------------------------------------
@@ -559,6 +494,23 @@
     the host operating system directly or a virtualization technology can be
     used.
 \end{sloppypar}
+\begin{sloppypar}
+    \citet{closer18} implemented a test system mimicking the Deutsche Bahn seat
+    reservation system using MSA. The purpose of the test system was to analyze
+    security risks that were introduced by the implementation. In the study they
+    categorized the solution to three layers: first of which was the compute
+    provider, the second was the encapsulation technology, and the third one was
+    the deployment. The technologies for these layers were: Amazon Web services,
+    Docker for containers, and Kubernetes (k8s) nodes, respectively. They found
+    out that the cloud-based infrastructure when used in MSA resulted in a more
+    complex solution than in MA. The added layers such as the K8s, have to be
+    configured correctly and an error in one could potentially compromise the
+    whole system. In addition, implementation of security is very difficult and
+    resource intensive. The rewards from a good security are invisible. When
+    microservices are implemented or even planned the security should be taken
+    into account as early as possible. Implementing security later in the
+    project or as an after thought can be more expensive and very difficult.
+\end{sloppypar}
 
 \subsection{Virtualization}
 \begin{sloppypar}
@@ -575,9 +527,9 @@
 \begin{sloppypar}
     Containers have considerably lower overhead when compared to VMs. A
     container can be created and started easily and automatically as needed by
-    an orchestration solution such as, Docker Compose, Docker Swarm, and
-    k8s. All of these tools have to be correctly configured and used
-    according to their specification and best practice.
+    an orchestration solution such as, Docker Compose, Docker Swarm, and k8s.
+    All of these tools have to be correctly configured and used according to
+    their specification and best practice.
 \end{sloppypar}
 
 \subsection{Orchestration}
@@ -607,19 +559,6 @@
     to make the administration and setup work easier
     \citep{containernetworking}.
 \end{sloppypar}
-\subsection{Service Discovery}
-\begin{sloppypar}
-    Service discovery as presented in \citet{DBLP:journals/corr/MontesiW16} is a
-    design pattern in which a registry is kept on currently running
-    microservices. The microservices register them selves to the service
-    discovery registry. This registry is used by either a router to route client
-    service calls to running microservices or by the client directly.
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
-\end{sloppypar}
 
 \subsection{Service Mesh}
 \begin{figure}[h]
@@ -638,8 +577,8 @@
     (PDP), and collected metrics of the behavior and actions in and of the
     system. The data moves in the dataplane. Each microservice is accompanied by
     a proxy. All requests and responses flow through the proxies and are
-    controlled by the Control plane. The microservices do not have
-    to be aware of the proxy that is in the information path.
+    controlled by the Control plane \citep{servicemesh}. The microservices do
+    not have to be aware of the proxy that is in the information path.
 \end{sloppypar}
 \begin{sloppypar}
     There are several products available for a service mesh, such as Istio,
@@ -648,30 +587,14 @@
     security critical features if there exists an off-the-shelf alternative.
 \end{sloppypar}
 \begin{sloppypar}
-    The use of service mesh greatly simplifies the microservice since the proxy
-    can contain many of the features that would otherwise repeat in all of the
-    services. The service mesh can provide a certificate authority for the
-    communication between services. The proxies act on behalf of the service and
-    all proxy-to-proxy communication can be encrypted on the transport layer
-    using TLS \citep{pathtoservicemesh}. Furthermore, it facilitates the use of
-    mTLS where both parties are verified.
-\end{sloppypar}
-\begin{sloppypar}
-    Service mesh also allows for multi cloud installations. 
-\end{sloppypar}
-\begin{sloppypar}
-    Is the Service Mesh compatible with the Smart endpoints dumb pipes?
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
+    The use of service mesh greatly simplifies the microservice implementation
+    since the proxy can contain many of the features that would otherwise repeat
+    in all of the services. The service mesh can provide a certificate authority
+    for the communication between services. The proxies act on behalf of the
+    service and all proxy-to-proxy communication can be encrypted on the
+    transport layer using TLS \citep{pathtoservicemesh}. Furthermore, it
+    facilitates the use of mTLS where both parties are verified. Service mesh
+    also allows for multi cloud installations. 
 \end{sloppypar}
 
 
@@ -679,15 +602,44 @@
 
 
 \section{Other Security Concerns}
-\subsection{Transaction}
+\subsection{Known Vulnerabilities}
+\subsubsection{JWT}
+\begin{sloppypar}
+    The choices for the algorithm for signing the JWT algorithm contain "none"
+    as one of the choices. This was found to be troublesome by . He found that
+    many libraries did not operate in the desired way. The receiving party could
+    be fooled to validate a mutated token without any signature with the "none"
+    as it's algorithm. In addition to this vulnerability \citet{nonejwt} found
+    that the verification suffered from another fatal flaw. When a token was
+    created by using a symmetric algorithm, the servers could be fooled in to
+    believing that a token signed by just the public key and not the secret HMAC
+    key was a valid one.
+\end{sloppypar}
+
+\subsection{Transactions}
+\begin{sloppypar}
+    The data in the system is the resource to be protected. If this data becomes
+    corrupted the system is not secure. In some cases the actions to be taken
+    consists of multiple reads and writes of the data and the order of execution
+    changes the end result.
+\end{sloppypar}
 \begin{sloppypar}
     Transactions can be used when updating database contents to make sure that
     atomicity, consistency, isolation, and durability (ACID) \citep{acid} is
     followed. When using MSA according to the definition each of the micro
     services should contain or have access to it's own data i.e. database. In MA
-    Transactions easy/easier. In MSA not. How to make sure that a previously
-    single operation is carried out in it's entirety when multiple services are
-    used to perform the desired task?
+    Transactions are easier to implement especially when the execution is done
+    sequentially. In MSA this is not necessarily the case. Performing an action
+    might entail calling various microservices and if any of the individual
+    actions fail permanentely the changes that have already been made need to be
+    undone. In addition to this, a HTTP is asynchronious and the execution order
+    can not be guaranteed. 
+\end{sloppypar}
+\begin{sloppypar}
+    Transaction related issues can be solved by either, splitting the monolith
+    in such a way that the actions that need to be carried out as transactions
+    can be carried out in one microservice or by creating a service to
+    coordinate the actions taken by the single microservices.
 \end{sloppypar}
 
 \subsection{Software Development}
@@ -760,15 +712,6 @@
 \begin{sloppypar}
     Without logs it is impossible to verify correct operation of the system nor
     is it possible to gain knowledge of a possible security breach. 
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
 \end{sloppypar}
 
 \subsection{Defense-in-Depth}
@@ -870,7 +813,9 @@
 \begin{sloppypar}
     The use of pre-existing tools and frameworks is highly encouraged. The tools
     currently available such as Docker, k8s, and Istio solve many of the
-    inherent security issues if applied correctly.
+    inherent security issues if applied correctly. The tools and frameworks that
+    exist, can not be blindly trusted. As an example some of the implementations
+    using JWT had and in some cases still have serious flaws and are not secure.
 \end{sloppypar}
 \begin{sloppypar}
     Authentication and authorization in MA and in MSA can differ greatly. In MA
@@ -889,13 +834,13 @@
 \end{sloppypar}
 \begin{sloppypar}
     The results found in this study can be used to determine if at all
-    architecture change is feasible in a particular case. This though can be the
-    case after other architectural changes or code refactoring. In addition, the
+    architecture change is feasible in a particular case. This can be the case
+    after other architectural changes or code refactoring. In addition, the
     results can be used as a guideline for future research.
 \end{sloppypar}
 \begin{sloppypar}
     Further research is needed on the security aspects of the different design
-    patterns that are available for the architecture change.
+    patterns that are available for the architectural change.
 \end{sloppypar}
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
@@ -969,4 +914,29 @@
 %     understandable.
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
+% \section{Session} \begin{sloppypar} Client handled session is easy to tamper
+% with and has risks involved. The service would either have to trust the client
+% offered session or verify a signature. In both of these cases the client
+% application would have to be aware of the service and would be able to
+% communicate with it directly. This would bring considerable overhead on all
+% the services and a security risk. \end{sloppypar} \begin{sloppypar} Sessions
+% can be used in MSA when the architecture has an API Gateway. The session is
+% stored in the Gateway and a session key is carried in the requests made by the
+% client application. The API Gateway then verifies the request and can grant
+% access to specific service. Without the Gateway the session would have to be
+% either centrally maintained at a session service or be handled by the client
+% and passed along in the requests. \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
 
+
+% \subsubsection{Scaling} \begin{sloppypar} \end{sloppypar}
+
+% \subsubsection{Upgrading} \begin{sloppypar} \end{sloppypar}
+
+% \subsubsection{Service Discovery} \begin{sloppypar} Service discovery as
+% presented in \citet{DBLP:journals/corr/MontesiW16} is a design pattern in
+% which a registry is kept on currently running microservices. The microservices
+% register them selves to the service discovery registry. This registry is used
+% by either a router to route client service calls to running microservices or
+% by the client directly. \end{sloppypar}
