@@ -1,11 +1,11 @@
 
 @book{newman2019,
-  author={Newman,S.},
+  author={Newman,Sam},
   year={2019},
   title={Monolith to Microservices. Evolutionary patterns to transform your monolith.},
   publisher={O'Reilly Media, Inc.},
-  address={},
-  pages={150 p},
+  address={1005 Gravenstein Highway North, Sebastopol, CA 95472},
+  pages={272},
   note={1st edition.},
   isbn={9781492047841},
   language={eng}
@@ -46,12 +46,15 @@
   OPTannote = {}
 }
 
-@InProceedings{authinmsa,
-  author = {He, X. and Yang, X.},
-  title = {Authentication and Authorization of End User in Microservice Architecture.},
-  booktitle = {The 2017 International Conference on Cloud Technology and Communication Engineering (CTCE2017)},
+@article{authinmsa,
+  author = {He, Xiuyu and Yang, Xudong},
   year = {2017},
-  annote = {referred 2.2.2020},
+  month = {10},
+  pages = {012060},
+  title = {Authentication and Authorization of End User in Microservice Architecture},
+  volume = {910},
+  journal = {Journal of Physics: Conference Series},
+  doi = {10.1088/1742-6596/910/1/012060}
 }
 
 @Article{acid,
@@ -88,12 +91,14 @@
   OPTannote = {}
 }
 
-@InProceedings{secchalmsa,
-  author = {T. Yarygina},
+@inproceedings{secchalmsa,
   title = {Overcoming Security Challenges in Microservice Architectures},
-  booktitle = {Proceedings - 12th IEEE International Symposium on Service-Oriented System Engineering, SOSE 2018 and 9th International Workshop on Joint Cloud Computing, JCC 2018},
+  author = {Yarygina, Tetiana and Bagge, Anya},
   year = {2018},
-  annote = {referred 9.2.2020},
+  month = {03},
+  pages = {11-20},
+  
+  doi = {10.1109/SOSE.2018.00011}
 }
 
 @Misc{fowlerlewisms,
@@ -108,18 +113,14 @@
   OPTannote = {}
 }
 
-
-@Article{webdelays,
-  author =	 {M. Zari and H. Saiedian and M. Naeems},
-  title =	 {Understanding and reducing Web delays},
-  journal =	 {in Computer},
-  year =	 2001,
-  volume =	 34,
-  number =	 12,
-  pages =	 {30-37},
-  month =	 dec
+@article{webdelays,
+  title={Understanding and Reducing Web Delays},
+  author={Mazen Zari and Hossein Saiedian and Muhammad Naeem},
+  journal={IEEE Computer},
+  year={2001},
+  volume={34},
+  pages={30-37}
 }
-
 
 @phdthesis{restroy,
     title    = {Architectural Styles and the Design of Network-based Software Architectures},
@@ -128,15 +129,15 @@
     year     = {2000}
 }
 
-
-@InProceedings{integinside,
-  author = {Mohsen Ahmadvand and Alexander Pretschner and Keith Ball and Daniel Eyring},
-  title = {Integrity Protection Against Insiders in Microservice-Based Infrastructures: From Threats to a Security Framework},
-  booktitle = {Software Technologies: Applications and Foundations},
+@inbook{integinside,
+  author = {Ahmadvand, Mohsen and Pretschner, Alexander and Ball, Keith and Eyring, Daniel},
   year = {2018},
-  annote = {referred 23.2.2020},
+  month = {06},
+  pages = {573-588},
+  title = {Integrity Protection Against Insiders in Microservice-Based Infrastructures: From Threats to a Security Framework},
+  isbn = {978-3-030-04770-2},
+  doi = {10.1007/978-3-030-04771-9_43}
 }
-
 
 @techreport{RFC7519,
   author = {M. Jones and J. Bradley and N. Sakimura},
@@ -153,7 +154,6 @@
   note = {\url{http://www.rfc-editor.org/rfc/rfc7519.txt}},
 }
 
-
 @techreport{RFC7515,
   author = {M. Jones and J. Bradley and N. Sakimura},
   title = {JSON Web Signature (JWS)},
@@ -169,7 +169,6 @@
   note = {\url{http://www.rfc-editor.org/rfc/rfc7515.txt}},
 }
 
-
 @Misc{nonejwt,
   OPTkey = {},
   author = {McLean, Tim},
@@ -182,18 +181,16 @@
   OPTannote = {}
 }
 
-
-@Article{defdepau,
-  author =	 {Jander, K. and Braubach, L. and Pokahr, A.},
-  title =	 {Defense-in-depth and Role Authentication for Microservice Systems},
-  journal =	 {Procedia Computer Science},
-  year =	 2018,
-  volume =	 130,
-  number =	 1,
-  pages =	 {456-463},
-  month =	 dec
+@article{defdepau,
+  author = {Jander, Kai and Braubach, Lars and Pokahr, Alexander},
+  year = {2018},
+  month = {01},
+  pages = {456-463},
+  title = {Defense-in-depth and Role Authentication for Microservice Systems},
+  volume = {130},
+  journal = {Procedia Computer Science},
+  doi = {10.1016/j.procs.2018.04.047}
 }
-
 
 @inproceedings{otterstad,
   TITLE = {{Low-Level Exploitation Mitigation by Diverse Microservices}},
@@ -216,7 +213,6 @@
   HAL_VERSION = {v1},
 }
 
-
 @article{DBLP:journals/corr/MontesiW16,
   author    = {Fabrizio Montesi and
                Janine Weber},
@@ -233,31 +229,28 @@
 }
 
 @conference{closer18,
-author={Richter, Daniel and Neumann, Tim and Polze, Andreas},
-title={Security Considerations for Microservice Architectures},
-booktitle={Proceedings of the 8th International Conference on Cloud Computing and Services Science - Volume 1: CLOSER,},
-year={2018},
-pages={608-615},
-publisher={SciTePress},
-organization={INSTICC},
-doi={10.5220/0006791006080615},
-isbn={978-989-758-295-0},
+  author={Richter, Daniel and Neumann, Tim and Polze, Andreas},
+  title={Security Considerations for Microservice Architectures},
+  booktitle={Proceedings of the 8th International Conference on Cloud Computing and Services Science - Volume 1: CLOSER,},
+  year={2018},
+  pages={608-615},
+  publisher={SciTePress},
+  organization={INSTICC},
+  doi={10.5220/0006791006080615},
+  isbn={978-989-758-295-0},
 }
 
 @InProceedings{10.1007/978-3-319-74433-9_3,
-author="Kalske, Miika
-and M{\"a}kitalo, Niko
-and Mikkonen, Tommi",
-editor="Garrig{\'o}s, Irene
-and Wimmer, Manuel",
-title="Challenges When Moving from Monolith to Microservice Architecture",
-booktitle="Current Trends in Web Engineering",
-year="2018",
-publisher="Springer International Publishing",
-address="Cham",
-pages="32--47",
-abstract="One of the more recent avenues towards more flexible installations and execution is the transition from monolithic architecture to microservice architecture. In such architecture, where microservices can be more liberally updated, relocated, and replaced, building liquid software also becomes simpler, as adaptation and deployment of code is easier than when using a monolithic architecture where almost everything is connected. In this paper, we study this type of transition. The objective is to identify the reasons why the companies decide to make such transition, and identify the challenges that companies may face during this transition. Our method is a survey based on different publications and case studies conducted about these architectural transitions from monolithic architecture to microservices. Our findings reveal that typical reasons moving towards microservice architecture are complexity, scalability and code ownership. The challenges, on the other hand, can be separated to architectural challenges and organizational challenges. The conclusion is that when a software company grows big enough in size and starts facing problems regarding the size of the codebase, that is when microservices can be a good way to handle the complexity and size. Even though the transition provides its own challenges, these challenges can be easier to solve than the challenges that monolithic architecture presents to company.",
-isbn="978-3-319-74433-9"
+  author={Kalske, Miika and M{\"a}kitalo, Niko and Mikkonen, Tommi},
+  editor= {Garrig{\'o}s, Irene and Wimmer, Manuel},
+  title={Challenges When Moving from Monolith to Microservice Architecture},
+  booktitle={Current Trends in Web Engineering},
+  year={2018},
+  publisher={Springer International Publishing},
+  address={Cham},
+  pages={32--47},
+  abstract={One of the more recent avenues towards more flexible installations and execution is the transition from monolithic architecture to microservice architecture. In such architecture, where microservices can be more liberally updated, relocated, and replaced, building liquid software also becomes simpler, as adaptation and deployment of code is easier than when using a monolithic architecture where almost everything is connected. In this paper, we study this type of transition. The objective is to identify the reasons why the companies decide to make such transition, and identify the challenges that companies may face during this transition. Our method is a survey based on different publications and case studies conducted about these architectural transitions from monolithic architecture to microservices. Our findings reveal that typical reasons moving towards microservice architecture are complexity, scalability and code ownership. The challenges, on the other hand, can be separated to architectural challenges and organizational challenges. The conclusion is that when a software company grows big enough in size and starts facing problems regarding the size of the codebase, that is when microservices can be a good way to handle the complexity and size. Even though the transition provides its own challenges, these challenges can be easier to solve than the challenges that monolithic architecture presents to company.},
+  isbn={978-3-319-74433-9}
 }
 
 @Misc{trygvemvc,
@@ -285,11 +278,14 @@ isbn="978-3-319-74433-9"
 }
 
 @article{andersson2001information,
-  title={Why information security is hard},
-  author={Andersson, Ross},
+  author = {Anderson, Ross},
+  year = {2001},
+  month = {11},
+  pages = {},
+  title = {Why Information Security is Hard},
   journal={Univesity of Cambridge Computer Laboratory, Tech. Rep},
-  year={2001}
 }
+
 
 @Misc{openidconnect,
   OPTkey = {},
@@ -327,16 +323,15 @@ isbn="978-3-319-74433-9"
   language={eng}
 }
 
-@Article{passwordisdead,
-  author =	 {Zimmermann, Verena. and Gerber, Nina},
-  title =	 {The password is dead, long live the password – A laboratory study on user perceptions of authentication schemes.},
-  journal =	 {International Journal of Human - Computer Studies},
-  year =	 2020,
-  volume =	 133,
-  number =	 1,
-  pages =	 {26-44},
-  month =	 jan,
-  doi = {doi:10.1016/j.ijhcs.2019.08.006 }
+@article{passwordisdead,
+author = {Zimmermann, Verena and Gerber, Nina},
+year = {2019},
+month = {08},
+pages = {},
+title = {The Password is Dead, Long Live the Password – A Laboratory Study on User Perceptions of Authentication Schemes},
+volume = {133},
+journal = {International Journal of Human-Computer Studies},
+doi = {10.1016/j.ijhcs.2019.08.006}
 }
 
 @book{servicemesh,
@@ -344,18 +339,19 @@ isbn="978-3-319-74433-9"
   year={2018},
   title={The Service Mesh.},
   publisher={O'Reilly Media, Inc.},
-  address={},
+  address={1005 Gravenstein Highway North, Sebastopol, CA 95472},
   pages={},
   note={1st edition.},
   isbn={9781492031321},
   language={eng}
 }
+
 @book{pathtoservicemesh,
   author={Calcote, Lee},
-  year={2018},
+  year={2019},
   title={The Enterprise Path to Service Mesh Architectures},
   publisher={O'Reilly Media, Inc.},
-  address={},
+  address={1005 Gravenstein Highway North, Sebastopol, CA 95472},
   pages={61},
   note={1st edition.},
   isbn={9781492041795},
@@ -374,19 +370,17 @@ isbn="978-3-319-74433-9"
   OPTannote = {}
 }
 
-
 @book{containernetworking,
   author={Hausenblas, Michael},
   year={2018},
   title={Container Networking.},
   publisher={O'Reilly Media, Inc.},
-  address={},
+  address={1005 Gravenstein Highway North, Sebastopol, CA 95472},
   pages={73},
   note={1st edition.},
   isbn={9781492036845},
   language={eng}
 }
-
 
  @phdthesis{Johansson_2019, 
   series={TRITA-EECS-EX}, 
@@ -418,8 +412,7 @@ isbn="978-3-319-74433-9"
   author={Johansson, Gustav}, 
   year={2019},
   collection={TRITA-EECS-EX}
-  }
-
+}
 
 @techreport{iec62443,
   address = {Geneva, CH},
@@ -434,13 +427,12 @@ isbn="978-3-319-74433-9"
   year = {2012}
 }
 
-
 @book{moderndid,
   author={Gates, Stephen},
   year={2019},
   title={Modern Defense in Depth.},
   publisher={O'Reilly Media, Inc.},
-  address={},
+  address={1005 Gravenstein Highway North, Sebastopol, CA 95472},
   pages={52},
   note={1st edition.},
   isbn={9781492050360},
