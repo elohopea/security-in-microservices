@@ -706,40 +706,35 @@
     logs are created in easily configurable locations. In MSA this can be more
     difficult. Each of the microservices need to have their own logger and each
     of these need to be configured to log to a proper location. The logs that
-    are created need to be persisted for the length of time allowed and
-    according to the need of the system administration.
+    are created need to be persisted for the length of time allowed by
+    legislation and according to the need of the system administration.
 \end{sloppypar}
 \begin{sloppypar}
     Without logs it is impossible to verify correct operation of the system nor
     is it possible to gain knowledge of a possible security breach. 
 \end{sloppypar}
 
-\subsection{Defense-in-Depth}
-\begin{sloppypar}
-    Microservices can not trust any of the \citep{otterstad}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
 
+\subsection{Defense-in-Depth (DiD)}
+\begin{sloppypar}
+    It is not enough to secure the boundary between the perimeter and the
+    internal system. In DiD the system should implement security measures at
+    multiple layers within the system \citep{iec62443}. The system can be
+    presented layered as in figure \ref{fig:Defense_in_depth}. Each of these layers
+    should have security features and a breach in one should not compromise
+    those features on an inner layer of the system.
 \end{sloppypar}
 \begin{sloppypar}
-    \citet{defdepau} propose a solution for secure communication in MSA even in
-    multicloud solutions. perimeter defence -> neglect security of individual
-    microservices.
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
+    \citet{moderndid} takes the idea of layered defense even further and
+    proposes an integrated approach to DiD. He defines the defence layers as:
+    edge routers, DDos defenses, Managed DNS, Reverse proxies, Bot Management,
+    Web application firewalls, API defenses, and Caching. He further iterates
+    that these layers or lines of defense should be aware of each other and be
+    accessable from a single UI. Another approach he defines as human expertise.
+    In this approach there exists an command center that is to be manned at all
+    times and as such be able to respond to the encountered threats. In some
+    instances this might be applicable but for all web services this might not
+    be feasible.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{Defense_in_depth.png}}
@@ -747,21 +742,6 @@
     \caption{Defense-in-Depth}
     \label{fig:Defense_in_depth}
 \end{figure}
-
-\subsection{Testing}
-\begin{sloppypar}
-    The possible ways to fail for a web service consisting of a large number of
-    microservices are numerous. One solution for testing for outages is the
-    Netflix created Chaos Monkey \citep{chaosmonkey}. It is used for resilience
-    testing and can terminate containers or VMs at random.
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-\end{sloppypar}
-\begin{sloppypar}
-
-\end{sloppypar}
 
 
 % --------------------------------------------------------------------
@@ -829,7 +809,9 @@
     microservice.
 \end{sloppypar}
 \begin{sloppypar}
-    Many security aspects were not discussed. Only REST API on HTTP was
+    In this paper many security aspects were not discussed. How do the many
+    available design patterns for the splitting of the monolith fair when
+    compared on security aspects. On the communication only REST API on HTTP was
     discussed in any real extent. 
 \end{sloppypar}
 \begin{sloppypar}
@@ -840,7 +822,8 @@
 \end{sloppypar}
 \begin{sloppypar}
     Further research is needed on the security aspects of the different design
-    patterns that are available for the architectural change.
+    patterns that are available for the architectural change. Also, the
+    implementation of a field level access control should be studied further.
 \end{sloppypar}
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
@@ -928,15 +911,20 @@
 % and passed along in the requests. \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-
-
 % \subsubsection{Scaling} \begin{sloppypar} \end{sloppypar}
-
 % \subsubsection{Upgrading} \begin{sloppypar} \end{sloppypar}
-
 % \subsubsection{Service Discovery} \begin{sloppypar} Service discovery as
 % presented in \citet{DBLP:journals/corr/MontesiW16} is a design pattern in
 % which a registry is kept on currently running microservices. The microservices
 % register them selves to the service discovery registry. This registry is used
 % by either a router to route client service calls to running microservices or
 % by the client directly. \end{sloppypar}
+% --------------------------------------------------------------------
+% --------------------------------------------------------------------
+% \subsection{Testing}
+% \begin{sloppypar}
+%     The possible ways to fail for a web service consisting of a large number of
+%     microservices are numerous. One solution for testing for outages is the
+%     Netflix created Chaos Monkey \citep{chaosmonkey}. It is used for resilience
+%     testing and can terminate containers or VMs at random.
+% \end{sloppypar}
