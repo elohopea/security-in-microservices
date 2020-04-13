@@ -13,55 +13,55 @@
     There are many web services already in use which were designed and
     implemented before the onslaught of microservices. Some of these services
     have already made the switch such as Netflix but this is not the case for
-    the whole industry. Also, when a new service is being created the business
-    domain might not be established yet. Additionally there might exist a fair
-    amount of uncertainty in what exactly is to be developed. This is
-    furthermore amplified by the use of agile software development methods in
-    which the change in requirements is welcome even in later stages of the
-    development \citep{agilemanifesto}.
+    the whole industry.  
 \end{sloppypar}
 \begin{sloppypar}
     When new development is carried out by a startup, the initial architecture
-    might still be a monolith one. \citet{newman2019} states that, due to
-    limited resources, a monolith might be a better fit to these companies
-    trying to navigate to the actual product they are to offer. In the case of
-    success, the need to rapidly scale the offering emerges. \citet{newman2019}
-    refers to these companies as "scale-ups". \citet{newman2019} also states
-    that it is much easier to refactor an existing service than to create a new
-    one and thus the need to split monoliths to microservices is and probably
-    will be relevant to the near future.
+    might still be a monolith one. Also, when a new service is being created the
+    business domain might not be established yet. Additionally there might exist
+    a fair amount of uncertainty in what exactly is to be developed.
+    \citet{newman2019} states that, due to limited resources, a monolith might
+    be a better fit to these companies trying to navigate to the actual product
+    they are to offer. In the case of success, the need to rapidly scale the
+    offering emerges. \citet{newman2019} refers to these companies as
+    "scale-ups". \citet{newman2019} also states that it is much easier to
+    refactor an existing service than to create a new one and thus the need to
+    split monoliths to microservices is and probably will be relevant to the
+    near future. This is furthermore amplified by the use of agile software
+    development methods in which the change in requirements is welcome even in
+    later stages of the development \citep{agilemanifesto}.
 \end{sloppypar}
 \begin{sloppypar}
     \citet{10.1007/978-3-319-74433-9_3} finds that as the code base becomes
     large the Monolith Architecture (MA) leads to slower development. This is
-    due to the possible complexity inherent in the entwined monolith. The amount
-    of code to refactor is much larger than in a small microservice.
-    Microservice should do one thing and, as such, it should be more
-    understandable.
+    due to the complexity inherent in the entwined monolith. As the development
+    activity becomes more time consuming, more developers are needed to complete
+    the needed and often mandatory changes to the code base.
+\end{sloppypar}
+\begin{sloppypar}
+    New developers entering the workforce have a very different mindset than the
+    older more seasoned professionals. Thus, it is very clear that the ways of
+    working and paradigms to be used are constantly changing. 
 \end{sloppypar}
 \begin{sloppypar}
     The Stack Overflow annual survey \citep{sosurvey2019} conducted on
     developers found that half of the respondents identified as full-stack or
     back end developers. 40\% of the respondents had less than five years of
-    professional experience.
-\end{sloppypar}
-\begin{sloppypar}
-    New developers entering the workforce have a very different mindset than the
-    older more seasoned professionals. Thus, it is very clear that the ways of
-    working and paradigms to be used are constantly changing.
+    professional experience. Thus, the manpower that would be able and willing to keep
+    the old monoliths running is not available.
 \end{sloppypar}
 \begin{sloppypar}
     Microservices are not the proper choice for all web services
-    \citep{newman2019}. Microservices offer multiple benefits such as easier
-    scalability and more modular structure for the application. When the
+    \citep{newman2019}. However, microservices offer multiple benefits such as
+    easier scalability and more modular structure for the application. When the
     architecture needs to be changed, the process needs to happen in an orderly
-    and safe way. Often overlooked security aspects need to be identified and
-    addressed as early as possible.
+    and safe way. Also, often initially overlooked security aspects need to be
+    identified and addressed as early as possible.
 \end{sloppypar}
 \begin{sloppypar}
     Microservice Architecture (MSA) differs in many ways from the more
-    traditional Monolithic Architecture (MA). This shift entails very specific
-    security issues.
+    traditional Monolithic Architecture (MA). When the architecture is changed
+    this shift entails very specific security issues.
 \end{sloppypar}
 \begin{sloppypar}
     In this thesis, the MSA and related security literature is surveyed and the
@@ -71,12 +71,12 @@
     This thesis is organized as follows. The first chapter of this thesis
     compares the two architectures and the second chapter discusses the changing
     of architecture from MA to MSA. The third chapter presents the main security
-    aspects in the architectural change. The fourth and fifth chapter discuss
+    aspects of the change. The fourth and fifth chapter discuss
     the key security aspects that need to be addressed when the architecture is
     to be changed: access control, and system communication, respectively. In
     the sixth chapter other relevant security concerns are discussed. The last
-    chapter in the thesis presents the conclusions and further research to be
-    conducted on the subject.
+    chapter in this thesis presents the conclusions and further research to be
+    carried out on the subject.
 \end{sloppypar}
 
 
@@ -432,6 +432,37 @@
     session would have to be either centrally maintained at a session service or
     be handled by the client and passed along in the requests.
 \end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
+\end{sloppypar}
 
 
 % --------------------------------------------------------------------
@@ -570,6 +601,11 @@
     discovery registry. This registry is used by either a router to route client
     service calls to running microservices or by the client directly.
 \end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
+\end{sloppypar}
 
 \subsection{Service Mesh}
 \begin{figure}[h]
@@ -608,6 +644,19 @@
 \end{sloppypar}
 \begin{sloppypar}
     Service mesh also allows for multi cloud installations. 
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
 \end{sloppypar}
 
 
@@ -697,15 +746,42 @@
     Without logs it is impossible to verify correct operation of the system nor
     is it possible to gain knowledge of a possible security breach. 
 \end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
+\end{sloppypar}
 
 \subsection{Defense-in-Depth}
 \begin{sloppypar}
     Microservices can not trust any of the \citep{otterstad}
 \end{sloppypar}
 \begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
+\end{sloppypar}
+\begin{sloppypar}
     \citet{defdepau} propose a solution for secure communication in MSA even in
     multicloud solutions. perimeter defence -> neglect security of individual
     microservices.
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{Defense_in_depth.png}}
@@ -720,6 +796,13 @@
     microservices are numerous. One solution for testing for outages is the
     Netflix created Chaos Monkey \citep{chaosmonkey}. It is used for resilience
     testing and can terminate containers or VMs at random.
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+\end{sloppypar}
+\begin{sloppypar}
+
 \end{sloppypar}
 
 
@@ -799,19 +882,13 @@
     Further research is needed on the security aspects of the different design
     patterns that are available for the architecture change.
 \end{sloppypar}
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
+
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
 % ``johtopäätöksiä''. Valitse se otsikko, joka tuntuu sopivammalta työsi
 % luonteeseen. Joka tapauksessa loppuluku sisältää niin työn yhteenvedon kuin
 % johtopäätöksiä työn tulosten perusteella. Pääajatus on antaa lukijalle selvä
 % kuva siitä, miten johdannossa asetettuihin tavoitteisiin työssä vastattiin.
-% --------------------------------------------------------------------
-% --------------------------------------------------------------------
+
 % Käsittele loppupuvussa seuraavia asioita (jotakuinkin tässä järjestyksessä):
 % %
 % \begin{itemize} \item Muistutus työn tavoitteista (sidoksisuus johdantoon)
@@ -822,50 +899,59 @@
 %   \item Jatkotutkimustarve (``Tulevaisuudessa olisi mielenkiintoista
 %   selvittää...'' tms.) \item Työn onnistumisen arviointi (Huom! Älä arvioi
 %   omaa kirjoitusprosessiasi vaan tekemääsi tutkimusta) \end{itemize}
+
+
+% --Junk starts here--------------------------------------------------
+% --------------------------------------------------------------------
+%     \begin{sloppypar} authorization, access control, policy decision point (PDP),
+%         policy enforcement point (PEP), A Framework for Policy-based Admission
+%         Control https://tools.ietf.org/html/rfc2753 \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \begin{sloppypar} authorization, access control, policy decision point (PDP),
-%     policy enforcement point (PEP), A Framework for Policy-based Admission
-%     Control https://tools.ietf.org/html/rfc2753 \end{sloppypar}
+%     \begin{sloppypar} \end{sloppypar} \begin{sloppypar}
+%     https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
+%     https://www.consul.io \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \begin{sloppypar} \end{sloppypar} \begin{sloppypar}
-% https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
-% https://www.consul.io \end{sloppypar}
+%     \section{Orchestration solutions} \begin{sloppypar} Docker Swarm, Kubernetes
+%     (K8s), Azure, sandbox, virtualization \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \section{Orchestration solutions} \begin{sloppypar} Docker Swarm, Kubernetes
-% (K8s), Azure, sandbox, virtualization \end{sloppypar}
+%     \section{Authorization} \begin{sloppypar}
+%     https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
+%     \end{sloppypar} \begin{sloppypar} token (JWT, OAuth 2.0), (API gateway, IdP)
+%     vs distribution \end{sloppypar} \begin{sloppypar} Identity and Access
+%     Management (IAM), Identity federation, Azure Active Directory, Active
+%     Directory Federation Services (ADFS), Google, Facebook, Twitter, LinkedIn
+%     etc., Single-Sign-On (SSO), Security Assertion Markup Language (SAML), SAML
+%     identity provider, OpenId provider, OAuth 2.0, OpenId Connect (OIDC), Identity
+%     Management: Identification, Authentication, Authorization. \dots
+%     \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \section{Authorization} \begin{sloppypar}
-% https://techbeacon.com/security/microservices-apps-do-identity-access-management-without-overhead
-% \end{sloppypar} \begin{sloppypar} token (JWT, OAuth 2.0), (API gateway, IdP)
-% vs distribution \end{sloppypar} \begin{sloppypar} Identity and Access
-% Management (IAM), Identity federation, Azure Active Directory, Active
-% Directory Federation Services (ADFS), Google, Facebook, Twitter, LinkedIn
-% etc., Single-Sign-On (SSO), Security Assertion Markup Language (SAML), SAML
-% identity provider, OpenId provider, OAuth 2.0, OpenId Connect (OIDC), Identity
-% Management: Identification, Authentication, Authorization. \dots
-% \end{sloppypar}
+%         TODO
+%         Next messaging systems list is from \citet{secchalmsa}:
+%     lightweight REST API, Sync RPC, GraphQl Async REST, gRPC Apache Kafka, ZeroMQ
+%         Java Message Service: ActiveMQ, JBOSS messaging, Glassfish AMQP: RabbitMQ,
+%         Qpid, HornetQ MuleESB, Apache ServiceMix, JBossESB heavyweight WebSocket
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-%     TODO
-%     Next messaging systems list is from \citet{secchalmsa}:
-% lightweight REST API, Sync RPC, GraphQl Async REST, gRPC Apache Kafka, ZeroMQ
-%     Java Message Service: ActiveMQ, JBOSS messaging, Glassfish AMQP: RabbitMQ,
-%     Qpid, HornetQ MuleESB, Apache ServiceMix, JBossESB heavyweight WebSocket
+%     \subsection{Event-Driven Communication} \begin{sloppypar} \end{sloppypar}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \subsection{Event-Driven Communication} \begin{sloppypar} \end{sloppypar}
+%     \section{Decision Flowcharts} \begin{sloppypar} In this chapter flowcharts are
+%     presented that capture the main findings and the factors affecting decision
+%     making in and architectural switch. \end{sloppypar} \begin{sloppypar} In
+%     figure \ref{fig:auth_flowchart} a decision flowchart for authentication and
+%     authorization is presented. \end{sloppypar} \begin{figure}[h]
+%     \includegraphics[scale=0.75]{{AUTH_FLOWCHART.png}} \centering
+%     \caption{Authorization flowchart.} \label{fig:auth_flowchart} \end{figure}
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
-% \section{Decision Flowcharts} \begin{sloppypar} In this chapter flowcharts are
-% presented that capture the main findings and the factors affecting decision
-% making in and architectural switch. \end{sloppypar} \begin{sloppypar} In
-% figure \ref{fig:auth_flowchart} a decision flowchart for authentication and
-% authorization is presented. \end{sloppypar} \begin{figure}[h]
-% \includegraphics[scale=0.75]{{AUTH_FLOWCHART.png}} \centering
-% \caption{Authorization flowchart.} \label{fig:auth_flowchart} \end{figure}
+%     The amount
+%     of code to refactor is much larger than in a small microservice.
+%     Microservice should do one thing and, as such, it should be more
+%     understandable.
 % --------------------------------------------------------------------
 % --------------------------------------------------------------------
+
