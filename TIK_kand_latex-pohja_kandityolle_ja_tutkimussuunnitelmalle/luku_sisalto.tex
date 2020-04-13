@@ -98,24 +98,29 @@
     the Controller, and the database is the Model.
 \end{sloppypar}
 \begin{sloppypar}
+    For an MSA the classical definition is the one given in the
+    \citet{fowlerlewisms}. A compatible definition for a single microservice can
+    be found in \citet{newman2019}.
+\end{sloppypar}
+\begin{sloppypar}
     \citet{fowlerlewisms} define the microservice style as follows: the service
     is to be componentized using services in which a component is independently
     replaceable and upgradeable, the services are organized around business
     capability rather a design pattern such as the previously mentioned MVC, a
-    team should responsible of their product for it's full service life, the
+    team should be responsible of their product for it's full service life, the
     services are to contain the logic and communicate using a communication
-    system without business logic "smart endpoints and dumb pipes",
-    decentralized governance meaning that choices such as the technology to use
-    or architecture are not dictated to developers, decentralized data
-    management, infrastructure automation, the whole application needs to be
-    fault tolerant since individual services might fail or become unavailable,
-    and evolutionary design.
+    system without business logic which can be simplified as "smart endpoints
+    and dumb pipes", decentralized governance meaning that choices such as the
+    technology to use or architecture are not dictated to developers,
+    decentralized data management, infrastructure automation, the whole
+    application needs to be fault tolerant since individual services might fail
+    or become unavailable, and evolutionary design.
 \end{sloppypar}
 \begin{sloppypar}
     \citet{newman2019} definition for a microservice is a service that: is
     independently deployable, is modeled around business domain, that owns the
     data that they need to operate, that communicates via network, is technology
-    agnostic, that encapsulates data storage and retrieval and that has stable
+    agnostic, that encapsulates data storage and retrieval and that has a stable
     interface.
 \end{sloppypar}
 \begin{figure}[h]
@@ -163,8 +168,8 @@
     minimizes outages to the customers. Sometimes, though this is not possible.
     \citet{newman2019} states that when a monolithic application is implemented
     following a design patterns such as the MVC \citep{trygvemvc} this can lead
-    to difficulties in the refactoring. The code base is not split according to
-    the business domain but follows a rigid design pattern.
+    to difficulties in the refactoring. Since the code base is not split
+    according to the business domain but follows a rigid design pattern.
 \end{sloppypar}
 \begin{sloppypar}
     In order for the process to be as simple as possible, the MA is or at least
@@ -179,24 +184,33 @@
     The MSA differs from a MA in fundamental ways. According to
     \citet{fowlerlewisms}, one main difference is the communication between the
     components. In a monolith application the processes can send function calls
-    or method invocations among themselves. In MSA, the messaging is based on
-    sending messages or HTTP requests. Function calls entail a stackframe
-    creation in the call stack, execution of the function code, and finally
-    popping the stackframe and returning the result. Compilers can optimize the
-    code further and inline the function calls to eliminate the stackframe
-    creation and the following procedures.
+    or method invocations among themselves. Where as in MSA, the messaging is
+    based on sending messages or HTTP requests. 
 \end{sloppypar}
-\begin{sloppypar}    
+\begin{sloppypar}
     Communication using the network is extremely slow compared to local function
-    calls. \citet{webdelays} studied the response times of web sites offered to
-    the public. The websites response times where measured in seconds. The
-    requests sent to other microservices through the network are much slower
+    calls. Function calls entail a stackframe creation in the call stack,
+    execution of the function code, and finally popping the stackframe and
+    returning the result. Compilers can optimize the code further and inline the
+    function calls to eliminate the stackframe creation and the following
+    procedures.
+\end{sloppypar}
+\begin{sloppypar}
+    \citet{webdelays} studied the response times of web sites offered to the
+    public. The websites response times where measured in seconds. These times
+    can be viewed as being on the extreme. \citet{Johansson_2019} did an
+    experiment on a monolithic and a microservices application. The recorded
+    response times for the monolithic application where on average 64\% faster
+    than a microservice application.
+\end{sloppypar}
+\begin{sloppypar}
+    Requests sent to other microservices through a network are much slower
     than function calls within one computer. Therefore, the communication
     patterns should be changed to take into account the change in communication
     path. If the architecture is changed in such a way that the previous
     communication model among the components is preserved, there would be an
     excessive amount of communication and the resulting system would not be as
-    performant \citep{fowlerlewisms}.
+    performant \citep{fowlerlewisms}. 
 \end{sloppypar}
 
 
@@ -211,7 +225,7 @@
     to be secure the defending developers have to find all of the bugs where as
     the attacker has to find only one. Therefore, to make systems more secure
     the use of tools and frameworks that have been tested and are already in use
-    is preferable to developing one's own solutions for a well known and already
+    is preferable to developing one's own solution for a well known and already
     solved problem.
 \end{sloppypar}
 \begin{sloppypar}
@@ -562,7 +576,7 @@
     Containers have considerably lower overhead when compared to VMs. A
     container can be created and started easily and automatically as needed by
     an orchestration solution such as, Docker Compose, Docker Swarm, and
-    Kubernetes. All of these tools have to be correctly configured and used
+    k8s. All of these tools have to be correctly configured and used
     according to their specification and best practice.
 \end{sloppypar}
 
@@ -624,7 +638,7 @@
     (PDP), and collected metrics of the behavior and actions in and of the
     system. The data moves in the dataplane. Each microservice is accompanied by
     a proxy. All requests and responses flow through the proxies and are
-    controlled by the Control plane. The microservices do not necessarily have
+    controlled by the Control plane. The microservices do not have
     to be aware of the proxy that is in the information path.
 \end{sloppypar}
 \begin{sloppypar}
@@ -646,6 +660,7 @@
     Service mesh also allows for multi cloud installations. 
 \end{sloppypar}
 \begin{sloppypar}
+    Is the Service Mesh compatible with the Smart endpoints dumb pipes?
 \end{sloppypar}
 \begin{sloppypar}
 \end{sloppypar}
@@ -854,7 +869,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     The use of pre-existing tools and frameworks is highly encouraged. The tools
-    currently available such as Docker, Kubernetes, and Istio solve many of the
+    currently available such as Docker, k8s, and Istio solve many of the
     inherent security issues if applied correctly.
 \end{sloppypar}
 \begin{sloppypar}
