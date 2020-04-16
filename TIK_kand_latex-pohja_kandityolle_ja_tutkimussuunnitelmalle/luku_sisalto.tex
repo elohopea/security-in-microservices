@@ -188,10 +188,10 @@
 \end{sloppypar}
 \begin{sloppypar}
     Communication using the network is extremely slow compared to local function
-    calls. Function calls entail a stackframe creation in the call stack,
-    execution of the function code, and finally popping the stackframe and
+    calls. Function calls entail a stack frame creation in the call stack,
+    execution of the function code, and finally popping the stack frame and
     returning the result. Compilers can optimize the code further and inline the
-    function calls to eliminate the stackframe creation and the following
+    function calls to eliminate the stack frame creation and the following
     procedures.
 \end{sloppypar}
 \begin{sloppypar}
@@ -221,10 +221,10 @@
     Implementing security is hard. A theoretical proof for this can be found in
     \citet{andersson2001information}. His main finding was that an attacker has
     an advantage over the developers trying to defend a system. For the system
-    to be secure the defending developers have to find all of the bugs whereas
+    to be secure the defending developers must find all the bugs whereas
     the attacker has to find only one. Therefore, to make systems more secure
     the use of tools and frameworks that have been tested and are already in use
-    is preferable to developing one's own solution for a well known and already
+    is preferable to developing one's own solution for a well-known and already
     solved problem.
 \end{sloppypar}
 \subsection{Identifying Key Security Aspects}
@@ -251,10 +251,10 @@
 \begin{sloppypar}
     The credential counterparts i.e. the secret shared by the server and the
     user must be available for the web service for verification. When using
-    MSA, the service should own its own data. When ever information is available
+    MSA, the service should own its own data. Whenever information is available
     it is a target for thieves and hackers. The services in MSA are to be
     individually deployable and the service scalable. Authentication service
-    implementation has to take this into account. The service must adhere to
+    implementation must take this into account. The service must adhere to
     practices that minimize the risks of data breaches.
 \end{sloppypar}
 \begin{sloppypar}
@@ -320,12 +320,12 @@
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{TOKEN_AUTH.png}}
     \centering
-    \caption{Bearer token based authentication \citep{authinmsa}}
+    \caption{Bearer token-based authentication \citep{authinmsa}}
     \label{fig:TOKEN_AUTH}
 \end{figure}
 \begin{sloppypar}
-    To limit the excessive communication a token based authentication and
-    authorization scheme can be used. A simplified process flow is presebted in
+    To limit the excessive communication a token-based authentication and
+    authorization scheme can be used. A simplified process flow is presented in
     \ref{fig:TOKEN_AUTH}. A user enters credentials to a login and with these
     credentials an authentication and authorization service grants the user a
     token. This token is used to access the services in the system. The services
@@ -366,13 +366,9 @@
     strings, which can easily be carried in the HTTP request or response. The
     contents are key value pairs, and the token may or may not be signed and
     encrypted \citep{RFC7519}. The token may contain an expiration time. If the
-    token is used to validate requests without a server side implementation that
+    token is used to validate requests without a server-side implementation that
     can revoke a token, it will be valid until this time. The JWT token is
-    issued by an authority trusted by the service. In figure a basic bearer
-    token-based authentication and authorization is depicted. A client initially
-    enters credentials to a login page and the authorization service issues a
-    token for the user. This token is used in place of the credentials to access
-    restricted resources.
+    issued by an authority trusted by the service.
 \end{sloppypar}
 \begin{sloppypar}
     The signing of JWT can be carried out in various ways. These are presented
@@ -390,13 +386,13 @@
     Opaque token to JWT in the API Gateway. This would be used in all other
     communication as the means to authenticate and authorize the user. The main
     problem the opaque token is said to solve is the logout problem. A bearer
-    token is valid until expiration and the client can not invalidate the token.
+    token is valid until expiration and the client cannot invalidate the token.
     The opaque token flow is presented in figure
     \ref{fig:OPAQUE_TOKEN_API_GATEWAY}.
 \end{sloppypar}
 \begin{sloppypar}
     The use of two tokens has many advantages. The token granted to the client
-    allows access only to the API Gateway. This token can not be used to access
+    allows access only to the API Gateway. This token cannot be used to access
     the services directly. Furthermore, the opaque token be can revoked by
     simply removing it from the storage for the token pairs. The usage of an
     internal JWT can alleviate some of the issues when MA is to be changed to
@@ -489,7 +485,7 @@
 \section{Deployment Automation and Production}
 \begin{sloppypar}
     Both MA and MSA web services can be installed on servers operated by the
-    organization or individuals them selves. The software can be installed on
+    organization or individuals themselves. The software can be installed on
     the host operating system directly or a virtualization technology can be
     used.
 \end{sloppypar}
@@ -506,9 +502,8 @@
     configured correctly and an error in one could potentially compromise the
     whole system. In addition, implementation of security is very difficult and
     resource intensive. The rewards from a good security are invisible. When
-    microservices are implemented or even planned the security should be taken
-    into account as early as possible. Implementing security later in the
-    project or as an after thought can be more expensive and very difficult.
+    microservices are implemented or even planned the security should be considered as early as possible. Implementing security later in the
+    project or as an afterthought can be more expensive and very difficult.
 \end{sloppypar}
 
 \subsection{Virtualization}
@@ -527,7 +522,7 @@
     Containers have considerably lower overhead when compared to VMs. A
     container can be created and started easily and automatically as needed by
     an orchestration solution such as, Docker Compose, Docker Swarm, and k8s.
-    All these tools have to be correctly configured and used according to
+    All these tools must be correctly configured and used according to
     their specification and best practice.
 \end{sloppypar}
 
@@ -535,7 +530,7 @@
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{orchestration.png}}
     \centering
-    \caption{Orchestration constituents\citep{containernetworking}}
+    \caption{Orchestration constituents \citep{containernetworking}}
     \label{fig:orchestration_constituents}
 \end{figure}
 \begin{sloppypar}
@@ -545,15 +540,15 @@
     utilization level. The containers and the microservices within can have a
     new version that needs to be rolled into the production. The upgrade service
     is responsible in doing this. Service discovery is a service which is used
-    to locate running services and as a service to which self registration is
+    to locate running services and as a service to which self-registration is
     carried out. If a service is to become nonoperational it might not be able
     to send the orchestrator any message on this erroneous behavior. Therefore,
     the orchestrator can have a Health check service. This service can
     periodically send a message to a service and if no response is not received
-    with in reasonable time frame the service is deemed non operational and a
+    within reasonable time frame the service is deemed nonoperational and a
     new one is to be created by the scheduler. This service is to create the
     individual pods or containers according to the system settings. The last
-    orchestration part is the organizational primitives. These are to used to
+    orchestration part is the organizational primitives. These are used to
     e.g. label pods or containers with matching business domain names. This is
     to make the administration and setup work easier
     \citep{containernetworking}.
@@ -604,7 +599,7 @@
 \subsection{Known Vulnerabilities in JWT}
 \begin{sloppypar}
     The choices for the algorithm for signing the JWT algorithm contain "none"
-    as one of the choices. This was found to be troublesome by . He found that
+    as one of the choices. This was found to be troublesome by \citet{nonejwt}. He found that
     many libraries did not operate in the desired way. The receiving party could
     be fooled to validate a mutated token without any signature with the "none"
     as it's algorithm. In addition to this vulnerability \citet{nonejwt} found
@@ -619,7 +614,7 @@
     The data in the system is the resource to be protected. If this data becomes
     corrupted the system is not secure. In some cases, the actions to be taken
     consists of multiple reads and writes of the data and the order of execution
-    changes the end result.
+    changes the result.
 \end{sloppypar}
 \begin{sloppypar}
     Transactions can be used when updating database contents to make sure that
@@ -629,9 +624,9 @@
     Transactions are easier to implement especially when the execution is done
     sequentially. In MSA this is not necessarily the case. Performing an action
     might entail calling various microservices and if any of the individual
-    actions fail permanentely the changes that have already been made need to be
-    undone. In addition to this, a HTTP is asynchronious and the execution order
-    can not be guaranteed. 
+    actions fail permanently the changes that have already been made need to be
+    undone. In addition to this, a HTTP is asynchronous and the execution order
+    cannot be guaranteed. 
 \end{sloppypar}
 \begin{sloppypar}
     Transaction related issues can be solved by either, splitting the monolith
@@ -675,7 +670,7 @@
 \end{sloppypar}
 \begin{sloppypar}
     Malicious attempts in a MA are more easily screened by performing security
-    audits and by peer reviewing the code. In a MSA the knowledge of a single
+    audits and by peer reviewing the code. In an MSA the knowledge of a single
     service and its inner workings are shared by a more limited number of
     people. Finding the compromised actions from the interoperability of the
     distinct microservices is a daunting task.
@@ -724,12 +719,12 @@
 \end{sloppypar}
 \begin{sloppypar}
     \citet{moderndid} takes the idea of layered defense even further and
-    proposes an integrated approach to DiD. He defines the defence layers as:
+    proposes an integrated approach to DiD. He defines the defense layers as:
     edge routers, DDos defenses, Managed DNS, Reverse proxies, Bot Management,
     Web application firewalls, API defenses, and Caching. He further iterates
     that these layers or lines of defense should be aware of each other and be
-    accessable from a single UI. Another approach he defines as human expertise.
-    In this approach there exists an command center that is to be manned at all
+    accessible from a single UI. Another approach he defines as human expertise.
+    In this approach there exists a command center that is to be manned at all
     times and as such be able to respond to the encountered threats. In some
     instances, this might be applicable, but for all web services this is not be
     feasible.
@@ -765,7 +760,7 @@
     which all must be consistent and correct. One example is the
     configuration of the operating system on the server running the
     virtualization environment. All the layers from the server hardware to
-    the handling of errors in the actual code have to be of ample quality to
+    the handling of errors in the actual code must be of ample quality to
     mitigate a failure in security.
 \end{sloppypar}
 \begin{sloppypar}
@@ -796,7 +791,7 @@
     using JWT had and in some cases still have serious flaws and are not secure.
 \end{sloppypar}
 \begin{sloppypar}
-    Authentication and authorization in MA and in MSA can differ greatly. In MA
+    Authentication and authorization in MA and in MSA can differ greatly. In MA, 
     a session-based authentication and authorization is applicable. This is not
     the case in MSA especially if a REST API is to be used. In REST API all the
     information needed to serve a request should be enclosed in the request.
