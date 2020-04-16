@@ -221,7 +221,7 @@
     Implementing security is hard. A theoretical proof for this can be found in
     \citet{andersson2001information}. His main finding was that an attacker has
     an advantage over the developers trying to defend a system. For the system
-    to be secure the defending developers have to find all of the bugs where as
+    to be secure the defending developers have to find all of the bugs whereas
     the attacker has to find only one. Therefore, to make systems more secure
     the use of tools and frameworks that have been tested and are already in use
     is preferable to developing one's own solution for a well known and already
@@ -240,7 +240,7 @@
 \section{Authentication and Authorization}
 \begin{sloppypar}
     In the cases where the user must be authenticated, the web service needs a
-    way to do this securely. There are many authentication schemes available but
+    way to do this securely. There are many authentication schemes available, but
     users prefer the password \citep{passwordisdead}. Due to this the
     authentication is usually done using a tuple containing user credentials
     i.e. a username and a password. The user is authenticated, and a key or
@@ -250,17 +250,17 @@
 \end{sloppypar}
 \begin{sloppypar}
     The credential counterparts i.e. the secret shared by the server and the
-    user have to be available for the web service for verification. When using
+    user must be available for the web service for verification. When using
     MSA, the service should own its own data. When ever information is available
     it is a target for thieves and hackers. The services in MSA are to be
     individually deployable and the service scalable. Authentication service
-    implementation has to take this into account. The service has to adhere to
+    implementation has to take this into account. The service must adhere to
     practices that minimize the risks of data breaches.
 \end{sloppypar}
 \begin{sloppypar}
     As has been mentioned previously implementing security is hard and resource
     intensive. Therefore, the authentication implementation should adhere to an
-    already existing framework or an another entity providing the
+    already existing framework or another entity providing the
     authentication. This is the case for both the MA and MSA. The available
     choices include Lightweight Directory Access Protocol (LDAP), OpenID Connect
     (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
@@ -281,7 +281,7 @@
     load balancer which has all the information on the currently operational
     services. Each of the services run on a single process in which an
     authentication and authentication service or functionality are present. When
-    a user is first accessing the service credentials are to be verified and in
+    a user is first accessing the service, credentials are to be verified and in
     a successful case a session or a user object is created for the process.
 \end{sloppypar}
 \begin{figure}[h]
@@ -461,7 +461,7 @@
     does not allow for any server-side sessions and thus token revocation is
     impossible. Tokens can be validated only for the correct issuer by signature
     and for expiration. As such tokens are more compatible with REST, but there
-    still has to be the public keys in the server for signature verification.
+    still must be the public keys in the server for signature verification.
 \end{sloppypar}
 
 \subsection{Coping With Failure in Communication}
@@ -527,7 +527,7 @@
     Containers have considerably lower overhead when compared to VMs. A
     container can be created and started easily and automatically as needed by
     an orchestration solution such as, Docker Compose, Docker Swarm, and k8s.
-    All of these tools have to be correctly configured and used according to
+    All these tools have to be correctly configured and used according to
     their specification and best practice.
 \end{sloppypar}
 
@@ -676,7 +676,7 @@
 \begin{sloppypar}
     Malicious attempts in a MA are more easily screened by performing security
     audits and by peer reviewing the code. In a MSA the knowledge of a single
-    service and it's inner workings are shared by a more limited number of
+    service and its inner workings are shared by a more limited number of
     people. Finding the compromised actions from the interoperability of the
     distinct microservices is a daunting task.
 \end{sloppypar}
@@ -755,14 +755,14 @@
     aspects to go wrong than in previous MA implementation. The deployment can
     entail installing, virtualization, monitoring, and other tools. In some
     cases, these tools must be  implemented by in house developers and thus more
-    costs are incurred upfront and also in the upkeep of the system. In addition
+    costs are incurred upfront and in the upkeep of the system. In addition
     to being more costly own development has higher security risks involved.
 \end{sloppypar}
 \begin{sloppypar}
     MSA has higher complexity due to more tools needed and having more
     potentially exposed attack surface. Security can be thought of as being as
     good as its weakest link. In general, an MSA deployment has multiple layers
-    which all have to be consistent and correct. One example is the
+    which all must be consistent and correct. One example is the
     configuration of the operating system on the server running the
     virtualization environment. All the layers from the server hardware to
     the handling of errors in the actual code have to be of ample quality to
@@ -783,7 +783,7 @@
     mistrust on all requests and security should be built into the system.
 \end{sloppypar}
 \begin{sloppypar}
-    Security must be taken into account right from the beginning of the
+    Security must be considered right from the beginning of the
     project in which the architecture is to be changed. The choices made in the
     development of the web service when following a MA do not carry to the MSA
     as such.
