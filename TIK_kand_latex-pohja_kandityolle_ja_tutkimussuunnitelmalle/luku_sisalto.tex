@@ -131,14 +131,13 @@
     ``smart endpoints and dumb pipes", decentralized governance meaning that
     choices such as the technology to use or the architecture are not dictated
     to the developers, decentralized data management, infrastructure automation,
-    fault tolerance of the whole application since
-    individual services might fail or become unavailable, and evolutionary
-    design.
+    fault tolerance of the whole application since individual services might
+    fail or become unavailable, and evolutionary design.
 \end{sloppypar}
 \begin{sloppypar}
     Newman's (2019) definition for a microservice is a service that it is
-    independently deployable, is modeled around business domain, owns the
-    data that it needs to operate, communicates via a network, is technology
+    independently deployable, is modeled around business domain, owns the data
+    that it needs to operate, communicates via a network, is technology
     agnostic, encapsulates data storage and retrieval, and has a stable
     interface.
 \end{sloppypar}
@@ -151,9 +150,9 @@
 \begin{sloppypar}
     An example of MSA, presented in figure \ref{fig:microservice}, has many
     problem areas of which one is the challenging security implementation. This
-    is because every microservice accessible to the client can also be
-    accessed or contacted by other, more malicious parties in the same network.
-    The network in the case of web services is the internet. The attack surface
+    is because every microservice accessible to the client can also be accessed
+    or contacted by other, more malicious parties in the same network. The
+    network in the case of web services is the internet. The attack surface
     available for the malicious party is the entirety of the APIs offered by the
     microservices.
 \end{sloppypar}
@@ -162,12 +161,11 @@
     the architecture as in figure \ref{fig:microserviceapigateway}.
     \citet{DBLP:journals/corr/MontesiW16} present an API Gateway design pattern.
     In this pattern, there exists only one web service accessible to clients.
-    The API Gateway is a natural place for a Policy Enforcement Point
-    (PEP) and other more MSA-specific features such as service discovery. The
-    security features can be implemented in the API Gateway, making it a critical
-    component. Since all communication either flows through or is
-    sanctioned by the API Gateway, its performance and accessibility are
-    critical.
+    The API Gateway is a natural place for a Policy Enforcement Point (PEP) and
+    other more MSA-specific features such as service discovery. The security
+    features can be implemented in the API Gateway, making it a critical
+    component. Since all communication either flows through or is sanctioned by
+    the API Gateway, its performance and accessibility are critical.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA_API_GATEWAY.png}}
@@ -186,31 +184,30 @@
     minimizes outages to the customers. Sometimes though, this is not possible.
     \citet{newman2019} states that, when a monolithic application is implemented
     following a design patterns such as the MVC \citep{trygvemvc}, this can lead
-    to difficulties in the refactoring. The reason is that the code base is not split
-    according to the business domain but follows a rigid design pattern.
+    to difficulties in the refactoring. The reason is that the code base is not
+    split according to the business domain but follows a rigid design pattern.
 \end{sloppypar}
 \begin{sloppypar}
     For the process to be as simple as possible, the MA is or at least should be
-    split into modules with separation of concerns \citep{secchalmsa}. The splitting 
-    of the monolith can be carried out in various ways, one of
-    which is Domain Driven Design \citep{evans2003}. The selection of boundaries
-    for the services is critical. If this is done incorrectly, all the affected
+    split into modules with separation of concerns \citep{secchalmsa}. The
+    splitting of the monolith can be carried out in various ways, one of which
+    is Domain Driven Design \citep{evans2003}. The selection of boundaries for
+    the services is critical. If this is done incorrectly, all the affected
     services need to be refactored to mend the error \citep{newman2019}.
 \end{sloppypar}
 \begin{sloppypar}
-    MSA differs from MA in fundamental ways. According to
-    \citet{fowlerlewisms}, one main difference is the communication between the
-    components. In a monolithic application, the processes can send function calls
-    or method invocations among themselves. In MSA, the messaging is
-    based on sending messages or HTTP requests over the network. 
+    MSA differs from MA in fundamental ways. According to \citet{fowlerlewisms},
+    one main difference is the communication between the components. In a
+    monolithic application, the processes can send function calls or method
+    invocations among themselves. In MSA, the messaging is based on sending
+    messages or HTTP requests over the network. 
 \end{sloppypar}
 \begin{sloppypar}
-    Communication using the network is slow, compared to local function
-    calls. Function calls entail a stack frame creation in the call stack,
-    execution of the function code, and finally popping the stack frame and
-    returning the result. Compilers can optimize the code further and inline the
-    function calls to eliminate the stack frame creation and the following
-    procedures.
+    Communication using the network is slow, compared to local function calls.
+    Function calls entail a stack frame creation in the call stack, execution of
+    the function code, and finally popping the stack frame and returning the
+    result. Compilers can optimize the code further and inline the function
+    calls to eliminate the stack frame creation and the following procedures.
 \end{sloppypar}
 \begin{sloppypar}
     Requests sent to other microservices through a network are much slower than
@@ -231,10 +228,10 @@
 \end{sloppypar}
 
 \begin{sloppypar}
-    As has been already established above the communication within the web service
-    differs greatly in MA and in MSA. Secure communication is one of the key
-    security aspects to be discussed in this paper. In addition to communication,
-    the authentication and authorization are another critical
+    As has been already established above the communication within the web
+    service differs greatly in MA and in MSA. Secure communication is one of the
+    key security aspects to be discussed in this paper. In addition to
+    communication, the authentication and authorization are another critical
     security concern to be discussed. These will be addressed in the next
     chapter.
 \end{sloppypar}
@@ -247,10 +244,10 @@
     way to do this securely. There are many authentication schemes available,
     but users prefer the password \citep{passwordisdead}. Due to this, the
     authentication is usually done with a pair of user credentials that contains
-    a username and a password. The user is authenticated, and a key or
-    token is transmitted to the user via the network. This communication in both
-    MA and MSA should be encrypted in a way that none of the actors in the
-    transfer path can intercept the message and misuse the credentials. 
+    a username and a password. The user is authenticated, and a key or token is
+    transmitted to the user via the network. This communication in both MA and
+    MSA should be encrypted in a way that none of the actors in the transfer
+    path can intercept the message and misuse the credentials. 
 \end{sloppypar}
 \begin{sloppypar}
     As has been mentioned previously, implementing security is hard and resource
@@ -276,16 +273,17 @@
 \subsection{Authentication and Authorization in MA}
 \begin{sloppypar}
     In MA, it is possible to implement features in such ways that a process in
-    which the application runs has access to a session or a user object that carries the user information. This information can consist of the
-    granted roles and rights for the user. The information can be queried
-    easily and securely when access control is needed.
+    which the application runs has access to a session or a user object that
+    carries the user information. This information can consist of the granted
+    roles and rights for the user. The information can be queried easily and
+    securely when access control is needed.
 \end{sloppypar}
 \begin{sloppypar}
     An example of a web service implemented in MA is presented in figure
-    \ref{fig:MA_AUTH}. The user sends a request to a load balancer, which has all
-    the information on the currently operational services. All the services run
-    in the same process in which an authentication and authentication service or
-    functionality is present. When a user first accesses the service,
+    \ref{fig:MA_AUTH}. The user sends a request to a load balancer, which has
+    all the information on the currently operational services. All the services
+    run in the same process in which an authentication and authentication
+    service or functionality is present. When a user first accesses the service,
     credentials are verified and, in a successful case, a session or a user
     object is created for the process.
 \end{sloppypar}
@@ -299,11 +297,11 @@
 \subsection{Authentication and Authorization in MSA}
 \begin{sloppypar}
     Authorization of the user rights can be implemented in various ways. One of
-    them is an authorization service which can contain the access control
-    list. Services verify from the authorization service that
-    the client user or the role is allowed to access the requested
-    service or functionality. The authorization is
-    verified in memory and without any communication over the network.
+    them is an authorization service which can contain the access control list.
+    Services verify from the authorization service that the client user or the
+    role is allowed to access the requested service or functionality. The
+    authorization is verified in memory and without any communication over the
+    network.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{MSA_AUTH_SERVICE.png}}
@@ -312,13 +310,13 @@
     \label{fig:MSA_AUTH_SERVICE}
 \end{figure}
 \begin{sloppypar}
-    In MSA, accessing the access control lists is not as easy as it
-    is in MA. In order to verify that a specific right exists, the service would
-    have communication with the authorization service. This communication would
-    need to happen every time a user tries to access a functionality with access
-    restrictions. This could potentially lead to excessive communication
-    from all the services and form a performance bottleneck at the authorization service.
-    An example of such architecture is presented in figure
+    In MSA, accessing the access control lists is not as easy as it is in MA. In
+    order to verify that a specific right exists, the service would have
+    communication with the authorization service. This communication would need
+    to happen every time a user tries to access a functionality with access
+    restrictions. This could potentially lead to excessive communication from
+    all the services and form a performance bottleneck at the authorization
+    service. An example of such architecture is presented in figure
     \ref{fig:MSA_AUTH_SERVICE}.
 \end{sloppypar}
 \begin{figure}[h]
@@ -398,11 +396,12 @@
     The use of two tokens has many advantages. The token granted to the client
     allows access only to the API Gateway. This token cannot be used to access
     the services directly. Furthermore, the opaque token be can revoked by
-    simply removing it from the storage. The internal JWT can alleviate some of the issues that arise when MA is to be changed to
-    MSA. Firstly, token theft, though still possible, is limited to the time the
-    client is logged on to the system. Secondly, though not advisable, the JWT
-    can carry session information and the whole session. This allows for more of
-    the previous MA implementation to be used without as many changes.
+    simply removing it from the storage. The internal JWT can alleviate some of
+    the issues that arise when MA is to be changed to MSA. Firstly, token theft,
+    though still possible, is limited to the time the client is logged on to the
+    system. Secondly, though not advisable, the JWT can carry session
+    information and the whole session. This allows for more of the previous MA
+    implementation to be used without as many changes.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{OPAQUE_TOKEN_API_GATEWAY.png}}
