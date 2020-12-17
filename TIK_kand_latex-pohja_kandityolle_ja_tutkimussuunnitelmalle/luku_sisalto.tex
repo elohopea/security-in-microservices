@@ -6,39 +6,38 @@
 \begin{sloppypar}
     In recent years, mobile applications and the web services which cater to
     them have revolutionized our daily lives by infiltrating social life,
-    shopping and almost every aspect of our existence. The rapid expansion and,
+    shopping, and almost every aspect of our existence. The rapid expansion and,
     at times, even faster decline of these web services needs a matching
     architecture to meet their very specific needs.
 \end{sloppypar}
 \begin{sloppypar} One possible solution to address these architectural needs
-     is the microservice architecture (MSA). There are multiple definitions for
-     MSA but in general the web service is implemented using multiple small,
+     is microservice architecture (MSA). There are multiple definitions for
+     MSA but in general, the web service is implemented using multiple small,
      independent services that act together.
      \citet{newman2019} definition for a microservice is a service that: is
-     independently deployable, is modeled around business domain, that owns the
-     data that they need to operate, that communicates via network, is
-     technology agnostic, that encapsulates data storage and retrieval and that
-     has a stable interface.
+     independently deployable, is modeled around the business domain, owns the
+     data that they need to operate, communicates via a network, is
+     technology agnostic, encapsulates data storage and retrieval and has a stable interface.
 \end{sloppypar}
 \begin{sloppypar}
-    There are many web services already in use which were designed and
+    There are many web services already in use that were designed and
     implemented before the onslaught of microservices. Some of these services
     have already made the switch such as Netflix, but this is not the case for
     the whole industry.
 \end{sloppypar}
 \begin{sloppypar}
-    When new development is carried out by a startup, the initial architecture
+    When a new development is carried out by a startup, the initial architecture
     might still be a monolith one. Also, when a new service is being created,
     the business domain might not be established yet. Additionally, there might
     exist a fair amount of uncertainty in what exactly is to be developed.
     \citet{newman2019} states that, due to limited software development
-    resources, a monolith might be a better fit to the companies that are still
+    resources, a monolith might be a better fit for the companies that are still
     trying to navigate their way to the product they eventually will offer. In
     the case of success, the need to rapidly scale up the offering emerges.
     \citet{newman2019} refers to these companies as ``scale-ups".
     \citet{newman2019} also states that it is much easier to refactor an
     existing service than to create a new one, and thus the need to split
-    monoliths to microservices is and probably will be relevant to the near
+    monoliths into microservices is and probably will be relevant to the near
     future. This need is further amplified by the agile software development
     methods in which changes in requirements are welcome even in the later
     stages of the development process \citep{agilemanifesto}.
@@ -92,7 +91,7 @@
     architectures and the third chapter discusses the changing of architecture
     from MA to MSA. The fourth chapter discusses authentication and
     authorization. The fifth chapter discusses communication. In the seventh
-    chapter, other relevant security concerns are discussed. The eigth and
+    chapter, other relevant security concerns are discussed. The eighth and
     lastchapter in this thesis presents the conclusions and outlines further
     research topics.
 \end{sloppypar}
@@ -125,8 +124,8 @@
     \citet{fowlerlewisms} define the microservice style as follows: the service
     is componentized into smaller services so that each component is
     independently replaceable and upgradeable, the services are organized around
-    business capability rather a design pattern (such as the previously
-    mentioned MVC), a team should be responsible of their product for its full
+    business capability rather than a design pattern (such as the previously
+    mentioned MVC), a team should be responsible for their product for its full
     service life, the services are to contain the logic and communicate using a
     communication system without business logic, which can be summarized as
     ``smart endpoints and dumb pipes", decentralized governance meaning that
@@ -136,8 +135,8 @@
     fail or become unavailable, and evolutionary design.
 \end{sloppypar}
 \begin{sloppypar}
-    Newman's (2019) definition for a microservice is a service that it is
-    independently deployable, is modeled around business domain, owns the data
+    Newman's (2019) definition for a microservice is a service that is
+    independently deployable, is modeled around the business domain, owns the data
     that it needs to operate, communicates via a network, is technology
     agnostic, encapsulates data storage and retrieval, and has a stable
     interface.
@@ -184,7 +183,7 @@
     MSA should be a gradual process. This ensures a smooth transition and
     minimizes outages to the customers. Sometimes though, this is not possible.
     \citet{newman2019} states that, when a monolithic application is implemented
-    following a design patterns such as the MVC \citep{trygvemvc}, this can lead
+    following a design pattern such as the MVC \citep{trygvemvc}, this can lead
     to difficulties in the refactoring. The reason is that the code base is not
     split according to the business domain but follows a rigid design pattern.
 \end{sloppypar}
@@ -224,7 +223,7 @@
     public. The website response times where measured in seconds. These times
     can be viewed as being at the extreme end. \citet{Johansson_2019} did an
     experiment on a monolithic and a microservices application. The recorded
-    response times for the monolithic application where, on average, 64\% faster
+    response times for the monolithic application were, on average, 64\% faster
     than for the microservice application.
 \end{sloppypar}
 
@@ -232,7 +231,7 @@
     As has been already established above the communication within the web
     service differs greatly in MA and in MSA. Secure communication is one of the
     key security aspects to be discussed in this paper. In addition to
-    communication, the authentication and authorization are another critical
+    communication, authentication and authorization are another critical
     security concern to be discussed. These will be addressed in the next
     chapter.
 \end{sloppypar}
@@ -251,21 +250,21 @@
     path can intercept the message and misuse the credentials. 
 \end{sloppypar}
 \begin{sloppypar}
-    As has been mentioned previously, implementing security is hard and resource
-    intensive. Therefore, the authentication implementation should adhere to an
-    already existing framework or another entity providing the authentication.
-    This is the case for both the MA and MSA. The available choices include
-    Lightweight Directory Access Protocol (LDAP), OpenID Connect (OIDC),
-    Security Assertion Markup Language (SAML), and Kerberos.
+    As has been mentioned previously, implementing security is hard and
+    resource-intensive. Therefore, the authentication implementation should
+    adhere to an already existing framework or another entity providing the
+    authentication. This is the case for both the MA and MSA. The available
+    choices include Lightweight Directory Access Protocol (LDAP), OpenID Connect
+    (OIDC), Security Assertion Markup Language (SAML), and Kerberos.
 \end{sloppypar}
 \begin{sloppypar}
     Regardless of the authentication scheme, the service or services
     authenticating the user contain the necessary information to do so. Since,
-    the services in MSA are to be individually deployable, and a service should
+    the services in MSA are to be individually deployable, and the service should
     own its own data, implementing the authorization as part of the API Gateway,
-    as a single micro service or using a third party authentication would be
-    beneficial. The information would not be spread in to multiple services and
-    multiple services would not have to have related implementation. In
+    as a single microservice, or using a third party authentication would be
+    beneficial. The information would not be spread into multiple services and
+    multiple services would not have to have a related implementation. In
     addition, whenever information is available, it is a target for thieves and
     hackers. Regardless of the implementation choices, the service must adhere
     to practices that minimize the risks of data breaches. 
@@ -282,7 +281,7 @@
 \begin{sloppypar}
     An example of a web service implemented in MA is presented in figure
     \ref{fig:MA_AUTH}. The user sends a request to a load balancer, which has
-    all the information on the currently operational services. All the services
+    all the information on the current operational services. All the services
     run in the same process in which an authentication and authentication
     service or functionality is present. When a user first accesses the service,
     credentials are verified and, in a successful case, a session or a user
@@ -298,7 +297,7 @@
 \subsection{Authentication and Authorization in MSA}
 \begin{sloppypar}
     Authorization of the user rights can be implemented in various ways. One of
-    them is an authorization service which can contain the access control list.
+    them is an authorization service that can contain the access control list.
     Services verify from the authorization service that the client user or the
     role is allowed to access the requested service or functionality. The
     authorization is verified in memory and without any communication over the
@@ -314,7 +313,7 @@
     In MSA, accessing the access control lists is not as easy as it is in MA. In
     order to verify that a specific right exists, the service would have
     communication with the authorization service. This communication would need
-    to happen every time a user tries to access a functionality with access
+    to happen every time a user tries to access functionality with access
     restrictions. This could potentially lead to excessive communication from
     all the services and form a performance bottleneck at the authorization
     service. An example of such architecture is presented in figure
@@ -327,9 +326,9 @@
     \label{fig:TOKEN_AUTH}
 \end{figure}
 \begin{sloppypar}
-    To limit the excessive communication, a token-based authentication and
+    To limit excessive communication, a token-based authentication and
     authorization scheme can be used. A simplified process flow is presented in
-    \ref{fig:TOKEN_AUTH}. A user enters credentials to a login, and with these
+    \ref{fig:TOKEN_AUTH}. A user enters credentials to login, and with these
     credentials, an authentication and authorization service grants the user a
     token. This token is used to access the services in the system. The services
     in question trust the issuer of the token and verify the token. If the token
@@ -352,21 +351,21 @@
 \begin{sloppypar}
     An example of an OIDC flow is presented in figure \ref{fig:oidcflow}. The
     process flow steps are the following: the client application requests an
-    authentication from the identity provider, the end user is authenticated and
+    authentication from the identity provider, the end-user is authenticated and
     authorization is obtained, the identity provider responds to the initial
     authentication request by sending an ID token and a possible access token,
-    the client application can request the end user claims from the
+    the client application can request the end-user claims from the
     authorization server with the access token, and finally the authorization
-    service returns the claims to the client application. The presented flow, is
-    like the OAuth 2.0 flow, and the token sent to the client application is a
+    service returns the claims to the client application. The presented flow is
+    as the OAuth 2.0 flow, and the token sent to the client application is a
     JavaScript Object Notation Web Token (JWT).
 \end{sloppypar}
 
 \subsection{JWT}
 \begin{sloppypar}
-    JWT is a format to represent claims. It consists of base64 encoded, point
+    JWT is a format to represent claims. It consists of base64 encoded, points
     separated strings, which can easily be carried in the HTTP request or
-    response. The contents are key value pairs, and the token may or may not be
+    response. The contents are key-value pairs, and the token may or may not be
     signed and encrypted \citep{RFC7519}. The token may contain an expiration
     time. If the token is used to validate requests without a server-side
     implementation that can revoke a token, it will be valid until the
@@ -396,7 +395,7 @@
 \begin{sloppypar}
     The use of two tokens has many advantages. The token granted to the client
     allows access only to the API Gateway. This token cannot be used to access
-    the services directly. Furthermore, the opaque token be can revoked by
+    the services directly. Furthermore, the opaque token can be revoked by
     simply removing it from the storage. The internal JWT can alleviate some of
     the issues that arise when MA is to be changed to MSA. Firstly, token theft,
     though still possible, is limited to the time the client is logged on to the
@@ -416,17 +415,17 @@
 \section{Communication}
 \begin{sloppypar}
     As already explained, the service components in MA can communicate using
-    events, procedure calls or other methods available within a single server
-    machine. Usually all this communication stays within a single computer and
+    events, procedure calls, or other methods available within a single server
+    machine. Usually, all this communication stays within a single computer and
     thus does not easily compromise confidentiality. This is not the case in
     MSA.
 \end{sloppypar}
 \begin{sloppypar}
     In MSA, the services communicate with each other via a network. There are
-    multiple protocols and messaging systems to choose from such as, REST API,
+    multiple protocols and messaging systems to choose from such as REST API,
     Advanced Message Queuing Protocol (AMQP), Enterprise Service Bus (ESB), and
-    Remote Procedure Calls (RPC). For a more complete list view
-    \citet{secchalmsa}. In this paper REST API will be examined further.
+    Remote Procedure Calls (RPC). For a more complete list view,
+    \citet{secchalmsa}. In this thesis, REST API will be examined further.
 \end{sloppypar}
 
 \subsection{Representational State Transfer (REST)}
@@ -484,8 +483,8 @@
     resulted in a more complex solution than in MA. The added layers such as the
     K8s, must be configured correctly, and an error in one could potentially
     compromise the whole system. In addition, the implementation of security is
-    difficult and resource intensive. The rewards from good security, on the
-    other hand are invisible. When microservices are implemented or even
+    difficult and resource-intensive. The rewards from good security, on the
+    other hand, are invisible. When microservices are implemented or even
     planned, the security should be considered as early as possible.
     Implementing security later in the project or as an afterthought can be more
     expensive and difficult.
@@ -506,7 +505,7 @@
 \begin{sloppypar}
     Containers have considerably lower overhead when compared to VMs. A
     container can be created and started easily and automatically as needed by
-    an orchestration solution such as Docker Compose, Docker Swarm or k8s. All
+    an orchestration solution such as Docker Compose, Docker Swarm, or k8s. All
     these tools must be correctly configured and used according to their
     specification and best practices.
 \end{sloppypar}
@@ -523,8 +522,8 @@
     depicted in \ref{fig:orchestration_constituents}. Scaling refers to
     automatically creating or shutting down pods or containers to match the
     utilization level. The containers and the microservices within can have a
-    new version that needs to be rolled into the production. The upgrade service
-    is responsible in doing this. Service discovery is a service which is used
+    new version that needs to be rolled into production. The upgrade service
+    is responsible for doing this. Service discovery is a service that is used
     to locate running services and as a service to which self-registration is
     carried out. If a service becomes nonoperational, it might not be able to
     send the orchestrator any message on this erroneous behavior. Therefore, the
@@ -551,9 +550,9 @@
     \ref{fig:service_mesh_basic_architecture}, a very basic service mesh
     architecture is presented. The architecture consists of a Control plane and
     a Data plane. The Control plane offers a user interface for system
-    administrators, a Policy Information Point (PIP) and a Policy Decision Point
+    administrators, a Policy Information Point (PIP), and a Policy Decision Point
     (PDP), and collects metrics of the behavior and actions in the
-    system. The data moves in the dataplane. Each microservice is accompanied by
+    system. The data moves in the data-plane. Each microservice is accompanied by
     a proxy. All requests and responses flow through the proxies and are
     controlled by the Control plane \citep{servicemesh}. The microservices do
     not have to be aware of the proxy that is in the information path.
@@ -569,7 +568,7 @@
     since the proxy can contain many of the features that would otherwise be
     repeated in all the services. The service mesh can provide a certificate
     authority for the communication between the services. The proxies act on
-    behalf of the service, and all proxy-to-proxy communication can be encrypted
+    behalf of the service and all proxy-to-proxy communication can be encrypted
     on the transport layer with TLS \citep{pathtoservicemesh}. Furthermore, it
     facilitates the use of mTLS where both parties are verified. A service mesh
     also allows for multi-cloud installations. 
@@ -580,16 +579,15 @@
 \section{Other Security Concerns}
 \subsection{Known Vulnerabilities in JWT}
 \begin{sloppypar}
-    The choices for the algorithm for signing the JWT includes "none". This was
+    The choices for the algorithm for signing the JWT include "none". This was
     found to be troublesome by \citet{nonejwt}. He found that many libraries did
     not operate in the desired way. The receiving party could be fooled to
     validate a mutated token without any signature with the "none" as its
     algorithm. In addition to this vulnerability, \citet{nonejwt} found that the
-    verification suffered from another fatal flaw. A server can be fooled into
-    to accepting invalid tokens. A malicious party can sign a JWT with the
-    server public key and a symmetric algorithm. The token verification
-    functions in some of the JWT libraries do not have the algorithm as one of
-    the parameters and allow the algorithm field in the token to dictate the
+    verification suffered from another fatal flaw. A server can be fooled into 
+    accepting invalid tokens. A malicious party can sign a JWT with the
+    server public key and symmetric algorithm. The token verification
+    functions in some of the JWT libraries allow the token to dictate the
     verification algorithm. If the keys match, as they should if the public key
     was correct, the library accepts the forged token as valid.
 \end{sloppypar}
@@ -647,8 +645,7 @@
     able to disallow malicious requests when the developers have had access to
     the keys and other configurations. They can effectively implement services
     that emit malicious requests or responses. Malicious modification attempts
-    in an MA are more easily screened by performing security audits and by peer
-    reviewing the code. In an MSA, the knowledge of a single service and its
+    in an MA are more easily screened by performing security audits and by peer-reviewing the code. In an MSA, the knowledge of a single service and its
     inner workings are shared by a more limited number of people. Finding the
     compromised actions from the interoperation of the distinct microservices is
     a daunting task.
@@ -665,7 +662,7 @@
 \begin{sloppypar}
     The contents of the configuration are highly sensitive information. It can
     consist of addresses, secrets, and other information that alter the behavior
-    of the system. Secrets refer to credentials, connection strings, other keys
+    of the system. Secrets refer to credentials, connection strings, other keys,
     and similar items that are to be kept confidential. Therefore, the content
     must be stored safely and not allowed to be read or altered by unauthorized
     users.
@@ -681,7 +678,7 @@
     legislation and according to the need of the system administration.
 \end{sloppypar}
 \begin{sloppypar}
-    Without logs, it is impossible to verify correct operation of the system, nor
+    Without logs, it is impossible to verify the correct operation of the system, nor
     is it possible to gain knowledge of a possible security breach. 
 \end{sloppypar}
 
@@ -703,7 +700,7 @@
     accessible from a single UI. Another approach he defines as human expertise.
     In this approach, there exists a command center that is always manned and,
     as such, able to respond to encountered threats. In some instances, this
-    might be applicable, but for all web services it is not feasible.
+    might be applicable, but for all web services, it is not feasible.
 \end{sloppypar}
 \begin{figure}[h]
     \includegraphics[scale=0.75]{{Defense_in_depth.png}}
@@ -728,8 +725,7 @@
     to being more costly, the development has higher security risks involved.
 \end{sloppypar}
 \begin{sloppypar}
-    MSA has higher complexity due to more tools needed and having more
-    potentially exposed attack surface. Security can be thought of as being only
+    MSA has higher complexity due to more tools needed and having a potentially larger exposed attack surface. Security can be thought of as being only
     as good as its weakest link. In general, an MSA deployment has multiple
     layers, which all must be consistent and correct. One example is the
     configuration of the operating system on the server running the
@@ -746,15 +742,15 @@
     for proper authentication and authorization amount to even higher overhead
     for the MSA. There exists a very real risk for the development team to
     implement an insufficient security scheme. \citet{maninthemachine} outline
-    and implement a Man-in-the-machine attacks in which an insecure
+    and implement a Man-in-the-machine attack in which insecure
     communication even within a single computer can be compromised. All network
     communication should be between verified counterparties and should use
     secure measures, even when this counterparty is running on the same
     server.
 \end{sloppypar}
 \begin{sloppypar}
-    In MSA the security should be implemented in depth. There must be a healthy
-    mistrust on all requests, and security should be built into the system.
+    In MSA the security should be implemented in-depth. There must be a healthy
+    mistrust on all requests and security should be built into the system.
     Security must be considered right from the beginning of the project in which
     the application architecture is transformed. The choices made in the
     development of the web service when following the MA do not carry to the MSA
@@ -769,8 +765,8 @@
 \end{sloppypar}
 \begin{sloppypar}
     Authentication and authorization in MA and in MSA can differ greatly. In MA,
-    a session-based authentication and authorization is applicable. This is not
-    the case in MSA, especially if a REST API is used. In REST API, all the
+    session-based authentication and authorization are applicable. This is not
+    necessarily the case in MSA, especially if a REST API is used. In REST API, all the
     information needed to serve a request should be enclosed in the request.
     Tokens such as JWT cater to this and can carry user information and other
     claims. The tokens are issued and signed by a trusted party. An API Gateway
@@ -786,12 +782,12 @@
     In this thesis, many security aspects were not discussed. How do the many
     available design patterns for the splitting of the monolith fair when
     compared on security aspects? On the communication, only REST API on HTTP was
-    discussed in any real extent.
+    discussed to any real extent.
 \end{sloppypar}
 \begin{sloppypar}
     Further research is needed on the security aspects of the different design
     patterns that are available for the architectural change. Also, the
-    implementation of a field level access control should be studied further.
+    implementation of a field-level access control should be studied further.
 \end{sloppypar}
 
 % Loppuluku päättää työn. Luvun nimi on tyypillisesti ``yhteenveto'' tai
