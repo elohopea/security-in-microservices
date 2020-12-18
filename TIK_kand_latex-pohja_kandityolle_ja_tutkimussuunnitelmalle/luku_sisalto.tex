@@ -10,14 +10,15 @@
     at times, even faster decline of these web services needs a matching
     architecture to meet their very specific needs.
 \end{sloppypar}
-\begin{sloppypar} One possible solution to address these architectural needs
-     is microservice architecture (MSA). There are multiple definitions for
-     MSA but in general, the web service is implemented using multiple small,
-     independent services that act together.
-     \citet{newman2019} definition for a microservice is a service that: is
-     independently deployable, is modeled around the business domain, owns the
-     data that they need to operate, communicates via a network, is
-     technology agnostic, encapsulates data storage and retrieval and has a stable interface.
+\begin{sloppypar} 
+    One possible solution to address these architectural needs is microservice
+    architecture (MSA). There are multiple definitions for MSA but in general,
+    the web service is implemented using multiple small, independent services
+    that act together. \citet{newman2019} definition for a microservice is a
+    service that: is independently deployable, is modeled around the business
+    domain, owns the data that they need to operate, communicates via a
+    network, is technology agnostic, encapsulates data storage and retrieval
+    and has a stable interface.
 \end{sloppypar}
 \begin{sloppypar}
     There are many web services already in use that were designed and
@@ -71,23 +72,22 @@
 \begin{sloppypar}
     The microservice architecture (MSA) differs in many ways from the more
     traditional monolithic architecture (MA). When the architecture is changed,
-    this shift entails very specific security issues. In this thesis, the MSA and
-    related security literature is surveyed and the main differences between MA
-    and MSA on security aspects are discussed.
+    this shift entails very specific security issues. In this thesis, the MSA
+    and related security literature is surveyed and the main differences between
+    MA and MSA on security aspects are discussed.
 \end{sloppypar}
-
 \begin{sloppypar}
     Implementing security is hard. A theoretical proof for this can be found in
     \citet{andersson2001information}. His main finding was that an attacker has
-    an advantage over the developers who are trying to defend a system. For the system
-    to be secure, the defending developers must find all the bugs, whereas the
-    attacker needs to find only one. Therefore, to make systems more secure, the use
-    of existing tools and frameworks that have been tested and are already in use is
-    preferable to developing one's own solution for a well-known and already
-    solved problem.
+    an advantage over the developers who are trying to defend a system. For the
+    system to be secure, the defending developers must find all the bugs,
+    whereas the attacker needs to find only one. Therefore, to make systems more
+    secure, the use of existing tools and frameworks that have been tested and
+    are already in use is preferable to developing one's own solution for a
+    well-known and already solved problem.
 \end{sloppypar}
 \begin{sloppypar}
-    The thesis is organized as follows. The next chapter compares the two
+    This thesis is organized as follows. The next chapter compares the two
     architectures and the third chapter discusses the changing of architecture
     from MA to MSA. The fourth chapter discusses authentication and
     authorization. The fifth chapter discusses communication. In the seventh
@@ -136,8 +136,8 @@
 \end{sloppypar}
 \begin{sloppypar}
     Newman's (2019) definition for a microservice is a service that is
-    independently deployable, is modeled around the business domain, owns the data
-    that it needs to operate, communicates via a network, is technology
+    independently deployable, is modeled around the business domain, owns the
+    data that it needs to operate, communicates via a network, is technology
     agnostic, encapsulates data storage and retrieval, and has a stable
     interface.
 \end{sloppypar}
@@ -226,7 +226,6 @@
     response times for the monolithic application were, on average, 64\% faster
     than for the microservice application.
 \end{sloppypar}
-
 \begin{sloppypar}
     As has been already established above the communication within the web
     service differs greatly in MA and in MSA. Secure communication is one of the
@@ -247,7 +246,7 @@
     a username and a password. The user is authenticated, and a key or token is
     transmitted to the user via the network. This communication in both MA and
     MSA should be encrypted in a way that none of the actors in the transfer
-    path can intercept the message and misuse the credentials. 
+    path can intercept the message and misuse the credentials.
 \end{sloppypar}
 \begin{sloppypar}
     As has been mentioned previously, implementing security is hard and
@@ -260,14 +259,15 @@
 \begin{sloppypar}
     Regardless of the authentication scheme, the service or services
     authenticating the user contain the necessary information to do so. Since,
-    the services in MSA are to be individually deployable, and the service should
-    own its own data, implementing the authorization as part of the API Gateway,
-    as a single microservice, or using a third party authentication would be
-    beneficial. The information would not be spread into multiple services and
-    multiple services would not have to have a related implementation. In
-    addition, whenever information is available, it is a target for thieves and
-    hackers. Regardless of the implementation choices, the service must adhere
-    to practices that minimize the risks of data breaches. 
+    the services in MSA are to be individually deployable, and the service
+    should own its own data, implementing the authorization as part of the API
+    Gateway, as a single microservice, or using a third party authentication
+    would be beneficial. The information would not be spread into multiple
+    services and multiple services would not have to have a related
+    implementation. In addition, whenever information is available, it is a
+    target for thieves and hackers. Regardless of the implementation choices,
+    the service must adhere to practices that minimize the risks of data
+    breaches.
 \end{sloppypar}
 
 \subsection{Authentication and Authorization in MA}
@@ -522,9 +522,9 @@
     depicted in \ref{fig:orchestration_constituents}. Scaling refers to
     automatically creating or shutting down pods or containers to match the
     utilization level. The containers and the microservices within can have a
-    new version that needs to be rolled into production. The upgrade service
-    is responsible for doing this. Service discovery is a service that is used
-    to locate running services and as a service to which self-registration is
+    new version that needs to be rolled into production. The upgrade service is
+    responsible for doing this. Service discovery is a service that is used to
+    locate running services and as a service to which self-registration is
     carried out. If a service becomes nonoperational, it might not be able to
     send the orchestrator any message on this erroneous behavior. Therefore, the
     orchestrator can have a health check service. This service can periodically
@@ -550,10 +550,10 @@
     \ref{fig:service_mesh_basic_architecture}, a very basic service mesh
     architecture is presented. The architecture consists of a Control plane and
     a Data plane. The Control plane offers a user interface for system
-    administrators, a Policy Information Point (PIP), and a Policy Decision Point
-    (PDP), and collects metrics of the behavior and actions in the
-    system. The data moves in the data-plane. Each microservice is accompanied by
-    a proxy. All requests and responses flow through the proxies and are
+    administrators, a Policy Information Point (PIP), and a Policy Decision
+    Point (PDP), and collects metrics of the behavior and actions in the system.
+    The data moves in the data-plane. Each microservice is accompanied by a
+    proxy. All requests and responses flow through the proxies and are
     controlled by the Control plane \citep{servicemesh}. The microservices do
     not have to be aware of the proxy that is in the information path.
 \end{sloppypar}
@@ -584,12 +584,12 @@
     not operate in the desired way. The receiving party could be fooled to
     validate a mutated token without any signature with the "none" as its
     algorithm. In addition to this vulnerability, \citet{nonejwt} found that the
-    verification suffered from another fatal flaw. A server can be fooled into 
-    accepting invalid tokens. A malicious party can sign a JWT with the
-    server public key and symmetric algorithm. The token verification
-    functions in some of the JWT libraries allow the token to dictate the
-    verification algorithm. If the keys match, as they should if the public key
-    was correct, the library accepts the forged token as valid.
+    verification suffered from another fatal flaw. A server can be fooled into
+    accepting invalid tokens. A malicious party can sign a JWT with the server
+    public key and symmetric algorithm. The token verification functions in some
+    of the JWT libraries allow the token to dictate the verification algorithm.
+    If the keys match, as they should if the public key was correct, the library
+    accepts the forged token as valid.
 \end{sloppypar}
 
 \subsection{Transactions}
@@ -612,10 +612,10 @@
     asynchronous, and the execution order cannot be guaranteed.
 \end{sloppypar}
 \begin{sloppypar}
-    Transaction-related issues can be solved by either splitting the monolith
-    in such a way that the actions that need to be carried out as transactions
-    are carried out in one microservice, or by creating a service to
-    coordinate the actions taken by the single microservices.
+    Transaction-related issues can be solved by either splitting the monolith in
+    such a way that the actions that need to be carried out as transactions are
+    carried out in one microservice, or by creating a service to coordinate the
+    actions taken by the single microservices.
 \end{sloppypar}
 
 \subsection{Software Development}
@@ -645,19 +645,20 @@
     able to disallow malicious requests when the developers have had access to
     the keys and other configurations. They can effectively implement services
     that emit malicious requests or responses. Malicious modification attempts
-    in an MA are more easily screened by performing security audits and by peer-reviewing the code. In an MSA, the knowledge of a single service and its
-    inner workings are shared by a more limited number of people. Finding the
-    compromised actions from the interoperation of the distinct microservices is
-    a daunting task.
+    in an MA are more easily screened by performing security audits and by
+    peer-reviewing the code. In an MSA, the knowledge of a single service and
+    its inner workings are shared by a more limited number of people. Finding
+    the compromised actions from the interoperation of the distinct
+    microservices is a daunting task.
 \end{sloppypar}
 
 \subsection{Externalized Configuration}
 \begin{sloppypar}
     To allow for easy configuration change management, there should exist a
     configuration orchestration service. This service should have an API from
-    which services during their startup can load their appropriate configuration.
-    The configuration of the whole system can be easily maintained through the
-    API.
+    which services during their startup can load their appropriate
+    configuration. The configuration of the whole system can be easily
+    maintained through the API.
 \end{sloppypar}
 \begin{sloppypar}
     The contents of the configuration are highly sensitive information. It can
@@ -678,8 +679,8 @@
     legislation and according to the need of the system administration.
 \end{sloppypar}
 \begin{sloppypar}
-    Without logs, it is impossible to verify the correct operation of the system, nor
-    is it possible to gain knowledge of a possible security breach. 
+    Without logs, it is impossible to verify the correct operation of the
+    system, nor is it possible to gain knowledge of a possible security breach. 
 \end{sloppypar}
 
 \subsection{Defense-in-Depth (DiD)}
@@ -725,13 +726,14 @@
     to being more costly, the development has higher security risks involved.
 \end{sloppypar}
 \begin{sloppypar}
-    MSA has higher complexity due to more tools needed and having a potentially larger exposed attack surface. Security can be thought of as being only
-    as good as its weakest link. In general, an MSA deployment has multiple
-    layers, which all must be consistent and correct. One example is the
-    configuration of the operating system on the server running the
-    virtualization environment. All the layers from the server hardware to the
-    handling of errors in the application code must be of high quality to
-    prevent failures in security.
+    MSA has higher complexity due to more tools needed and having a potentially
+    larger exposed attack surface. Security can be thought of as being only as
+    good as its weakest link. In general, an MSA deployment has multiple layers,
+    which all must be consistent and correct. One example is the configuration
+    of the operating system on the server running the virtualization
+    environment. All the layers from the server hardware to the handling of
+    errors in the application code must be of high quality to prevent failures
+    in security.
 \end{sloppypar}
 \begin{sloppypar}
     The communication that was in monolith a simple in-process call might not be
@@ -742,11 +744,10 @@
     for proper authentication and authorization amount to even higher overhead
     for the MSA. There exists a very real risk for the development team to
     implement an insufficient security scheme. \citet{maninthemachine} outline
-    and implement a Man-in-the-machine attack in which insecure
-    communication even within a single computer can be compromised. All network
-    communication should be between verified counterparties and should use
-    secure measures, even when this counterparty is running on the same
-    server.
+    and implement a Man-in-the-machine attack in which insecure communication
+    even within a single computer can be compromised. All network communication
+    should be between verified counterparties and should use secure measures,
+    even when this counterparty is running on the same server.
 \end{sloppypar}
 \begin{sloppypar}
     In MSA the security should be implemented in-depth. There must be a healthy
@@ -766,23 +767,23 @@
 \begin{sloppypar}
     Authentication and authorization in MA and in MSA can differ greatly. In MA,
     session-based authentication and authorization are applicable. This is not
-    necessarily the case in MSA, especially if a REST API is used. In REST API, all the
-    information needed to serve a request should be enclosed in the request.
-    Tokens such as JWT cater to this and can carry user information and other
-    claims. The tokens are issued and signed by a trusted party. An API Gateway
-    can act as a PEP and allow or disallow a request. Also, if a service mesh is
-    used such as Istio, the enforcement can be done in the proxy for a specific
-    microservice.
+    necessarily the case in MSA, especially if a REST API is used. In REST API,
+    all the information needed to serve a request should be enclosed in the
+    request. Tokens such as JWT cater to this and can carry user information and
+    other claims. The tokens are issued and signed by a trusted party. An API
+    Gateway can act as a PEP and allow or disallow a request. Also, if a service
+    mesh is used such as Istio, the enforcement can be done in the proxy for a
+    specific microservice.
 \end{sloppypar}
 \begin{sloppypar}
-    The results found in this study can be used to determine if an
-    architecture change is feasible for a specific application.
+    The results found in this study can be used to determine if an architecture
+    change is feasible for a specific application.
 \end{sloppypar}
 \begin{sloppypar}
     In this thesis, many security aspects were not discussed. How do the many
     available design patterns for the splitting of the monolith fair when
-    compared on security aspects? On the communication, only REST API on HTTP was
-    discussed to any real extent.
+    compared on security aspects? On the communication, only REST API on HTTP
+    was discussed to any real extent.
 \end{sloppypar}
 \begin{sloppypar}
     Further research is needed on the security aspects of the different design
