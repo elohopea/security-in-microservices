@@ -2,71 +2,58 @@
 
 \begin{fiabstract}
     \begin{sloppypar}
-        Verkkopalvelut on usein toteutettu käyttäen monoliittista 
-        arkkitehtuuria. Tämä arkkitehtuuri ei skaalaudu eikä mahdollista 
-        ketterää kehitystä. Mikropalveluarkkitehtuurin käyttö mahdollistaa nämä 
+        Verkkopalvelut on usein toteutettu käyttäen monoliittista
+        arkkitehtuuria. Tämä arkkitehtuuri ei skaalaudu eikä mahdollista
+        ketterää kehitystä. Mikropalveluarkkitehtuurin käyttö mahdollistaa nämä
         sekä useita muita etuja.
     \end{sloppypar}
     \begin{sloppypar}    
         % (1) aihe, tavoite ja rajaus 
-        Työn aiheena on tietoturva siirryttäessä 
-        monoliittisesta arkkitehtuurista mikropalveluarkkitehtuuriin 
-        verkkopalveluissa. Työn tarkoituksena oli selvittää 
-        keskeisimmät tietoturvakysymykset arkkitehtuurin vaihdoksessa ja 
-        esittää löydettyihin ongelmakohtiin ratkaisuja.
-    \end{sloppypar}
-    \begin{sloppypar}
-        % (2) aineisto ja menetelmät (erittäin lyhyesti);
-        Aineistona käytettiin artikkeleja sekä alan 
-        peruskirjallisuutta. Työ toteutettiin kirjallisuustutkimuksena.
+        Työn aiheena on tietoturva siirryttäessä monoliittisesta
+        arkkitehtuurista mikropalveluarkkitehtuuriin verkkopalveluissa. Työn
+        tarkoituksena oli selvittää keskeisimmät tietoturvakysymykset
+        arkkitehtuurin vaihdoksessa ja esittää löydettyihin ongelmakohtiin
+        ratkaisuja. Työ toteutettiin kirjallisuustutkimuksena.
     \end{sloppypar}
     \begin{sloppypar}        
         % (3) tulokset (tälle enemmän painoarvoa); 
-        Tietoturvahaasteita ovat palvelun sisäinen viestintä, saavutettavuus ja 
-        skaalautuvuus, ajoympäristön tietoturva ja käyttäjän tunnistaminen ja 
-        valtuuttaminen.
+        Tietoturvahaasteita ovat mikropalvelujen välinen viestintä, käyttöönotto
+        ja konfiguraatio sekä käyttäjän tunnistaminen ja valtuuttaminen.
     \end{sloppypar}
     \begin{sloppypar}
         % (4) johtopäätökset (tälle enemmän painoarvoa).
-        Työssä havaittiin, että mikropalveluarkkitehtuuriin siirtymisessä on 
-        merkittäviä tietoturvariskejä, jotka tulee huolellisesti eritellä ja 
-        ratkaista jokaisessa arkkitehtuurin vaihdoksessa tapauskohtaisesti. 
-        Tietoturvan suunnittelu ja toteutus tulee suorittaa suurta 
-        huolellisuutta noudattaen ja mahdollisuuksien mukaan valmiita 
+        Työssä havaittiin, että mikropalveluarkkitehtuuriin siirtymisessä on
+        merkittäviä tietoturvariskejä, jotka tulee huolellisesti eritellä ja
+        ratkaista jokaisessa arkkitehtuurin vaihdoksessa tapauskohtaisesti.
+        Tietoturvan suunnittelu ja toteutus tulee suorittaa suurta
+        huolellisuutta noudattaen ja mahdollisuuksien mukaan valmiita
         toteutuksia käyttäen.
     \end{sloppypar}
 \end{fiabstract}
 
-
-
-
-
-
-
 \begin{enabstract}
     \begin{sloppypar}
-        There are many web services in use that were designed and implemented 
-        before the onslaught of microservices, using monolithic architectural style. 
-        This style does not scale nor lend itself to agile development practices, 
-        as well as the microservices architectural style does. Thus, these services might benefit 
-        from an architectural change to using microservices. Since the architectures
-        are very different, the security aspects need to be considered.
+        There are many web services in use that were designed and implemented
+        using the monolithic architectural style before the introduction of
+        microservices. The monolithic style does not scale or lend itself to
+        agile development practices as well as the microservices architectural
+        style does. Thus, these services might benefit from an architectural
+        transformation to using microservices. Since the architectures are very
+        different, the security aspects need to be considered.
     \end{sloppypar}
     \begin{sloppypar}
         % (1) aihe, tavoite ja rajaus 
-        The topic of this bachelor's thesis is the security in the microservice 
-        architecture when switching from a monolithic architecture to 
-        microservices. The thesis presents the key security 
-        considerations and possible solutions to these security issues.
-    \end{sloppypar}
-    \begin{sloppypar}
-        % (2) aineisto ja menetelmät (erittäin lyhyesti);
-        The research is carried out as a literary study.
+        The topic of this bachelor's thesis is the security in the microservice
+        architecture in the transition from a monolithic architecture to
+        microservices. The thesis presents the key security considerations and
+        possible solutions to these security issues. The research is carried out
+        as a literary study.
     \end{sloppypar}
     \begin{sloppypar}
         % (3) tulokset (tälle enemmän painoarvoa); 
-        The main security considerations are communication, configuration, 
-        and authentication and authorization. Security must be considered as early as possible in a project 
-        and the use of existing tools and solutions should be encouraged.
+        The main security considerations are inter-microservice communication,
+        deployment and configuration, and authentication and authorization.
+        Security must be considered as early as possible in a project and the
+        use of existing tools and solutions should be encouraged.
     \end{sloppypar}
 \end{enabstract}
